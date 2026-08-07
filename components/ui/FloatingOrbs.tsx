@@ -19,7 +19,7 @@ export function FloatingOrbs({ className, variant = "light" }: FloatingOrbsProps
       <div
         className={cn(
           "absolute -right-16 top-1/3 size-64 animate-[float_14s_ease-in-out_infinite_reverse] rounded-full blur-3xl",
-          dark ? "bg-cyan-400/15" : "bg-cyan-400/10",
+          dark ? "bg-[#b565d8]/15" : "bg-[#b565d8]/10",
         )}
       />
       <div

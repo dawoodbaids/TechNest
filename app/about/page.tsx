@@ -90,7 +90,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {highlights.map((item, index) => (
               <Reveal key={item.title} delay={(index % 2) * 0.1}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-white p-6">
+                <div className="flex h-full flex-col gap-2 rounded-2xl border border-border bg-surface p-6">
                   <h3 className="font-display text-lg font-semibold text-foreground">
                     {item.title}
                   </h3>
@@ -133,7 +133,7 @@ export default function AboutPage() {
               const Icon = value.icon;
               return (
                 <Reveal key={value.title} delay={(index % 4) * 0.1}>
-                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-white p-6">
+                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6">
                     <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 text-primary">
                       <Icon className="size-5" />
                     </span>

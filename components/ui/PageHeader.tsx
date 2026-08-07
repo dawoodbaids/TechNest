@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { FloatingOrbs } from "@/components/ui/FloatingOrbs";
+import { HeroWave } from "@/components/visuals/HeroWave";
 
 interface PageHeaderProps {
   eyebrow?: string;
@@ -18,7 +19,13 @@ export function PageHeader({
   className,
 }: PageHeaderProps) {
   return (
-    <section className={cn("relative overflow-hidden py-16 sm:py-24", className)}>
+    <section
+      className={cn(
+        "theme-transition relative overflow-hidden bg-background bg-silk py-16 sm:py-24 dark:bg-silk-dark",
+        className,
+      )}
+    >
+      <HeroWave className="pointer-events-none absolute inset-x-0 top-0 h-40 w-full [mask-image:linear-gradient(to_bottom,black,transparent)] sm:h-56" />
       <FloatingOrbs className="opacity-70" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
       <Container className="relative">

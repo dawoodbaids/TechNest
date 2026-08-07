@@ -3,6 +3,8 @@ export const media = {
     logo: "/media/brand/logo-transparent.png",
     logoWhite: "/media/brand/logo-white.png",
     logoOriginal: "/media/brand/logo-original.png",
+    logoPurple: "/media/brand/logo-purple.png",
+    logoPurpleLight: "/media/brand/logo-purple-light.png",
   },
   hero: {
     background: "/media/hero/hero-team.jpg",

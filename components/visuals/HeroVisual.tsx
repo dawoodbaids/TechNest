@@ -20,7 +20,7 @@ const float = {
 export function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-      <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/25 via-cyan-400/10 to-transparent blur-3xl" />
+      <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/25 via-[#b565d8]/10 to-transparent blur-3xl" />
 
       <motion.div
         initial={{ opacity: 0, y: 40, rotate: 6 }}
@@ -33,7 +33,7 @@ export function HeroVisual() {
             <div className="flex flex-1 flex-col gap-3 pt-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-cyan-400 text-white">
+                  <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-[#b565d8] text-white">
                     <Nfc className="size-4" />
                   </span>
                   <div>
@@ -41,20 +41,20 @@ export function HeroVisual() {
                     <p className="text-[8px] text-white/40">Digital profile</p>
                   </div>
                 </div>
-                <span className="rounded-full bg-cyan-400/15 px-2 py-0.5 text-[7px] font-semibold text-cyan-300">
+                <span className="rounded-full bg-[#b565d8]/15 px-2 py-0.5 text-[7px] font-semibold text-[#d9a3ec]">
                   Live
                 </span>
               </div>
 
               <div className="flex flex-col items-center py-4">
-                <div className="grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-cyan-400 text-xl font-bold text-white shadow-lg shadow-primary/40">
+                <div className="grid size-16 place-items-center rounded-2xl bg-gradient-to-br from-primary to-[#b565d8] text-xl font-bold text-white shadow-lg shadow-primary/40">
                   TN
                 </div>
                 <p className="mt-2.5 font-display text-sm font-semibold text-white">TechNest</p>
                 <p className="text-[9px] text-white/40">Smart digital solutions</p>
                 <div className="mt-3 flex gap-1.5">
                   {["Share", "Call", "Save"].map((action) => (
-                    <span key={action} className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[8px] font-medium text-white/70">
+                    <span key={action} className="rounded-full border border-white/15 bg-surface/5 px-3 py-1 text-[8px] font-medium text-white/70">
                       {action}
                     </span>
                   ))}
@@ -67,7 +67,7 @@ export function HeroVisual() {
                   { label: "WhatsApp", value: "Available" },
                   { label: "Location", value: "TechNest HQ" },
                 ].map((row) => (
-                  <div key={row.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                  <div key={row.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-surface/5 px-3 py-2">
                     <span className="text-[8px] text-white/40">{row.label}</span>
                     <span className="text-[9px] font-medium text-white/80">{row.value}</span>
                   </div>
@@ -106,7 +106,7 @@ export function HeroVisual() {
         animate="animate"
         initial={{ opacity: 0, scale: 0.6 }}
         transition={{ opacity: { delay: 1.2, duration: 0.5 } }}
-        className="absolute -top-4 right-6 z-30 flex items-center gap-2 rounded-2xl border border-white/10 bg-white/90 px-3 py-2 shadow-xl backdrop-blur sm:right-10"
+        className="absolute -top-4 right-6 z-30 flex items-center gap-2 rounded-2xl border border-white/10 bg-surface/90 px-3 py-2 shadow-xl backdrop-blur sm:right-10"
       >
         <span className="grid size-7 place-items-center rounded-full bg-emerald-400/20 text-emerald-500">
           <Nfc className="size-3.5" />

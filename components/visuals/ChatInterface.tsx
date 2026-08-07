@@ -29,20 +29,20 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
   return (
     <div
       className={cn(
-        "flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#0b0f17] shadow-2xl shadow-primary/20",
+        "flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#141014] shadow-2xl shadow-primary/20",
         className,
       )}
     >
       <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
-        <span className="relative grid size-9 place-items-center rounded-full bg-gradient-to-br from-primary to-cyan-400 text-white">
+        <span className="relative grid size-9 place-items-center rounded-full bg-gradient-to-br from-primary to-[#b565d8] text-white">
           <Bot className="size-4.5" />
-          <span className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0b0f17]" />
+          <span className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-[#141014]" />
         </span>
         <div className="flex-1">
           <p className="text-sm font-semibold text-white">{title}</p>
           <p className="text-[10px] text-white/40">Online · AI powered</p>
         </div>
-        <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2 py-0.5 text-[9px] font-semibold text-cyan-300">
+        <span className="rounded-full border border-[#b565d8]/30 bg-[#b565d8]/10 px-2 py-0.5 text-[9px] font-semibold text-[#d9a3ec]">
           AI
         </span>
       </div>
@@ -57,7 +57,7 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
             )}
           >
             {message.from === "ai" ? (
-              <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary/20 text-cyan-300">
+              <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary/20 text-[#d9a3ec]">
                 <Bot className="size-3.5" />
               </span>
             ) : null}
@@ -66,7 +66,7 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
                 "max-w-[80%] rounded-2xl px-3.5 py-2.5 text-xs leading-relaxed",
                 message.from === "ai"
                   ? "rounded-bl-sm border border-white/10 bg-white/5 text-white/85"
-                  : "rounded-br-sm bg-gradient-to-br from-primary to-cyan-500 text-white",
+                  : "rounded-br-sm bg-gradient-to-br from-primary to-[#8e3fb5] text-white",
               )}
             >
               {message.text}
@@ -80,13 +80,13 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
         ))}
 
         <div className="flex items-center gap-2">
-          <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary/20 text-cyan-300">
+          <span className="grid size-6 shrink-0 place-items-center rounded-full bg-primary/20 text-[#d9a3ec]">
             <Bot className="size-3.5" />
           </span>
           <span className="flex gap-1 rounded-2xl rounded-bl-sm border border-white/10 bg-white/5 px-3.5 py-2.5">
-            <span className="size-1.5 animate-bounce rounded-full bg-cyan-300 [animation-delay:0ms]" />
-            <span className="size-1.5 animate-bounce rounded-full bg-cyan-300 [animation-delay:150ms]" />
-            <span className="size-1.5 animate-bounce rounded-full bg-cyan-300 [animation-delay:300ms]" />
+            <span className="size-1.5 animate-bounce rounded-full bg-[#d9a3ec] [animation-delay:0ms]" />
+            <span className="size-1.5 animate-bounce rounded-full bg-[#d9a3ec] [animation-delay:150ms]" />
+            <span className="size-1.5 animate-bounce rounded-full bg-[#d9a3ec] [animation-delay:300ms]" />
           </span>
         </div>
       </div>
@@ -95,7 +95,7 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
         <span className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] text-white/35">
           Ask about NFC, AI or software...
         </span>
-        <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-cyan-500 text-white">
+        <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-[#8e3fb5] text-white">
           <Sparkles className="size-3.5" />
         </span>
       </div>

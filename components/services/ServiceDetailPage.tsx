@@ -37,7 +37,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
       <div className="pb-16 sm:pb-20">
         <Container>
           <Reveal direction="zoom" className="relative mx-auto w-full max-w-5xl">
-            <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/10 blur-3xl" />
+            <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
               <Image
                 src={service.image}
@@ -48,9 +48,9 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                 className="h-72 w-full object-cover sm:h-96 lg:h-[480px]"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f17]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 flex items-center gap-4 p-6 sm:p-8">
-                <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md">
+                <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-surface/10 text-white shadow-lg backdrop-blur-md">
                   <Icon className="size-7" />
                 </span>
                 <div>
@@ -72,7 +72,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
           <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
             <div className="flex flex-col gap-8">
               <Reveal>
-                <div className="flex flex-col gap-4 rounded-3xl border border-border bg-white p-8">
+                <div className="flex flex-col gap-4 rounded-3xl border border-border bg-surface p-8">
                   <div className="flex items-center gap-4">
                     <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white">
                       <Icon className="size-6" />
@@ -98,7 +98,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
               </Reveal>
 
               <Reveal delay={0.1}>
-                <div className="flex flex-col gap-5 rounded-3xl border border-border bg-white p-8">
+                <div className="flex flex-col gap-5 rounded-3xl border border-border bg-surface p-8">
                   <div className="flex items-center gap-4">
                     <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-primary/15 to-secondary/15 text-primary">
                       <Layers className="size-6" />
@@ -128,7 +128,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
               </Reveal>
 
               <Reveal delay={0.15}>
-                <div className="flex flex-col gap-4 rounded-3xl border border-border bg-white p-8">
+                <div className="flex flex-col gap-4 rounded-3xl border border-border bg-surface p-8">
                   <div className="flex items-center gap-4">
                     <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-primary/15 to-secondary/15 text-primary">
                       <Package className="size-6" />
@@ -169,7 +169,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                     {service.stack.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-muted"
+                        className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted"
                       >
                         {item}
                       </span>
@@ -179,7 +179,7 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
               </Reveal>
 
               <Reveal delay={0.15}>
-                <div className="flex flex-col gap-4 rounded-3xl bg-[#0b0f17] p-8 text-white">
+                <div className="flex flex-col gap-4 rounded-3xl bg-[#141014] p-8 text-white">
                   <h3 className="font-display text-xl font-semibold">
                     Ready to get started?
                   </h3>

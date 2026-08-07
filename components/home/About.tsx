@@ -29,14 +29,14 @@ export function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
           </div>
-          <div className="absolute -right-4 -bottom-6 hidden rounded-2xl border border-border bg-white p-5 shadow-xl sm:block">
+          <div className="absolute -right-4 -bottom-6 hidden rounded-2xl border border-border bg-surface p-5 shadow-xl sm:block">
             <p className="font-display text-sm font-bold text-gradient">
               Newly launched
             </p>
             <p className="text-sm text-muted">with big ambitions</p>
           </div>
-          <div className="absolute -top-5 -left-5 hidden animate-float items-center gap-2 rounded-2xl border border-border bg-white px-4 py-3 shadow-xl sm:flex">
-            <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-cyan-400 text-white">
+          <div className="absolute -top-5 -left-5 hidden animate-float items-center gap-2 rounded-2xl border border-border bg-surface px-4 py-3 shadow-xl sm:flex">
+            <span className="grid size-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-[#b565d8] text-white">
               <Nfc className="size-4" />
             </span>
             <div>
@@ -68,7 +68,7 @@ export function About() {
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex items-center gap-3 rounded-2xl border border-dashed border-border bg-white/70 p-5">
+          <div className="mt-8 flex items-center gap-3 rounded-2xl border border-dashed border-border bg-surface/70 p-5">
             <Rocket className="size-6 shrink-0 text-secondary" />
             <p className="text-sm leading-relaxed text-muted">
               We&apos;re just getting started — and every project we ship is a

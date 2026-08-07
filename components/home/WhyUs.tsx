@@ -57,7 +57,7 @@ export function WhyUs() {
             const Icon = reason.icon;
             return (
               <Reveal key={reason.title} delay={(index % 3) * 0.1}>
-                <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-white p-7">
+                <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-surface p-7">
                   <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 text-primary">
                     <Icon className="size-5" />
                   </span>

@@ -18,7 +18,7 @@ const nfcImages = [
 export function AreaVisual({ areaSlug }: AreaVisualProps) {
   return (
     <Reveal direction="zoom" className="relative mx-auto w-full max-w-5xl">
-      <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/10 blur-3xl" />
+      <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
       <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
         {areaSlug === "nfc-solutions" ? (
           <>
@@ -44,7 +44,7 @@ export function AreaVisual({ areaSlug }: AreaVisualProps) {
               <PhoneScreen>
                 <div className="flex flex-1 flex-col gap-3 pt-4">
                   <div className="flex items-center gap-2">
-                    <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-cyan-400 text-white">
+                    <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-[#b565d8] text-white">
                       <span className="text-[10px] font-bold">TN</span>
                     </span>
                     <div>
@@ -52,7 +52,7 @@ export function AreaVisual({ areaSlug }: AreaVisualProps) {
                       <p className="text-[8px] text-white/40">By NFC tap</p>
                     </div>
                   </div>
-                  <div className="mt-2 rounded-2xl bg-gradient-to-br from-primary to-cyan-500 p-4">
+                  <div className="mt-2 rounded-2xl bg-gradient-to-br from-primary to-[#8e3fb5] p-4">
                     <p className="text-[9px] text-white/70">Contact saved</p>
                     <p className="font-display text-sm font-semibold text-white">
                       Welcome to TechNest — nice to meet you.
@@ -86,13 +86,13 @@ export function AreaVisual({ areaSlug }: AreaVisualProps) {
               <PhoneMockup className="mx-auto">
                 <PhoneScreen>
                   <div className="flex flex-1 flex-col gap-2 pt-4">
-                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-cyan-400 font-bold text-white">
+                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-[#b565d8] font-bold text-white">
                       TN
                     </div>
                     <p className="text-[10px] font-semibold text-white">TechNest App</p>
                     <p className="text-[8px] text-white/40">Business in your pocket</p>
                     <div className="mt-2 flex flex-col gap-1.5">
-                      <span className="rounded-full bg-gradient-to-r from-primary to-cyan-500 py-1.5 text-center text-[8px] font-semibold text-white">
+                      <span className="rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] py-1.5 text-center text-[8px] font-semibold text-white">
                         Get started
                       </span>
                       <span className="rounded-full border border-white/15 py-1.5 text-center text-[8px] text-white/60">

@@ -36,7 +36,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
       <div className="pb-16 sm:pb-20">
         <Container>
           <Reveal direction="zoom" className="relative mx-auto w-full max-w-6xl">
-            <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/10 blur-3xl" />
+            <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
               <Image
                 src={area.image}
@@ -46,10 +46,10 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                 className="h-64 w-full object-cover sm:h-80 lg:h-[420px]"
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f17]/75 via-[#0b0f17]/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/75 via-[#141014]/20 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-10">
                 <div className="flex items-center gap-4">
-                  <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md">
+                  <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-surface/10 text-white shadow-lg backdrop-blur-md">
                     <Icon className="size-7" />
                   </span>
                   <div>
@@ -69,7 +69,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                   <Button
                     href={`/${areaSlug}/${area.services[0]?.slug}`}
                     variant="ghost"
-                    className="border border-white/20 bg-white/10 text-white backdrop-blur hover:text-white"
+                    className="border border-white/20 bg-surface/10 text-white backdrop-blur hover:text-white"
                   >
                     Browse services
                   </Button>
@@ -99,8 +99,8 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                 const CaseIcon = useCase.icon;
                 return (
                   <Reveal key={useCase.label} delay={(index % 3) * 0.08}>
-                    <div className="group flex h-full items-center gap-4 rounded-2xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
-                      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-cyan-400/10 text-primary transition-all duration-300 group-hover:from-primary group-hover:to-cyan-500 group-hover:text-white">
+                    <div className="group flex h-full items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
+                      <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-primary/10 to-[#b565d8]/10 text-primary transition-all duration-300 group-hover:from-primary group-hover:to-[#8e3fb5] group-hover:text-white">
                         <CaseIcon className="size-6" />
                       </span>
                       <div className="flex flex-1 items-center justify-between gap-2">
@@ -144,7 +144,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
 
       <Section className="bg-surface/40">
         <Container>
-          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-dashed border-border bg-white p-8 text-center sm:flex-row sm:text-left">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-dashed border-border bg-surface p-8 text-center sm:flex-row sm:text-left">
             <div className="flex flex-col items-center gap-3 sm:flex-row">
               <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white">
                 <Icon className="size-6" />

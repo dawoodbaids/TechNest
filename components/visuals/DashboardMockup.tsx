@@ -11,7 +11,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
   return (
     <div
       className={cn(
-        "flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#0b0f17] shadow-2xl shadow-primary/20",
+        "flex w-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#141014] shadow-2xl shadow-primary/20",
         className,
       )}
     >
@@ -40,7 +40,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
                 className={cn(
                   "flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[10px] font-medium",
                   item.active
-                    ? "bg-primary/15 text-cyan-300"
+                    ? "bg-primary/15 text-[#d9a3ec]"
                     : "text-white/40",
                 )}
               >
@@ -50,7 +50,7 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
             );
           })}
           <span className="mt-auto flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[10px] text-white/30">
-            <span className="size-5 rounded-full bg-gradient-to-br from-primary to-cyan-400" />
+            <span className="size-5 rounded-full bg-gradient-to-br from-primary to-[#b565d8]" />
             TN Team
           </span>
         </div>
@@ -78,14 +78,14 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
             </div>
             <div className="mt-3 flex h-20 items-end gap-1.5">
               {bars.map((height, index) => (
-                <div key={index} className="flex-1 rounded-t-md bg-gradient-to-t from-primary/40 to-cyan-400" style={{ height: `${height}%` }} />
+                <div key={index} className="flex-1 rounded-t-md bg-gradient-to-t from-primary/40 to-[#b565d8]" style={{ height: `${height}%` }} />
               ))}
             </div>
           </div>
 
-          <div className="mt-3 flex items-center justify-between rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-3 py-2">
-            <span className="text-[9px] text-cyan-200">NFC campaign live</span>
-            <span className="rounded-full bg-cyan-400/20 px-2 py-0.5 text-[8px] font-semibold text-cyan-300">
+          <div className="mt-3 flex items-center justify-between rounded-xl border border-[#b565d8]/20 bg-[#b565d8]/5 px-3 py-2">
+            <span className="text-[9px] text-[#e9d5ff]">NFC campaign live</span>
+            <span className="rounded-full bg-[#b565d8]/20 px-2 py-0.5 text-[8px] font-semibold text-[#d9a3ec]">
               Active
             </span>
           </div>

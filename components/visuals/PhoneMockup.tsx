@@ -11,12 +11,12 @@ export function PhoneMockup({ children, className, screenClassName }: PhoneMocku
   return (
     <div
       className={cn(
-        "relative w-[280px] rounded-[2.5rem] border border-white/10 bg-[#0b0f17] p-3 shadow-2xl shadow-primary/20",
+        "relative w-[280px] rounded-[2.5rem] border border-white/10 bg-[#141014] p-3 shadow-2xl shadow-primary/20",
         className,
       )}
     >
-      <div className="absolute top-0 left-1/2 z-20 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-[#0b0f17]" />
-      <div className="relative aspect-[9/19] overflow-hidden rounded-[2rem] bg-[#0d1420]">
+      <div className="absolute top-0 left-1/2 z-20 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-[#141014]" />
+      <div className={cn("relative aspect-[9/19] overflow-hidden rounded-[2rem] bg-[#1e1a1e]", screenClassName)}>
         {children}
       </div>
       <div className="absolute right-1 top-24 h-16 w-1 rounded-full bg-white/15" />

@@ -45,7 +45,7 @@ export function BuildingFuture() {
             const Icon = card.icon;
             return (
               <Reveal key={card.title} delay={(index % 4) * 0.1}>
-                <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-white p-7">
+                <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-surface p-7">
                   <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 text-primary">
                     <Icon className="size-5" />
                   </span>

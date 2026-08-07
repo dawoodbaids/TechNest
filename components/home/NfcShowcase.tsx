@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -29,9 +29,9 @@ export function NfcShowcase() {
 
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <Reveal className="relative mx-auto w-full max-w-md">
-            <div className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-cyan-400/10 blur-3xl" />
+            <div className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="flex flex-col gap-6">
-              {images.map((image, index) => (
+              {images.map((image) => (
                 <div
                   key={image.src}
                   style={{ transform: `rotate(${image.rotate}deg)` }}
@@ -45,8 +45,8 @@ export function NfcShowcase() {
                     className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 1024px) 512px, 100vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f17]/40 via-transparent to-transparent" />
-                  <p className="absolute bottom-3 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/40 via-transparent to-transparent" />
+                  <p className="absolute bottom-3 left-4 rounded-full border border-white/20 bg-surface/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                     {image.alt}
                   </p>
                 </div>
@@ -56,13 +56,13 @@ export function NfcShowcase() {
             <PhoneMockup className="absolute -right-6 -bottom-14 hidden w-44 sm:block">
               <PhoneScreen>
                 <div className="flex flex-1 flex-col gap-2 pt-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-cyan-400 font-bold text-white">
+                  <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-[#b565d8] font-bold text-white">
                     TN
                   </div>
                   <p className="text-[10px] font-semibold text-white">TechNest</p>
                   <p className="text-[8px] text-white/40">Profile opened</p>
                   <div className="mt-2 flex flex-col gap-1.5">
-                    <span className="rounded-full bg-gradient-to-r from-primary to-cyan-500 py-1.5 text-center text-[8px] font-semibold text-white">
+                    <span className="rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] py-1.5 text-center text-[8px] font-semibold text-white">
                       Save contact
                     </span>
                     <span className="rounded-full border border-white/15 py-1.5 text-center text-[8px] text-white/60">
@@ -81,10 +81,10 @@ export function NfcShowcase() {
                 <Reveal key={service.slug} delay={(index % 2) * 0.1}>
                   <Link
                     href={`/${area.slug}/${service.slug}`}
-                    className="group flex h-full flex-col gap-3 rounded-3xl border border-border bg-white p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10"
+                    className="group flex h-full flex-col gap-3 rounded-3xl border border-border bg-surface p-6 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10"
                   >
                     <div className="flex items-start justify-between">
-                      <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/10 to-cyan-400/10 text-primary transition-colors group-hover:from-primary group-hover:to-cyan-500 group-hover:text-white">
+                      <span className="grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/10 to-[#b565d8]/10 text-primary transition-colors group-hover:from-primary group-hover:to-[#8e3fb5] group-hover:text-white">
                         <Icon className="size-5" />
                       </span>
                       <span className="grid size-7 place-items-center rounded-full border border-border text-muted transition-all group-hover:border-primary/40 group-hover:text-primary">

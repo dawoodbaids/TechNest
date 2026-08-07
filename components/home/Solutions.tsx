@@ -22,7 +22,7 @@ export function Solutions() {
               <Reveal key={area.slug} delay={index * 0.1}>
                 <Link
                   href={`/${area.slug}`}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-white p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 sm:p-10"
+                  className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 sm:p-10"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-secondary/[0.04] opacity-0 transition-opacity group-hover:opacity-100" />
                   <div className="relative flex flex-col gap-5">

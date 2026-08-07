@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
+import { media } from "@/lib/media";
 import { SocialIcon, type Brand } from "@/components/icons/SocialIcon";
 import { Container } from "@/components/ui/Container";
 import { solutionAreas } from "@/lib/services";
@@ -11,12 +13,23 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-[#0b0f17] text-white">
+    <footer className="theme-transition relative overflow-hidden border-t border-white/10 bg-[#141014] text-white">
+      <div className="bg-silk-dark pointer-events-none absolute inset-0 opacity-60" />
       <div className="bg-grid-dark pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
+      <Image
+        src={media.brand.logoPurpleLight}
+        alt=""
+        width={480}
+        height={480}
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -bottom-28 w-[28rem] opacity-[0.04] select-none"
+      />
+      <div className="absolute -top-32 -right-24 size-96 rounded-full bg-primary/15 blur-3xl" />
+      <div className="absolute -bottom-40 -left-24 size-96 rounded-full bg-primary-dark/20 blur-3xl" />
       <Container className="relative py-14 sm:py-16">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
           <div className="flex flex-col gap-4">
-            <Logo variant="light" />
+            <Logo variant="dark" />
             <p className="max-w-xs text-sm leading-relaxed text-white/60">
               {site.tagline}. We build the NFC products and software that help
               businesses connect, automate and grow.
@@ -94,7 +107,7 @@ export function Footer() {
                   href={telLink()}
                   className="inline-flex items-center gap-2.5 text-sm text-white/60 transition-colors hover:text-white"
                 >
-                  <Phone className="size-4 text-[#1b5bff]" />
+                  <Phone className="size-4 text-[#d9a3ec]" />
                   {contact.phone}
                 </a>
               </li>
@@ -103,7 +116,7 @@ export function Footer() {
                   href={`mailto:${contact.emailRaw}`}
                   className="inline-flex items-center gap-2.5 text-sm text-white/60 transition-colors hover:text-white"
                 >
-                  <Mail className="size-4 text-[#1b5bff]" />
+                  <Mail className="size-4 text-[#d9a3ec]" />
                   {contact.email}
                 </a>
               </li>

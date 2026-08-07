@@ -23,7 +23,7 @@ export function TechStack() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((group, index) => (
             <Reveal key={group.title} delay={(index % 4) * 0.1}>
-              <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-white p-6">
+              <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-surface p-6">
                 <h3 className="font-display text-sm font-semibold tracking-wide text-foreground uppercase">
                   {group.title}
                 </h3>

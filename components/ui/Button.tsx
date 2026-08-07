@@ -34,12 +34,12 @@ type ButtonProps = ButtonAsLink | ButtonAsButton;
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-primary text-white shadow-sm shadow-primary/25 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 hover:bg-primary/90 focus-visible:ring-primary/60",
+    "bg-primary text-primary-foreground shadow-sm shadow-primary/30 hover:-translate-y-0.5 hover:bg-primary-dark hover:text-white hover:shadow-lg hover:shadow-primary/40 focus-visible:ring-primary/60",
   secondary:
-    "border border-border bg-white text-foreground hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary hover:shadow-md hover:shadow-black/5",
+    "border border-border bg-surface text-foreground hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary hover:shadow-md hover:shadow-primary/10",
   ghost: "text-muted hover:text-foreground",
   gradient:
-    "bg-gradient-to-r from-primary via-indigo-500 to-secondary text-white shadow-md shadow-primary/25 hover:-translate-y-0.5 hover:opacity-90 hover:shadow-lg hover:shadow-primary/30 focus-visible:ring-primary/60",
+    "bg-gradient-to-r from-primary to-primary-light text-primary-foreground shadow-md shadow-primary/25 hover:-translate-y-0.5 hover:opacity-90 hover:shadow-lg hover:shadow-primary/30 focus-visible:ring-primary/60",
 };
 
 const sizeClasses: Record<Size, string> = {

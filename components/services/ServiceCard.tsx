@@ -14,7 +14,7 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
   return (
     <Link
       href={`/${areaSlug}/${service.slug}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/15"
     >
       <div className="relative h-52 overflow-hidden">
         <Image
@@ -26,10 +26,10 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-90" />
-        <span className="absolute top-4 left-4 grid size-11 place-items-center rounded-2xl border border-white/20 bg-white/10 text-white shadow-lg backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
+        <span className="absolute top-4 left-4 grid size-11 place-items-center rounded-2xl border border-white/20 bg-surface/10 text-white shadow-lg backdrop-blur-md transition-transform duration-300 group-hover:scale-110">
           <Icon className="size-5" />
         </span>
-        <span className="absolute right-4 bottom-4 inline-flex translate-y-1 items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <span className="absolute right-4 bottom-4 inline-flex translate-y-1 items-center gap-1.5 rounded-full bg-surface/15 px-3 py-1 text-[11px] font-semibold text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           View details
           <ArrowRight className="size-3" />
         </span>
@@ -51,7 +51,7 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
               key={feature}
               className="flex items-start gap-2.5 text-sm text-muted"
             >
-              <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-cyan-500">
+              <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-[#8e3fb5]">
                 <Check className="size-2.5 text-white" />
               </span>
               {feature}
