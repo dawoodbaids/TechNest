@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --color-background: #ffffff;
+  --color-surface: #f7f8fa;
+  --color-surface-muted: #eef0f4;
+  --color-foreground: #0b0f17;
+  --color-muted: #565d6c;
+  --color-border: rgb(11 15 23 / 0.1);
+  --color-primary: #1b5bff;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #7c3aed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  background-image: radial-gradient(
+      ellipse 70% 45% at 50% -15%,
+      rgb(27 91 255 / 0.07),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 45% 35% at 100% 0%,
+      rgb(124 58 237 / 0.05),
+      transparent
+    );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+::selection {
+  background-color: rgb(27 91 255 / 0.15);
+  color: var(--color-foreground);
+}
+
+@layer utilities {
+  .text-gradient {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--color-secondary)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-cyan {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary),
+      #06b6d4
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid {
+    background-image: linear-gradient(
+        to right,
+        rgb(11 15 23 / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgb(11 15 23 / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-grid-dark {
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.06) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .animate-float {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 12s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}

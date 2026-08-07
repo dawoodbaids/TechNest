@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="768" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b0f17"/>
+      <stop offset="1" stop-color="#0d1524"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1b5bff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#1b5bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="1024" cy="768" r="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06b6d4" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="768" fill="url(#bg)"/>
+  <rect width="1024" height="768" fill="url(#glow1)"/>
+  <rect width="1024" height="768" fill="url(#glow2)"/>
+  <g opacity="0.06" stroke="#ffffff">
+    <path d="M0 64H1024M0 128H1024M0 192H1024M0 256H1024M0 320H1024M0 384H1024M0 448H1024M0 512H1024M0 576H1024M0 640H1024M0 704H1024"/>
+    <path d="M64 0V768M128 0V768M192 0V768M256 0V768M320 0V768M384 0V768M448 0V768M512 0V768M576 0V768M640 0V768M704 0V768M768 0V768M832 0V768M896 0V768M960 0V768"/>
+  </g>
+  <rect x="222" y="140" width="580" height="340" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="250" y="180" width="150" height="160" rx="14" fill="#1b5bff" fill-opacity="0.12" stroke="#1b5bff" stroke-opacity="0.3"/>
+  <text x="272" y="210" fill="#93c5fd" font-family="Arial" font-size="11" font-weight="700">Pipeline</text>
+  <rect x="262" y="232" width="126" height="30" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="276" y="252" fill="#c7d2fe" font-family="Arial" font-size="10">Deal · $4.2K</text>
+  <rect x="262" y="272" width="126" height="30" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="276" y="292" fill="#c7d2fe" font-family="Arial" font-size="10">Deal · $1.8K</text>
+  <rect x="420" y="180" width="150" height="160" rx="14" fill="#06b6d4" fill-opacity="0.1" stroke="#06b6d4" stroke-opacity="0.3"/>
+  <text x="442" y="210" fill="#7dd3fc" font-family="Arial" font-size="11" font-weight="700">Contacted</text>
+  <rect x="432" y="232" width="126" height="30" rx="8" fill="#ffffff" fill-opacity="0.05"/>
+  <text x="446" y="252" fill="#c7d2fe" font-family="Arial" font-size="10">Deal · $9.0K</text>
+  <rect x="590" y="180" width="150" height="160" rx="14" fill="#7c3aed" fill-opacity="0.12" stroke="#7c3aed" stroke-opacity="0.3"/>
+  <text x="612" y="210" fill="#c4b5fd" font-family="Arial" font-size="11" font-weight="700">Won</text>
+  <rect x="602" y="232" width="126" height="30" rx="8" fill="#34d399" fill-opacity="0.15"/>
+  <text x="616" y="252" fill="#a7f3d0" font-family="Arial" font-size="10">Deal · $12.5K</text>
+  <rect x="250" y="370" width="490" height="60" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="276" y="400" fill="#94a3b8" font-family="Arial" font-size="11">Lead scoring · Activity · Automated follow-ups</text>
+  <text x="512" y="590" text-anchor="middle" fill="#aeb9d2" font-family="Arial" font-size="20" font-weight="700">Every relationship, organized.</text>
+  <text x="512" y="622" text-anchor="middle" fill="#6d7fa6" font-family="Arial" font-size="14">CRM Systems</text>
+</svg>

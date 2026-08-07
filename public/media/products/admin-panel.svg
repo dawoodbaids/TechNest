@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768" viewBox="0 0 1024 768" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1024" y2="768" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b0f17"/>
+      <stop offset="1" stop-color="#0d1524"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#06b6d4" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="1024" cy="768" r="1" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7c3aed" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="768" fill="url(#bg)"/>
+  <rect width="1024" height="768" fill="url(#glow1)"/>
+  <rect width="1024" height="768" fill="url(#glow2)"/>
+  <g opacity="0.06" stroke="#ffffff">
+    <path d="M0 64H1024M0 128H1024M0 192H1024M0 256H1024M0 320H1024M0 384H1024M0 448H1024M0 512H1024M0 576H1024M0 640H1024M0 704H1024"/>
+    <path d="M64 0V768M128 0V768M192 0V768M256 0V768M320 0V768M384 0V768M448 0V768M512 0V768M576 0V768M640 0V768M704 0V768M768 0V768M832 0V768M896 0V768M960 0V768"/>
+  </g>
+  <rect x="242" y="120" width="540" height="400" rx="24" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="242" y="120" width="150" height="400" rx="24" fill="#ffffff" fill-opacity="0.04"/>
+  <rect x="266" y="150" width="100" height="100" rx="12" fill="#1b5bff" fill-opacity="0.2"/>
+  <text x="292" y="200" fill="#93c5fd" font-family="Arial" font-size="10" font-weight="700">ADMIN</text>
+  <text x="286" y="220" fill="#64748b" font-family="Arial" font-size="9">Panel</text>
+  <rect x="416" y="150" width="330" height="48" rx="10" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="440" y="178" fill="#94a3b8" font-family="Arial" font-size="11">Admin · Dashboard</text>
+  <rect x="416" y="214" width="330" height="120" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="440" y="236" width="280" height="12" rx="6" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="440" y="262" width="220" height="12" rx="6" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="440" y="288" width="250" height="12" rx="6" fill="#ffffff" fill-opacity="0.08"/>
+  <rect x="416" y="352" width="330" height="120" rx="12" fill="#ffffff" fill-opacity="0.03" stroke="#ffffff" stroke-opacity="0.08"/>
+  <rect x="440" y="374" width="150" height="30" rx="8" fill="#1b5bff" fill-opacity="0.4"/>
+  <text x="468" y="394" fill="#e0e7ff" font-family="Arial" font-size="10" font-weight="600">Publish</text>
+  <rect x="600" y="374" width="110" height="30" rx="8" fill="#ffffff" fill-opacity="0.06"/>
+  <text x="628" y="394" fill="#94a3b8" font-family="Arial" font-size="10">Preview</text>
+  <text x="512" y="600" text-anchor="middle" fill="#aeb9d2" font-family="Arial" font-size="20" font-weight="700">Full control. Clean interface.</text>
+  <text x="512" y="632" text-anchor="middle" fill="#6d7fa6" font-family="Arial" font-size="14">Admin Panels</text>
+</svg>

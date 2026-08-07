@@ -1,0 +1,53 @@
+export const techStack = {
+  frontend: [
+    { name: "Next.js", level: "Advanced" },
+    { name: "React", level: "Advanced" },
+    { name: "TypeScript", level: "Advanced" },
+    { name: "Tailwind CSS", level: "Advanced" },
+    { name: "Flutter", level: "Advanced" },
+    { name: "React Native", level: "Advanced" },
+  ],
+  backend: [
+    { name: "Node.js", level: "Advanced" },
+    { name: "Python", level: "Advanced" },
+    { name: "PostgreSQL", level: "Advanced" },
+    { name: "MySQL", level: "Advanced" },
+    { name: "REST APIs", level: "Advanced" },
+    { name: "GraphQL", level: "Advanced" },
+  ],
+  ai: [
+    { name: "OpenAI", level: "Advanced" },
+    { name: "LangChain", level: "Advanced" },
+    { name: "RAG Pipelines", level: "Advanced" },
+    { name: "Vector Databases", level: "Advanced" },
+    { name: "Fine-tuning", level: "Advanced" },
+    { name: "AI Agents", level: "Advanced" },
+  ],
+  infra: [
+    { name: "Docker", level: "Advanced" },
+    { name: "AWS", level: "Advanced" },
+    { name: "Firebase", level: "Advanced" },
+    { name: "Vercel", level: "Advanced" },
+    { name: "n8n", level: "Advanced" },
+    { name: "Zapier", level: "Advanced" },
+  ],
+} as const;
+
+export const techStackMarquee = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "React Native",
+  "Flutter",
+  "OpenAI",
+  "LangChain",
+  "Docker",
+  "AWS",
+  "Firebase",
+  "n8n",
+  "NFC",
+];
