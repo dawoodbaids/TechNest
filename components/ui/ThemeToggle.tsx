@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { MoonIcon, SunIcon } from "@/components/icons";
 import { useTheme } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ export function ThemeToggle({ className }: { className?: string }) {
       )}
     >
       <span className="relative block size-4">
-        <Sun
+        <SunIcon
           className={cn(
             "absolute inset-0 size-4 transition-all duration-300",
             theme === "dark"
@@ -29,7 +29,7 @@ export function ThemeToggle({ className }: { className?: string }) {
               : "rotate-0 scale-100 opacity-100",
           )}
         />
-        <Moon
+        <MoonIcon
           className={cn(
             "absolute inset-0 size-4 transition-all duration-300",
             theme === "dark"

@@ -21,25 +21,25 @@ export function PageHeader({
   return (
     <section
       className={cn(
-        "theme-transition relative overflow-hidden bg-background bg-silk py-16 sm:py-24 dark:bg-silk-dark",
+        "theme-transition relative overflow-hidden bg-background bg-silk py-10 sm:py-24 dark:bg-silk-dark",
         className,
       )}
     >
-      <HeroWave className="pointer-events-none absolute inset-x-0 top-0 h-40 w-full [mask-image:linear-gradient(to_bottom,black,transparent)] sm:h-56" />
+      <HeroWave className="pointer-events-none absolute inset-x-0 top-0 h-24 w-full [mask-image:linear-gradient(to_bottom,black,transparent)] sm:h-56" />
       <FloatingOrbs className="opacity-70" />
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
       <Container className="relative">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+        <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 text-center sm:gap-4">
           {eyebrow ? (
-            <p className="font-mono text-xs font-medium tracking-widest text-primary uppercase">
+            <p className="font-mono text-[11px] font-medium tracking-widest text-primary uppercase sm:text-xs">
               {eyebrow}
             </p>
           ) : null}
-          <h1 className="font-display text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl leading-[1.1] font-semibold tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
             {title} {titleHighlight ? <span className="text-gradient">{titleHighlight}</span> : null}
           </h1>
           {description ? (
-            <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="max-w-xl text-base leading-relaxed text-muted sm:text-lg">
               {description}
             </p>
           ) : null}

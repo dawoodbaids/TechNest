@@ -1,23 +1,21 @@
-import Image from "next/image";
 import { ChatInterface } from "@/components/visuals/ChatInterface";
 import { PhoneMockup, PhoneScreen } from "@/components/visuals/PhoneMockup";
 import { BrowserMockup } from "@/components/visuals/BrowserMockup";
 import { DashboardMockup } from "@/components/visuals/DashboardMockup";
+import { DigitalProfilesScene } from "@/components/illustrations/nfc/DigitalProfilesScene";
+import { SmartTagsScene } from "@/components/illustrations/nfc/SmartTagsScene";
 import { Reveal } from "@/components/ui/Reveal";
-import { media } from "@/lib/media";
-import { getServerDictionary } from "@/lib/i18n/server";
 
 interface AreaVisualProps {
   areaSlug: string;
 }
 
-const nfcImages = [
-  { src: media.nfc.profile, rotate: -1.5 },
-  { src: media.nfc.tags, rotate: 1.5 },
+const nfcScenes = [
+  { Component: DigitalProfilesScene, alt: "Digital profile card", rotate: -1.5 },
+  { Component: SmartTagsScene, alt: "Smart NFC tags", rotate: 1.5 },
 ];
 
-export async function AreaVisual({ areaSlug }: AreaVisualProps) {
-  const dict = await getServerDictionary();
+export function AreaVisual({ areaSlug }: AreaVisualProps) {
   return (
     <Reveal direction="zoom" className="relative mx-auto w-full max-w-5xl">
       <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
@@ -25,24 +23,13 @@ export async function AreaVisual({ areaSlug }: AreaVisualProps) {
         {areaSlug === "nfc-solutions" ? (
           <>
             <div className="flex flex-col gap-5">
-              {nfcImages.map((image, index) => (
+              {nfcScenes.map(({ Component, alt, rotate }) => (
                 <div
-                  key={image.src}
-                  style={{ transform: `rotate(${image.rotate}deg)` }}
+                  key={alt}
+                  style={{ transform: `rotate(${rotate}deg)` }}
                   className="overflow-hidden rounded-2xl border border-border shadow-2xl shadow-primary/15"
                 >
-                  <Image
-                    src={image.src}
-                    alt={
-                      index === 0
-                        ? dict.areaPage.nfcVisualAlt1
-                        : dict.areaPage.nfcVisualAlt2
-                    }
-                    width={1024}
-                    height={1024}
-                    className="aspect-[4/3] w-full object-cover"
-                    sizes="(min-width: 1024px) 512px, 100vw"
-                  />
+                  <Component className="aspect-[4/3] w-full" />
                 </div>
               ))}
             </div>
@@ -80,7 +67,8 @@ export async function AreaVisual({ areaSlug }: AreaVisualProps) {
             <div className="flex flex-col gap-6">
               <DashboardMockup />
               <p className="text-center text-sm text-muted lg:text-left">
-                {dict.areaPage.aiVisualCaption}
+                AI that answers, qualifies and automates — then reports back in a
+                dashboard you actually read.
               </p>
             </div>
           </>

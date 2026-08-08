@@ -1,6 +1,7 @@
-import Image from "next/image";
-import { Check, Layers, Package, Sparkles } from "lucide-react";
+import { Layers, Package, Sparkles } from "lucide-react";
+import { CheckIcon } from "@/components/icons";
 import { ServiceCard } from "@/components/services/ServiceCard";
+import { ServiceScene } from "@/components/illustrations/registry";
 import { CTABanner } from "@/components/home/CTABanner";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -10,19 +11,15 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/contact";
 import { getAllServices, getService } from "@/lib/services";
-import { getServerDictionary } from "@/lib/i18n/server";
 
 interface ServiceDetailPageProps {
   areaSlug: string;
   slug: string;
 }
 
-export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
+export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
   const service = getService(areaSlug, slug);
   if (!service) return null;
-  const dict = await getServerDictionary();
-  const content = dict.services[slug];
-  const areaContent = dict.areas[areaSlug];
 
   const related = getAllServices()
     .filter((item) => item.slug !== service.slug)
@@ -32,10 +29,10 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
   return (
     <>
       <PageHeader
-        eyebrow={areaContent.shortName}
-        title={content.name}
-        titleHighlight={dict.serviceDetail.heroEyebrowSuffix}
-        description={content.description}
+        eyebrow={service.areaName}
+        title={service.name}
+        titleHighlight="explained"
+        description={service.description}
       />
 
       <div className="pb-16 sm:pb-20">
@@ -43,15 +40,9 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
           <Reveal direction="zoom" className="relative mx-auto w-full max-w-5xl">
             <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
-              <Image
-                src={service.image}
-                alt={content.name}
-                width={1600}
-                height={900}
-                priority
-                className="h-72 w-full object-cover sm:h-96 lg:h-[480px]"
-                sizes="100vw"
-              />
+              <div className="h-72 w-full sm:h-96 lg:h-[480px]">
+                <ServiceScene slug={service.slug} className="h-full w-full" />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 flex items-center gap-4 p-6 sm:p-8">
                 <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-surface/10 text-white shadow-lg backdrop-blur-md">
@@ -59,10 +50,10 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
                 </span>
                 <div>
                   <p className="text-xs font-semibold tracking-wide text-white/70 uppercase">
-                    {areaContent.shortName}
+                    {service.areaName}
                   </p>
                   <p className="font-display text-2xl font-semibold text-white sm:text-3xl">
-                    {content.name}
+                    {service.name}
                   </p>
                 </div>
               </div>
@@ -82,17 +73,17 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
                       <Icon className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      {dict.serviceDetail.featuresTitle}
+                      Features
                     </h2>
                   </div>
                   <ul className="grid gap-3 sm:grid-cols-2">
-                    {content.features.map((feature) => (
+                    {service.features.map((feature) => (
                       <li
                         key={feature}
                         className="flex items-start gap-2.5 text-sm leading-relaxed text-muted"
                       >
                         <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary/10">
-                          <Check className="size-3 text-primary" />
+                          <CheckIcon className="size-3 text-primary" />
                         </span>
                         {feature}
                       </li>
@@ -108,28 +99,25 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
                       <Layers className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      {dict.serviceDetail.howWeWorkTitle}
+                      How we work
                     </h2>
                   </div>
                   <ol className="flex flex-col gap-4">
-                    {service.process.map((step, index) => {
-                      const processStep = content.process[index];
-                      return (
-                        <li key={step.step} className="flex gap-4">
-                          <span className="font-mono text-sm font-semibold text-secondary">
-                            {processStep.step}
-                          </span>
-                          <div>
-                            <p className="font-display text-sm font-semibold text-foreground">
-                              {processStep.title}
-                            </p>
-                            <p className="mt-1 text-sm leading-relaxed text-muted">
-                              {processStep.description}
-                            </p>
-                          </div>
-                        </li>
-                      );
-                    })}
+                    {service.process.map((step) => (
+                      <li key={step.step} className="flex gap-4">
+                        <span className="font-mono text-sm font-semibold text-secondary">
+                          {step.step}
+                        </span>
+                        <div>
+                          <p className="font-display text-sm font-semibold text-foreground">
+                            {step.title}
+                          </p>
+                          <p className="mt-1 text-sm leading-relaxed text-muted">
+                            {step.description}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
                   </ol>
                 </div>
               </Reveal>
@@ -141,17 +129,17 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
                       <Package className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      {dict.serviceDetail.whatYouGetTitle}
+                      What you get
                     </h2>
                   </div>
                   <ul className="flex flex-col gap-3">
-                    {content.deliverables.map((item) => (
+                    {service.deliverables.map((item) => (
                       <li
                         key={item}
                         className="flex items-start gap-2.5 text-sm leading-relaxed text-muted"
                       >
                         <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary/10">
-                          <Check className="size-3 text-primary" />
+                          <CheckIcon className="size-3 text-primary" />
                         </span>
                         {item}
                       </li>
@@ -169,11 +157,11 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
                       <Sparkles className="size-6" />
                     </span>
                     <h3 className="font-display text-xl font-semibold text-foreground">
-                      {dict.serviceDetail.techStackTitle}
+                      Tech stack
                     </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {content.stack.map((item) => (
+                    {service.stack.map((item) => (
                       <span
                         key={item}
                         className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted"
@@ -188,23 +176,24 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
               <Reveal delay={0.15}>
                 <div className="flex flex-col gap-4 rounded-3xl bg-[#141014] p-8 text-white">
                   <h3 className="font-display text-xl font-semibold">
-                    {dict.serviceDetail.ctaTitle}
+                    Ready to get started?
                   </h3>
                   <p className="text-sm leading-relaxed text-white/60">
-                    {dict.serviceDetail.ctaText}
+                    Tell us about your project and we&apos;ll reply with a plan and a
+                    clear timeline.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
                       href={whatsappLink(
-                        `${dict.serviceDetail.whatsappPrefill}${content.name}.`,
+                        `Hi TechNest! I'm interested in ${service.name}.`,
                       )}
                       external
                       variant="gradient"
                     >
-                      {dict.serviceDetail.ctaButton}
+                      Chat on WhatsApp
                     </Button>
                     <Button href="/contact" variant="ghost" className="text-white/80 hover:text-white">
-                      {dict.serviceDetail.ctaContact}
+                      Contact us
                     </Button>
                   </div>
                 </div>
@@ -218,9 +207,9 @@ export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPagePro
         <Section className="bg-surface/40">
           <Container>
             <SectionHeading
-              eyebrow={dict.serviceDetail.relatedEyebrow}
-              title={dict.serviceDetail.relatedTitle}
-              description={dict.serviceDetail.relatedDescription}
+              eyebrow="Keep exploring"
+              title="Related services"
+              description="More ways we can help your business grow."
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((item, index) => (

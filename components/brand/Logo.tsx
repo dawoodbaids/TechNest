@@ -11,9 +11,15 @@ interface LogoProps {
   variant?: "auto" | "light" | "dark";
   className?: string;
   href?: string;
+  hideTextOnMobile?: boolean;
 }
 
-export function Logo({ variant = "auto", className, href = "/" }: LogoProps) {
+export function Logo({
+  variant = "auto",
+  className,
+  href = "/",
+  hideTextOnMobile = false,
+}: LogoProps) {
   const { theme } = useTheme();
   const dark = variant === "dark" || (variant === "auto" && theme === "dark");
 
@@ -29,17 +35,23 @@ export function Logo({ variant = "auto", className, href = "/" }: LogoProps) {
       className={cn("flex shrink-0 items-center gap-2.5", className)}
       aria-label={`${site.name} home`}
     >
-      <span className={cn("grid size-8 place-items-center rounded-lg", chipClass)}>
+      <span className={cn("grid size-9 place-items-center rounded-lg sm:size-8", chipClass)}>
         <Image
           src={src}
           alt=""
           width={32}
           height={32}
-          className="size-6"
+          className="size-7 sm:size-6"
           priority={href === "/"}
         />
       </span>
-      <span className={cn("font-display text-lg font-bold tracking-tight", textColor)}>
+      <span
+        className={cn(
+          "font-display text-lg font-bold tracking-tight",
+          textColor,
+          hideTextOnMobile && "hidden sm:inline",
+        )}
+      >
         {site.name}
       </span>
     </Link>

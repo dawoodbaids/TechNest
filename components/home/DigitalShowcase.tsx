@@ -1,73 +1,81 @@
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
-import { Check } from "lucide-react";
-import { getServerDictionary } from "@/lib/i18n/server";
-import { media } from "@/lib/media";
+import { CheckIcon } from "@/components/icons";
+import { PhoneMockup, PhoneScreen } from "@/components/visuals/PhoneMockup";
+import { BrowserMockup } from "@/components/visuals/BrowserMockup";
 
-export async function DigitalShowcase() {
-  const dict = await getServerDictionary();
+const appFeatures = [
+  "Smooth, native-feeling interfaces",
+  "Websites that load fast and convert",
+  "Built mobile-first, responsive on every device",
+];
 
+export function DigitalShowcase() {
   return (
     <Section className="bg-surface/40">
       <Container>
         <SectionHeading
-          eyebrow={dict.digitalShowcase.eyebrow}
-          title={dict.digitalShowcase.title}
-          description={dict.digitalShowcase.description}
+          eyebrow="Apps & Websites"
+          title="Digital products built to perform"
+          description="Modern mobile applications and high-performance websites — designed, developed and shipped by one team."
         />
 
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="relative mx-auto w-full max-w-md lg:order-2">
             <div className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-[#b565d8]/15 to-primary/15 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/20 [transform:rotate(2deg)]">
-              <Image
-                src={media.apps.mobileApp}
-                alt={dict.digitalShowcase.mobileImageAlt}
-                width={1024}
-                height={1024}
-                className="aspect-square w-full object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(min-width: 1024px) 480px, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/40 via-transparent to-transparent" />
+              <PhoneMockup className="mx-auto w-full max-w-[300px] py-6">
+                <PhoneScreen>
+                  <div className="flex flex-1 flex-col gap-2 pt-4">
+                    <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-[#b565d8] font-bold text-white">
+                      TN
+                    </div>
+                    <p className="text-[10px] font-semibold text-white">TechNest App</p>
+                    <p className="text-[8px] text-white/40">Your business in motion</p>
+                    <div className="mt-2 flex flex-col gap-1.5">
+                      <span className="rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] py-1.5 text-center text-[8px] font-semibold text-white">
+                        Get started
+                      </span>
+                      <span className="rounded-full border border-white/15 py-1.5 text-center text-[8px] text-white/60">
+                        View features
+                      </span>
+                    </div>
+                  </div>
+                </PhoneScreen>
+              </PhoneMockup>
               <p className="absolute bottom-4 left-5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold text-white backdrop-blur">
-                {dict.digitalShowcase.mobileBadge}
+                Mobile App
               </p>
             </div>
             <div className="absolute -right-4 -bottom-10 hidden w-72 sm:block">
-              <Image
-                src={media.websites.build}
-                alt={dict.digitalShowcase.websiteImageAlt}
-                width={1184}
-                height={864}
-                className="w-full rounded-2xl border border-border bg-surface object-cover shadow-2xl shadow-primary/20 [transform:rotate(-2deg)]"
-              />
+              <BrowserMockup className="w-full rounded-2xl border border-border shadow-2xl shadow-primary/20 [transform:rotate(-2deg)]" />
             </div>
             <span className="absolute -top-5 -left-2 rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
-              {dict.digitalShowcase.responsiveBadge}
+              Fast & responsive
             </span>
           </Reveal>
 
           <Reveal className="lg:order-1">
             <div className="flex flex-col gap-6">
               <h3 className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
-                {dict.digitalShowcase.headingStart}{" "}
-                <span className="text-gradient">{dict.digitalShowcase.headingHighlight}</span>
+                Every screen designed to{" "}
+                <span className="text-gradient">convert</span>
               </h3>
               <ul className="flex flex-col gap-3.5">
-                {dict.digitalShowcase.features.map((feature) => (
+                {appFeatures.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm font-medium text-foreground">
                     <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary/15 to-[#b565d8]/15">
-                      <Check className="size-3.5 text-primary" />
+                      <CheckIcon className="size-3.5 text-primary" />
                     </span>
                     {feature}
                   </li>
                 ))}
               </ul>
               <p className="text-sm leading-relaxed text-muted">
-                {dict.digitalShowcase.paragraph}
+                From booking platforms to customer apps, we turn ideas into
+                polished digital products your customers actually enjoy using.
               </p>
             </div>
           </Reveal>

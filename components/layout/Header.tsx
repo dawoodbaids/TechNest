@@ -3,22 +3,17 @@ import { Navbar } from "./Navbar";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { getServerDictionary } from "@/lib/i18n/server";
 import { whatsappLink } from "@/lib/contact";
 
-export async function Header() {
-  const dict = await getServerDictionary();
-
+export function Header() {
   return (
-    <header className="theme-transition sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
+    <header className="theme-transition fixed inset-x-0 top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo />
+        <Logo hideTextOnMobile />
 
         <Navbar />
 
-        <div className="flex shrink-0 items-center gap-2">
-          <LanguageSwitcher />
+        <div className="hidden shrink-0 items-center gap-2 md:flex">
           <ThemeToggle />
           <Button
             href={whatsappLink()}
@@ -27,7 +22,7 @@ export async function Header() {
             variant="primary"
             className="hidden lg:inline-flex"
           >
-            {dict.nav.letsTalk}
+            Let&apos;s Talk
           </Button>
         </div>
       </Container>

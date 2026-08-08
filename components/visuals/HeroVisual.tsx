@@ -5,7 +5,6 @@ import { Nfc } from "lucide-react";
 import { PhoneMockup, PhoneScreen } from "@/components/visuals/PhoneMockup";
 import { NfcCard } from "@/components/visuals/NfcCard";
 import { ChatInterface } from "@/components/visuals/ChatInterface";
-import { useDictionary } from "@/lib/i18n/provider";
 
 const float = {
   animate: {
@@ -19,9 +18,6 @@ const float = {
 };
 
 export function HeroVisual() {
-  const dict = useDictionary();
-  const { heroVisual } = dict.visuals;
-
   return (
     <div className="relative mx-auto w-full max-w-md lg:max-w-none">
       <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/25 via-[#b565d8]/10 to-transparent blur-3xl" />
@@ -41,12 +37,12 @@ export function HeroVisual() {
                     <Nfc className="size-4" />
                   </span>
                   <div>
-                    <p className="text-[10px] font-semibold text-white">{heroVisual.appName}</p>
-                    <p className="text-[8px] text-white/40">{heroVisual.appSub}</p>
+                    <p className="text-[10px] font-semibold text-white">TapConnect</p>
+                    <p className="text-[8px] text-white/40">Digital profile</p>
                   </div>
                 </div>
                 <span className="rounded-full bg-[#b565d8]/15 px-2 py-0.5 text-[7px] font-semibold text-[#d9a3ec]">
-                  {heroVisual.live}
+                  Live
                 </span>
               </div>
 
@@ -55,9 +51,9 @@ export function HeroVisual() {
                   TN
                 </div>
                 <p className="mt-2.5 font-display text-sm font-semibold text-white">TechNest</p>
-                <p className="text-[9px] text-white/40">{heroVisual.tagline}</p>
+                <p className="text-[9px] text-white/40">Smart digital solutions</p>
                 <div className="mt-3 flex gap-1.5">
-                  {heroVisual.actions.map((action) => (
+                  {["Share", "Call", "Save"].map((action) => (
                     <span key={action} className="rounded-full border border-white/15 bg-surface/5 px-3 py-1 text-[8px] font-medium text-white/70">
                       {action}
                     </span>
@@ -65,14 +61,7 @@ export function HeroVisual() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
-                {heroVisual.rows.map((row) => (
-                  <div key={row.label} className="flex items-center justify-between rounded-xl border border-white/10 bg-surface/5 px-3 py-2">
-                    <span className="text-[8px] text-white/40">{row.label}</span>
-                    <span className="text-[9px] font-medium text-white/80">{row.value}</span>
-                  </div>
-                ))}
-              </div>
+             
             </div>
           </PhoneScreen>
         </PhoneMockup>
@@ -95,7 +84,10 @@ export function HeroVisual() {
         transition={{ opacity: { delay: 1, duration: 0.6 } }}
         className="absolute -right-4 bottom-4 z-20 hidden w-64 sm:block lg:-right-8"
       >
-        <ChatInterface className="[transform:rotate(4deg)]" messages={heroVisual.chatMessages} />
+        <ChatInterface className="[transform:rotate(4deg)]" messages={[
+          { from: "user", text: "Tap my card to connect!" },
+          { from: "ai", text: "Profile saved. Great to meet you!" },
+        ]} />
       </motion.div>
 
       <motion.div
@@ -109,8 +101,8 @@ export function HeroVisual() {
           <Nfc className="size-3.5" />
         </span>
         <div>
-          <p className="text-[9px] font-semibold text-foreground">{heroVisual.tapDetected}</p>
-          <p className="text-[8px] text-muted">{heroVisual.cardLinked}</p>
+          <p className="text-[9px] font-semibold text-foreground">Tap detected</p>
+          <p className="text-[8px] text-muted">Card linked</p>
         </div>
       </motion.div>
     </div>

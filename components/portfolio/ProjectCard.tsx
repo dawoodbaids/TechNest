@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRightIcon } from "@/components/icons";
+import { ProjectScene } from "@/components/illustrations/registry";
 import type { Project } from "@/lib/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -17,19 +17,15 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
       )}
     >
       <div className="relative h-48 overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          width={640}
-          height={360}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
+          <ProjectScene slug={project.slug} className="h-full w-full" />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
         <span className="absolute top-3 left-3 rounded-full border border-border bg-surface/90 px-2.5 py-1 text-[11px] font-medium text-foreground backdrop-blur">
           {project.category}
         </span>
         <span className="absolute right-3 bottom-3 grid size-9 translate-y-2 place-items-center rounded-full bg-primary text-white opacity-0 shadow-lg shadow-primary/30 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <ArrowUpRight className="size-4" />
+          <ArrowUpRightIcon className="size-4" />
         </span>
       </div>
 

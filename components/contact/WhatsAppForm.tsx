@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { MessageCircle, Send } from "lucide-react";
+import { MessageCircleIcon, SendIcon } from "@/components/icons";
 import { Button } from "@/components/ui/Button";
-import { whatsappLink } from "@/lib/contact";
-import { useDictionary } from "@/lib/i18n/provider";
+import { contact, whatsappLink } from "@/lib/contact";
 
 export function WhatsAppForm() {
-  const { whatsappForm } = useDictionary();
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -27,19 +25,19 @@ export function WhatsAppForm() {
     >
       <div className="flex items-center gap-3">
         <span className="grid size-10 place-items-center rounded-xl bg-[#25D366]/15 text-[#25D366]">
-          <MessageCircle className="size-5" />
+          <MessageCircleIcon className="size-5" />
         </span>
         <div>
           <h2 className="font-display text-lg font-semibold text-foreground">
-            {whatsappForm.title}
+            Send us a message on WhatsApp
           </h2>
-          <p className="text-xs text-muted">{whatsappForm.responseTime}</p>
+          <p className="text-xs text-muted">{contact.responseTime}</p>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-name" className="text-sm font-medium text-foreground">
-          {whatsappForm.nameLabel}
+          Your name
         </label>
         <input
           id="contact-name"
@@ -47,14 +45,14 @@ export function WhatsAppForm() {
           required
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder={whatsappForm.namePlaceholder}
+          placeholder="Jane Doe"
           className={inputClasses}
         />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-message" className="text-sm font-medium text-foreground">
-          {whatsappForm.messageLabel}
+          How can we help?
         </label>
         <textarea
           id="contact-message"
@@ -62,14 +60,14 @@ export function WhatsAppForm() {
           rows={5}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder={whatsappForm.messagePlaceholder}
+          placeholder="Tell us about your project, service interest, or timeline..."
           className={`${inputClasses} resize-none`}
         />
       </div>
 
       <Button type="submit" variant="primary" size="lg" className="mt-2">
-        <Send className="size-4" />
-        {whatsappForm.submit}
+        <SendIcon className="size-4" />
+        Open WhatsApp
       </Button>
     </form>
   );

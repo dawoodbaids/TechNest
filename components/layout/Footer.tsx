@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { MailIcon, MessageCircleIcon, PhoneIcon } from "@/components/icons";
 import { Logo } from "@/components/brand/Logo";
 import { media } from "@/lib/media";
 import { SocialIcon, type Brand } from "@/components/icons/SocialIcon";
@@ -99,7 +99,7 @@ export async function Footer() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 text-sm text-white/60 transition-colors hover:text-white"
                 >
-                  <MessageCircle className="size-4 text-[#25D366]" />
+                  <MessageCircleIcon className="size-4 text-[#25D366]" />
                   WhatsApp {contact.whatsapp}
                 </a>
               </li>
@@ -108,7 +108,7 @@ export async function Footer() {
                   href={telLink()}
                   className="inline-flex items-center gap-2.5 text-sm text-white/60 transition-colors hover:text-white"
                 >
-                  <Phone className="size-4 text-[#d9a3ec]" />
+                  <PhoneIcon className="size-4 text-[#d9a3ec]" />
                   {contact.phone}
                 </a>
               </li>
@@ -117,11 +117,32 @@ export async function Footer() {
                   href={`mailto:${contact.emailRaw}`}
                   className="inline-flex items-center gap-2.5 text-sm text-white/60 transition-colors hover:text-white"
                 >
-                  <Mail className="size-4 text-[#d9a3ec]" />
+                  <MailIcon className="size-4 text-[#d9a3ec]" />
                   {contact.email}
                 </a>
               </li>
             </ul>
+            <div className="flex items-center gap-2 pt-1">
+              {socials
+                .filter((social) =>
+                  ["Facebook", "Instagram"].includes(social.label),
+                )
+                .map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="grid size-9 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                  >
+                    <SocialIcon
+                      name={social.label as Brand}
+                      className="size-4"
+                    />
+                  </a>
+                ))}
+            </div>
           </div>
         </div>
       </Container>

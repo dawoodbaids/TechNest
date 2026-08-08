@@ -1,37 +1,34 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Bot } from "lucide-react";
+import { ArrowRightIcon } from "@/components/icons";
+import { Bot } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { ChatInterface } from "@/components/visuals/ChatInterface";
+import { DashboardMockup } from "@/components/visuals/DashboardMockup";
 import { whatsappLink } from "@/lib/contact";
 import { getAllServices } from "@/lib/services";
-import { getServerDictionary } from "@/lib/i18n/server";
-import { media } from "@/lib/media";
 
 const services = getAllServices().filter((service) =>
   ["ai-solutions", "software"].includes(service.areaSlug),
 );
 
-export async function AiServices() {
-  const dict = await getServerDictionary();
-
+export function AiServices() {
   return (
     <Section>
       <Container>
         <SectionHeading
-          eyebrow={dict.aiServices.eyebrow}
-          title={dict.aiServices.title}
-          description={dict.aiServices.description}
+          eyebrow="AI & Software Services"
+          title="Software that automates and scales"
+          description="Custom AI assistants, websites, apps, systems and automation built with modern, maintainable technology."
         />
 
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="grid gap-5 sm:grid-cols-2">
             {services.map((service, index) => {
               const Icon = service.icon;
-              const serviceText = dict.services[service.slug];
               return (
                 <Reveal key={service.slug} delay={(index % 2) * 0.1}>
                   <Link
@@ -44,15 +41,15 @@ export async function AiServices() {
                     </span>
                     <div>
                       <h3 className="font-display text-lg font-semibold text-foreground">
-                        {serviceText.name}
+                        {service.name}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted">
-                        {serviceText.tagline}
+                        {service.tagline}
                       </p>
                     </div>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-primary">
-                      {dict.aiServices.learnMore}
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                      Learn more
+                      <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </Link>
                 </Reveal>
@@ -63,33 +60,19 @@ export async function AiServices() {
           <Reveal className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/15">
-              <Image
-                src={media.ai.chatbot}
-                alt={dict.aiServices.chatbotImageAlt}
-                width={1024}
-                height={1024}
-                className="aspect-square w-full object-cover"
-                sizes="(min-width: 1024px) 640px, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/50 via-transparent to-transparent" />
+              <ChatInterface className="aspect-square w-full" />
               <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-surface/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur">
                 <Bot className="size-4" />
-                {dict.aiServices.chatbotLabel}
+                AI Chatbot
               </span>
             </div>
             <div className="absolute -bottom-8 -left-4 hidden w-64 sm:block lg:-left-8">
-              <Image
-                src={media.products.dashboard}
-                alt={dict.aiServices.dashboardImageAlt}
-                width={512}
-                height={512}
-                className="w-full rounded-2xl border border-border bg-surface shadow-2xl shadow-primary/20 [transform:rotate(-2deg)]"
-              />
+              <DashboardMockup className="w-full rounded-2xl border border-border shadow-2xl shadow-primary/20 [transform:rotate(-2deg)]" />
             </div>
             <div className="absolute -top-6 -right-2 hidden rounded-2xl border border-border bg-surface px-5 py-3 shadow-2xl shadow-primary/20 backdrop-blur sm:block lg:-right-6">
-              <p className="text-xs text-muted">{dict.aiServices.assistantLabel}</p>
+              <p className="text-xs text-muted">AI Assistant</p>
               <p className="text-sm font-semibold text-foreground">
-                {dict.aiServices.assistantText}
+                24/7 automated support
               </p>
             </div>
           </Reveal>
@@ -99,10 +82,11 @@ export async function AiServices() {
           <div className="flex flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-border bg-surface/60 p-8 sm:flex-row sm:gap-6">
             <Bot className="size-6 text-secondary" />
             <p className="text-sm text-muted sm:text-base">
-              {dict.aiServices.helpTitle} {dict.aiServices.helpText}
+              Not sure which solution fits? Tell us about your project and we&apos;ll
+              recommend the right approach.
             </p>
             <Button href={whatsappLink()} external variant="secondary">
-              {dict.aiServices.helpButton}
+              Get a free consultation
             </Button>
           </div>
         </Reveal>

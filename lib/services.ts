@@ -42,7 +42,6 @@ export interface Service {
   deliverables: string[];
   process: ServiceProcess[];
   stack: string[];
-  image: string;
 }
 
 export interface SolutionArea {
@@ -52,7 +51,6 @@ export interface SolutionArea {
   tagline: string;
   description: string;
   icon: LucideIcon;
-  image: string;
   services: Service[];
 }
 
@@ -64,7 +62,6 @@ export const nfcSolutions: Service[] = [
     description:
       "Premium NFC business cards that share your digital profile, contact details, portfolio and links the moment they're tapped against any phone. No apps, no typing — instant connection.",
     icon: Contact,
-    image: "/media/nfc/nfc-business-card.jpg",
     features: [
       "Tap-to-share digital profile and vCard",
       "Premium finishes: matte, gloss, metal and eco materials",
@@ -114,7 +111,6 @@ export const nfcSolutions: Service[] = [
     description:
       "A one-tap digital profile that hosts your contact details, portfolio, social links, reviews and more. Update content anytime without touching the physical product.",
     icon: Fingerprint,
-    image: "/media/nfc/nfc-profile.jpg",
     features: [
       "Custom profile page with your branding",
       "Live contact, social and link buttons",
@@ -161,7 +157,6 @@ export const nfcSolutions: Service[] = [
     description:
       "Replace paper menus with NFC table tags that open your live digital menu. Guests tap and browse instantly — no app, no QR scan failure, and menu changes are instant.",
     icon: UtensilsCrossed,
-    image: "/media/nfc/nfc-menu.jpg",
     features: [
       "Tap-to-open digital menu on every table",
       "Live prices and dishes — update instantly",
@@ -207,7 +202,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC review cards and table tags that open your Google review page on a single tap. Capture reviews at the moment of satisfaction, when it matters most.",
     icon: Star,
-    image: "/media/products/nfc-google-review.svg",
     features: [
       "One-tap link straight to your Google review page",
       "Available as cards, table tags or counter stickers",
@@ -253,7 +247,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC-powered flyers, brochures, posters, stickers and giveaways that open videos, offers, social pages or your website on a tap. Turn any printed material into an interactive experience.",
     icon: Megaphone,
-    image: "/media/nfc/nfc-marketing.jpg",
     features: [
       "NFC flyers, posters, brochures and stickers",
       "Tap-to-video, tap-to-offer and tap-to-social",
@@ -299,7 +292,6 @@ export const nfcSolutions: Service[] = [
     description:
       "Stick-on NFC tags and labels that turn any surface smart — product packaging, shelves, desks, lockers, doors and displays. Tap to open a link, connect to Wi-Fi, or trigger an action.",
     icon: Tag,
-    image: "/media/nfc/nfc-tags.jpg",
     features: [
       "Stick-on tags for any surface",
       "Tap-to-link, tap-to-Wi-Fi, tap-to-action",
@@ -345,7 +337,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC technology embedded in anything: packaging, name badges, loyalty cards, keychains, event passes, product labels and more. If it can be touched, it can be made interactive.",
     icon: Package,
-    image: "/media/nfc/nfc-custom.jpg",
     features: [
       "NFC in packaging, badges, labels and merchandise",
       "Event check-in and contactless experiences",
@@ -391,7 +382,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC event passes, wristbands and badges that replace paper tickets. Guests tap to check in, access the venue, join sessions and share their experience instantly.",
     icon: CalendarDays,
-    image: "/media/products/nfc-event.svg",
     features: [
       "NFC wristbands, badges and event passes",
       "Tap-to-check-in at gates and sessions",
@@ -437,7 +427,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC room keys, in-room guides and guest services for hotels. Guests unlock doors, order services and check out with a tap — while staff get faster, quieter operations.",
     icon: Building2,
-    image: "/media/products/nfc-hotel.svg",
     features: [
       "NFC key cards for keyless room entry",
       "In-room tap guides for amenities and services",
@@ -483,7 +472,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC tags and signage that make retail interactive. Tap a product to see details, prices, reviews and offers — and turn every shelf into a digital storefront.",
     icon: Store,
-    image: "/media/products/nfc-retail.svg",
     features: [
       "Smart price tags and shelf labels",
       "Tap-for-product details and reviews",
@@ -529,7 +517,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC cards and tags for clinics, hospitals and care facilities — contactless check-in, secure access, appointment updates and clear patient information with a single tap.",
     icon: HeartPulse,
-    image: "/media/products/nfc-healthcare.svg",
     features: [
       "Contactless patient check-in",
       "Staff and department access cards",
@@ -575,7 +562,6 @@ export const nfcSolutions: Service[] = [
     description:
       "NFC student cards for attendance, library access, lockers, canteens and campus payments. One tap connects every part of the student experience.",
     icon: GraduationCap,
-    image: "/media/products/nfc-education.svg",
     features: [
       "NFC student ID cards",
       "Attendance and class check-in",
@@ -636,7 +622,6 @@ export const aiSolutions: Service[] = [
     description:
       "Custom AI chatbots trained on your business knowledge. Deployed on your website or WhatsApp, they answer instantly, qualify leads and hand complex conversations to your team.",
     icon: Bot,
-    image: "/media/ai/ai-chatbot.png",
     features: [
       "Chatbots trained on your FAQ, catalog and brand voice",
       "WhatsApp and website deployment",
@@ -682,7 +667,6 @@ export const aiSolutions: Service[] = [
     description:
       "AI-powered support automation that answers routine questions, resolves tickets and escalates complex cases to your team — reducing response time and support workload.",
     icon: Headset,
-    image: "/media/ai/ai-support.jpg",
     features: [
       "Automated replies for common questions",
       "Ticket triage and smart routing",
@@ -728,7 +712,6 @@ export const aiSolutions: Service[] = [
     description:
       "Custom AI assistants for teams and businesses — scheduling, drafting, research, internal knowledge and more. Assistants trained on your data that handle daily tasks.",
     icon: MessageSquareText,
-    image: "/media/ai/ai-assistant.jpg",
     features: [
       "Internal knowledge assistants",
       "Scheduling and meeting assistance",
@@ -774,7 +757,6 @@ export const aiSolutions: Service[] = [
     description:
       "Custom AI tools for real business jobs — content generation, document processing, data extraction, forecasting and more. AI engineered around your processes, not generic apps.",
     icon: Gauge,
-    image: "/media/ai/ai-tools.jpg",
     features: [
       "AI document and data processing",
       "Content and report generation",
@@ -820,7 +802,6 @@ export const aiSolutions: Service[] = [
     description:
       "We integrate AI into the products you already use — apps, CRMs, websites and internal systems. Bring intelligence to existing workflows without rebuilding everything.",
     icon: Puzzle,
-    image: "/media/ai/ai-integration.jpg",
     features: [
       "AI features in existing apps and systems",
       "LLM and assistant integration",
@@ -869,7 +850,6 @@ export const softwareServices: Service[] = [
     description:
       "Corporate websites, startup sites, e-commerce, portfolios, booking systems and landing pages — built on modern frameworks with SEO and performance built in.",
     icon: Globe,
-    image: "/media/websites/website-build.jpg",
     features: [
       "Corporate and startup websites",
       "E-commerce and booking systems",
@@ -915,7 +895,6 @@ export const softwareServices: Service[] = [
     description:
       "Android apps, iOS apps, cross-platform apps, business applications and customer apps — designed and developed for both stores, from MVP to full product.",
     icon: Smartphone,
-    image: "/media/apps/mobile-app.png",
     features: [
       "Android, iOS and cross-platform apps",
       "Business and customer applications",
@@ -961,7 +940,6 @@ export const softwareServices: Service[] = [
     description:
       "When off-the-shelf software doesn't fit, we build what does. CRMs, ERPs, dashboards and internal tools that connect your systems and remove manual work.",
     icon: Boxes,
-    image: "/media/websites/software-build.jpg",
     features: [
       "Custom CRM, ERP and workflow systems",
       "Internal tools and admin dashboards",
@@ -1007,7 +985,6 @@ export const softwareServices: Service[] = [
     description:
       "Workflow automation, integrations and AI-powered tools that eliminate repetitive tasks — from lead follow-up and invoicing to reporting and scheduling.",
     icon: Workflow,
-    image: "/media/websites/automation-build.jpg",
     features: [
       "Workflow and process automation",
       "System-to-system integrations",
@@ -1053,7 +1030,6 @@ export const softwareServices: Service[] = [
     description:
       "Custom dashboards that pull your data into one clear view. Sales, performance, engagement, finance — designed around how you actually run decisions.",
     icon: Gauge,
-    image: "/media/products/dashboard.svg",
     features: [
       "Real-time business and sales metrics",
       "Charts, KPIs and custom reports",
@@ -1099,7 +1075,6 @@ export const softwareServices: Service[] = [
     description:
       "Clean, secure admin panels for managing users, orders, content, settings and operations — the control center your team actually enjoys using.",
     icon: MonitorSmartphone,
-    image: "/media/products/admin-panel.svg",
     features: [
       "User, order and content management",
       "Secure role-based access control",
@@ -1145,7 +1120,6 @@ export const softwareServices: Service[] = [
     description:
       "Custom CRM systems that track leads, deals and customer relationships — with pipelines, automation and reporting built around your sales process.",
     icon: Boxes,
-    image: "/media/products/crm.svg",
     features: [
       "Leads, contacts and deal pipelines",
       "Automated follow-ups and reminders",
@@ -1195,7 +1169,6 @@ export const solutionAreas: SolutionArea[] = [
     description:
       "NFC-powered products that let people tap a card, menu or tag with their phone and instantly open a profile, menu, review page or custom experience. Built for restaurants, hotels, companies, real estate, events, retail, education, healthcare and more.",
     icon: Nfc,
-    image: "/media/nfc/nfc-restaurant.jpg",
     services: nfcSolutions,
   },
   {
@@ -1206,7 +1179,6 @@ export const solutionAreas: SolutionArea[] = [
     description:
       "Custom AI chatbots, support automation, assistants, business tools and AI integration — engineered around your business and deployed where they add the most value.",
     icon: Bot,
-    image: "/media/ai/ai-chatbot.png",
     services: aiSolutions,
   },
   {
@@ -1217,7 +1189,6 @@ export const solutionAreas: SolutionArea[] = [
     description:
       "Website development, mobile applications, custom software and business automation — modern, reliable software that moves your business forward.",
     icon: MonitorSmartphone,
-    image: "/media/websites/website-build.jpg",
     services: softwareServices,
   },
 ];
