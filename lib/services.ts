@@ -636,7 +636,7 @@ export const aiSolutions: Service[] = [
     description:
       "Custom AI chatbots trained on your business knowledge. Deployed on your website or WhatsApp, they answer instantly, qualify leads and hand complex conversations to your team.",
     icon: Bot,
-    image: "/media/ai/ai-chatbot.jpg",
+    image: "/media/ai/ai-chatbot.png",
     features: [
       "Chatbots trained on your FAQ, catalog and brand voice",
       "WhatsApp and website deployment",
@@ -915,7 +915,7 @@ export const softwareServices: Service[] = [
     description:
       "Android apps, iOS apps, cross-platform apps, business applications and customer apps — designed and developed for both stores, from MVP to full product.",
     icon: Smartphone,
-    image: "/media/apps/mobile-app.jpg",
+    image: "/media/apps/mobile-app.png",
     features: [
       "Android, iOS and cross-platform apps",
       "Business and customer applications",
@@ -1206,7 +1206,7 @@ export const solutionAreas: SolutionArea[] = [
     description:
       "Custom AI chatbots, support automation, assistants, business tools and AI integration — engineered around your business and deployed where they add the most value.",
     icon: Bot,
-    image: "/media/ai/ai-chatbot.jpg",
+    image: "/media/ai/ai-chatbot.png",
     services: aiSolutions,
   },
   {

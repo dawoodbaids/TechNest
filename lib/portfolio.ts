@@ -32,7 +32,7 @@ export const projects: Project[] = [
     summary:
       "A working demonstration of an AI assistant trained on business content, answering questions and qualifying leads autonomously.",
     icon: Bot,
-    image: "/media/ai/ai-chatbot.jpg",
+    image: "/media/ai/ai-chatbot.png",
     tags: ["AI", "Chatbot", "RAG"],
   },
   {
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     summary:
       "A mobile app interface concept demonstrating navigation, onboarding and core screens for a customer-facing product.",
     icon: Smartphone,
-    image: "/media/apps/mobile-app.jpg",
+    image: "/media/apps/mobile-app.png",
     tags: ["Mobile", "UI/UX", "Concept"],
   },
   {

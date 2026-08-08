@@ -26,14 +26,14 @@ export const media = {
     custom: "/media/nfc/nfc-custom.jpg",
   },
   ai: {
-    chatbot: "/media/ai/ai-chatbot.jpg",
+    chatbot: "/media/ai/ai-chatbot.png",
     support: "/media/ai/ai-support.jpg",
     assistant: "/media/ai/ai-assistant.jpg",
     tools: "/media/ai/ai-tools.jpg",
     integration: "/media/ai/ai-integration.jpg",
   },
   apps: {
-    mobileApp: "/media/apps/mobile-app.jpg",
+    mobileApp: "/media/apps/mobile-app.png",
     business: "/media/apps/app-business.jpg",
     customer: "/media/apps/app-customer.jpg",
     interface: "/media/apps/app-interface.jpg",
