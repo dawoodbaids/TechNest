@@ -3,9 +3,11 @@
 import { useState, type FormEvent } from "react";
 import { MessageCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { contact, whatsappLink } from "@/lib/contact";
+import { whatsappLink } from "@/lib/contact";
+import { useDictionary } from "@/lib/i18n/provider";
 
 export function WhatsAppForm() {
+  const { whatsappForm } = useDictionary();
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
@@ -29,15 +31,15 @@ export function WhatsAppForm() {
         </span>
         <div>
           <h2 className="font-display text-lg font-semibold text-foreground">
-            Send us a message on WhatsApp
+            {whatsappForm.title}
           </h2>
-          <p className="text-xs text-muted">{contact.responseTime}</p>
+          <p className="text-xs text-muted">{whatsappForm.responseTime}</p>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-name" className="text-sm font-medium text-foreground">
-          Your name
+          {whatsappForm.nameLabel}
         </label>
         <input
           id="contact-name"
@@ -45,14 +47,14 @@ export function WhatsAppForm() {
           required
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="Jane Doe"
+          placeholder={whatsappForm.namePlaceholder}
           className={inputClasses}
         />
       </div>
 
       <div className="flex flex-col gap-2">
         <label htmlFor="contact-message" className="text-sm font-medium text-foreground">
-          How can we help?
+          {whatsappForm.messageLabel}
         </label>
         <textarea
           id="contact-message"
@@ -60,14 +62,14 @@ export function WhatsAppForm() {
           rows={5}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder="Tell us about your project, service interest, or timeline..."
+          placeholder={whatsappForm.messagePlaceholder}
           className={`${inputClasses} resize-none`}
         />
       </div>
 
       <Button type="submit" variant="primary" size="lg" className="mt-2">
         <Send className="size-4" />
-        Open WhatsApp
+        {whatsappForm.submit}
       </Button>
     </form>
   );

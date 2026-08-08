@@ -3,46 +3,24 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-const cards = [
-  {
-    icon: Lightbulb,
-    title: "Innovative Digital Solutions",
-    description:
-      "Practical technology built around real business needs — not trends for their own sake.",
-  },
-  {
-    icon: Nfc,
-    title: "Smart NFC Experiences",
-    description:
-      "Tap-to-connect products that bridge the physical and digital worlds in a single tap.",
-  },
-  {
-    icon: Bot,
-    title: "AI-Powered Services",
-    description:
-      "Assistants and automation that answer, qualify and work while your team focuses on what matters.",
-  },
-  {
-    icon: AppWindow,
-    title: "Custom Software Development",
-    description:
-      "Websites, apps and systems designed, built and shipped around how your business actually works.",
-  },
-];
+const cardIcons = [Lightbulb, Nfc, Bot, AppWindow];
 
-export function BuildingFuture() {
+export async function BuildingFuture() {
+  const dict = await getServerDictionary();
+
   return (
     <Section className="bg-surface/40">
       <Container>
         <SectionHeading
-          eyebrow="Our vision"
-          title="Building the future with technology"
-          description="TechNest is a newly launched startup with a simple belief: every business deserves modern, honest and well-crafted technology."
+          eyebrow={dict.buildingFuture.eyebrow}
+          title={dict.buildingFuture.title}
+          description={dict.buildingFuture.description}
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {cards.map((card, index) => {
-            const Icon = card.icon;
+          {dict.buildingFuture.cards.map((card, index) => {
+            const Icon = cardIcons[index];
             return (
               <Reveal key={card.title} delay={(index % 4) * 0.1}>
                 <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-surface p-7">

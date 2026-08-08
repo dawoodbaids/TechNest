@@ -7,24 +7,27 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { PhoneMockup, PhoneScreen } from "@/components/visuals/PhoneMockup";
 import { getSolutionArea } from "@/lib/services";
+import { getServerDictionary } from "@/lib/i18n/server";
 import { media } from "@/lib/media";
 
 const area = getSolutionArea("nfc-solutions")!;
 
-const images = [
-  { src: media.nfc.businessCard, alt: "NFC business card", rotate: -3 },
-  { src: media.nfc.menu, alt: "NFC smart menu", rotate: 2.5 },
-  { src: media.nfc.restaurant, alt: "NFC restaurant solution", rotate: -1 },
-];
+export async function NfcShowcase() {
+  const dict = await getServerDictionary();
 
-export function NfcShowcase() {
+  const images = [
+    { src: media.nfc.businessCard, alt: dict.nfcShowcase.images[0].alt, rotate: dict.nfcShowcase.images[0].rotate },
+    { src: media.nfc.menu, alt: dict.nfcShowcase.images[1].alt, rotate: dict.nfcShowcase.images[1].rotate },
+    { src: media.nfc.restaurant, alt: dict.nfcShowcase.images[2].alt, rotate: dict.nfcShowcase.images[2].rotate },
+  ];
+
   return (
     <Section className="bg-surface/40">
       <Container>
         <SectionHeading
-          eyebrow="NFC Products Showcase"
-          title="Tap into the physical world"
-          description="Premium, contactless NFC products that open a digital experience on any phone — no app required."
+          eyebrow={dict.nfcShowcase.eyebrow}
+          title={dict.nfcShowcase.title}
+          description={dict.nfcShowcase.description}
         />
 
         <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -53,30 +56,13 @@ export function NfcShowcase() {
               ))}
             </div>
 
-            <PhoneMockup className="absolute -right-6 -bottom-14 hidden w-44 sm:block">
-              <PhoneScreen>
-                <div className="flex flex-1 flex-col gap-2 pt-4">
-                  <div className="grid size-12 place-items-center rounded-xl bg-gradient-to-br from-primary to-[#b565d8] font-bold text-white">
-                    TN
-                  </div>
-                  <p className="text-[10px] font-semibold text-white">TechNest</p>
-                  <p className="text-[8px] text-white/40">Profile opened</p>
-                  <div className="mt-2 flex flex-col gap-1.5">
-                    <span className="rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] py-1.5 text-center text-[8px] font-semibold text-white">
-                      Save contact
-                    </span>
-                    <span className="rounded-full border border-white/15 py-1.5 text-center text-[8px] text-white/60">
-                      Open website
-                    </span>
-                  </div>
-                </div>
-              </PhoneScreen>
-            </PhoneMockup>
+           
           </Reveal>
 
           <div className="grid gap-5 sm:grid-cols-2">
             {area.services.map((service, index) => {
               const Icon = service.icon;
+              const serviceText = dict.services[service.slug];
               return (
                 <Reveal key={service.slug} delay={(index % 2) * 0.1}>
                   <Link
@@ -92,13 +78,13 @@ export function NfcShowcase() {
                       </span>
                     </div>
                     <h3 className="font-display text-lg font-semibold text-foreground">
-                      {service.name}
+                      {serviceText.name}
                     </h3>
                     <p className="text-sm leading-relaxed text-muted">
-                      {service.tagline}
+                      {serviceText.tagline}
                     </p>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-1 text-sm font-semibold text-primary">
-                      Learn more
+                      {dict.nfcShowcase.learnMore}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </Link>

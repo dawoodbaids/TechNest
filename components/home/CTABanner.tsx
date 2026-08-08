@@ -6,9 +6,12 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { FloatingOrbs } from "@/components/ui/FloatingOrbs";
 import { whatsappLink } from "@/lib/contact";
+import { getServerDictionary } from "@/lib/i18n/server";
 import { media } from "@/lib/media";
 
-export function CTABanner() {
+export async function CTABanner() {
+  const dict = await getServerDictionary();
+
   return (
     <Section className="pb-16 sm:pb-24">
       <Container>
@@ -31,27 +34,26 @@ export function CTABanner() {
             <div className="relative flex flex-col items-center gap-6 p-10 text-center sm:p-16">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-white/80 uppercase">
                 <Sparkles className="size-3.5 text-[#d9a3ec]" />
-                Let&apos;s start building
+                {dict.cta.eyebrow}
               </span>
               <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
-                Have a project in mind?{" "}
-                <span className="text-gradient-brand">Let&apos;s build it together.</span>
+                {dict.cta.titleStart}{" "}
+                <span className="text-gradient-brand">{dict.cta.titleHighlight}</span>
               </h2>
               <p className="max-w-xl text-base text-white/70">
-                Tell us your idea on WhatsApp and get a free consultation and
-                quote — no obligation, just honest advice.
+                {dict.cta.description}
               </p>
               <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
                 <Button href={whatsappLink()} external variant="gradient" size="lg">
                   <MessageCircle className="size-5" />
-                  Start on WhatsApp
+                  {dict.cta.primaryCta}
                 </Button>
                 <Button
                   href="/contact"
                   size="lg"
                   className="border-white/20 bg-white/10 text-white hover:border-white/40 hover:text-white"
                 >
-                  Contact us
+                  {dict.cta.secondaryCta}
                 </Button>
               </div>
             </div>

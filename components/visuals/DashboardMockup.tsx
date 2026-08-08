@@ -1,4 +1,7 @@
+"use client";
+
 import { Activity, BarChart3, LayoutDashboard, Settings, Users } from "lucide-react";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 interface DashboardMockupProps {
@@ -8,6 +11,17 @@ interface DashboardMockupProps {
 const bars = [40, 65, 50, 80, 60, 90, 70];
 
 export function DashboardMockup({ className }: DashboardMockupProps) {
+  const dict = useDictionary();
+  const { dashboardMockup } = dict.visuals;
+
+  const navItems = [
+    { icon: LayoutDashboard, label: dashboardMockup.nav[0], active: true },
+    { icon: Activity, label: dashboardMockup.nav[1] },
+    { icon: Users, label: dashboardMockup.nav[2] },
+    { icon: BarChart3, label: dashboardMockup.nav[3] },
+    { icon: Settings, label: dashboardMockup.nav[4] },
+  ];
+
   return (
     <div
       className={cn(
@@ -20,19 +34,13 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
         <span className="size-2.5 rounded-full bg-[#febc2e]" />
         <span className="size-2.5 rounded-full bg-[#28c840]" />
         <span className="ml-3 flex-1 truncate rounded-md bg-white/5 px-3 py-1 font-mono text-[9px] text-white/40">
-          dashboard.technest.app
+          {dashboardMockup.url}
         </span>
       </div>
 
       <div className="flex flex-1">
         <div className="hidden w-36 flex-col gap-1 border-r border-white/10 p-3 sm:flex">
-          {[
-            { icon: LayoutDashboard, label: "Overview", active: true },
-            { icon: Activity, label: "Analytics" },
-            { icon: Users, label: "Contacts" },
-            { icon: BarChart3, label: "Reports" },
-            { icon: Settings, label: "Settings" },
-          ].map((item) => {
+          {navItems.map((item) => {
             const Icon = item.icon;
             return (
               <span
@@ -51,17 +59,13 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
           })}
           <span className="mt-auto flex items-center gap-2 rounded-lg px-2.5 py-1.5 text-[10px] text-white/30">
             <span className="size-5 rounded-full bg-gradient-to-br from-primary to-[#b565d8]" />
-            TN Team
+            {dashboardMockup.team}
           </span>
         </div>
 
         <div className="flex-1 p-4">
           <div className="grid grid-cols-3 gap-2.5">
-            {[
-              { label: "Taps", value: "1,284" },
-              { label: "Contacts", value: "312" },
-              { label: "Saves", value: "96" },
-            ].map((stat) => (
+            {dashboardMockup.stats.map((stat) => (
               <div key={stat.label} className="rounded-xl border border-white/10 bg-white/5 p-2.5">
                 <p className="text-[8px] text-white/40">{stat.label}</p>
                 <p className="mt-0.5 font-mono text-sm font-semibold text-white">{stat.value}</p>
@@ -71,9 +75,9 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
 
           <div className="mt-3 rounded-xl border border-white/10 bg-white/5 p-3">
             <div className="flex items-center justify-between">
-              <p className="text-[9px] font-medium text-white/60">Weekly taps</p>
+              <p className="text-[9px] font-medium text-white/60">{dashboardMockup.weeklyTaps}</p>
               <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-[8px] font-semibold text-emerald-300">
-                +18%
+                {dashboardMockup.growth}
               </span>
             </div>
             <div className="mt-3 flex h-20 items-end gap-1.5">
@@ -84,9 +88,9 @@ export function DashboardMockup({ className }: DashboardMockupProps) {
           </div>
 
           <div className="mt-3 flex items-center justify-between rounded-xl border border-[#b565d8]/20 bg-[#b565d8]/5 px-3 py-2">
-            <span className="text-[9px] text-[#e9d5ff]">NFC campaign live</span>
+            <span className="text-[9px] text-[#e9d5ff]">{dashboardMockup.campaign}</span>
             <span className="rounded-full bg-[#b565d8]/20 px-2 py-0.5 text-[8px] font-semibold text-[#d9a3ec]">
-              Active
+              {dashboardMockup.active}
             </span>
           </div>
         </div>

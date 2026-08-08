@@ -7,6 +7,10 @@ import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { ThemeProvider } from "@/lib/theme";
 import { themeInitScript } from "@/lib/theme-init";
+import { localeInitScript } from "@/lib/i18n/init";
+import { LocaleProvider } from "@/lib/i18n/provider";
+import { getServerDictionary, getServerLocale } from "@/lib/i18n/server";
+import { dirFor, htmlLangFor } from "@/lib/i18n/locale";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -27,37 +31,33 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: site.name,
-    template: `%s | ${site.name}`,
-  },
-  description: site.description,
-  keywords: [
-    "NFC business cards",
-    "NFC smart solutions",
-    "AI chatbots",
-    "website development",
-    "mobile applications",
-    "custom software",
-    "business automation",
-    "software agency",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: site.url,
-    siteName: site.name,
-    title: site.name,
-    description: site.description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
-    description: site.description,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getServerDictionary();
+  const meta = dict.meta;
+
+  return {
+    metadataBase: new URL(site.url),
+    title: {
+      default: meta.title,
+      template: meta.titleTemplate,
+    },
+    description: meta.description,
+    keywords: meta.keywords,
+    openGraph: {
+      type: "website",
+      locale: meta.ogLocale,
+      url: site.url,
+      siteName: site.name,
+      title: meta.twitterTitle,
+      description: meta.twitterDescription,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.twitterTitle,
+      description: meta.twitterDescription,
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: [
@@ -67,24 +67,30 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const locale = await getServerLocale();
+
   return (
     <html
-      lang="en"
+      lang={htmlLangFor(locale)}
+      dir={dirFor(locale)}
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
+        <script dangerouslySetInnerHTML={{ __html: localeInitScript() }} />
       </head>
       <body className="flex min-h-full flex-col font-sans">
         <ThemeProvider>
-          <ScrollProgress />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
+          <LocaleProvider initialLocale={locale}>
+            <ScrollProgress />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>

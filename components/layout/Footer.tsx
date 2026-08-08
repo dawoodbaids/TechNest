@@ -7,9 +7,11 @@ import { SocialIcon, type Brand } from "@/components/icons/SocialIcon";
 import { Container } from "@/components/ui/Container";
 import { solutionAreas } from "@/lib/services";
 import { contact, socials, telLink, whatsappLink } from "@/lib/contact";
-import { navigation, site } from "@/lib/site";
+import { site } from "@/lib/site";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export function Footer() {
+export async function Footer() {
+  const dict = await getServerDictionary();
   const year = new Date().getFullYear();
 
   return (
@@ -31,8 +33,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Logo variant="dark" />
             <p className="max-w-xs text-sm leading-relaxed text-white/60">
-              {site.tagline}. We build the NFC products and software that help
-              businesses connect, automate and grow.
+              {dict.footer.tagline}
             </p>
             <div className="flex items-center gap-2">
               {socials.map((social) => (
@@ -52,7 +53,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 font-display text-sm font-semibold tracking-wide text-white uppercase">
-              Solutions
+              {dict.footer.solutions}
             </h3>
             <ul className="flex flex-col gap-2.5">
               {solutionAreas.map((area) => (
@@ -61,7 +62,7 @@ export function Footer() {
                     href={`/${area.slug}`}
                     className="text-sm text-white/60 transition-colors hover:text-white"
                   >
-                    {area.shortName}
+                    {dict.areas[area.slug]?.shortName ?? area.shortName}
                   </Link>
                 </li>
               ))}
@@ -70,10 +71,10 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 font-display text-sm font-semibold tracking-wide text-white uppercase">
-              Company
+              {dict.footer.company}
             </h3>
             <ul className="flex flex-col gap-2.5">
-              {navigation.slice(1).map((item) => (
+              {dict.nav.items.slice(1).map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -88,7 +89,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 font-display text-sm font-semibold tracking-wide text-white uppercase">
-              Contact
+              {dict.footer.contact}
             </h3>
             <ul className="flex flex-col gap-3">
               <li>
@@ -128,11 +129,9 @@ export function Footer() {
       <div className="relative border-t border-white/10">
         <Container className="flex flex-col items-center justify-between gap-3 py-6 sm:flex-row">
           <p className="text-xs text-white/50">
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.name}. {dict.footer.rights}
           </p>
-          <p className="text-xs text-white/50">
-            Contact us via WhatsApp, phone or social media.
-          </p>
+          <p className="text-xs text-white/50">{dict.footer.contactNote}</p>
         </Container>
       </div>
     </footer>

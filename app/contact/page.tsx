@@ -4,51 +4,57 @@ import { WhatsAppForm } from "@/components/contact/WhatsAppForm";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { contact, mailtoLink, socials, telLink, whatsappLink } from "@/lib/contact";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with TechNest via WhatsApp, phone, email or social media. We reply within two business hours.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getServerDictionary();
+  return {
+    title: dict.serviceMeta.contactTitle,
+    description: dict.serviceMeta.contactDescription,
+  };
+}
 
-const methods = [
-  {
-    icon: MessageCircle,
-    title: "WhatsApp",
-    description: "Fastest way to reach us",
-    value: contact.whatsapp,
-    href: whatsappLink(),
-    external: true,
-    accent: "text-[#25D366]",
-  },
-  {
-    icon: Phone,
-    title: "Call us",
-    description: "Speak to the team directly",
-    value: contact.phone,
-    href: telLink(),
-    external: false,
-    accent: "text-primary",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    description: "For detailed briefs and documents",
-    value: contact.email,
-    href: mailtoLink(),
-    external: false,
-    accent: "text-secondary",
-  },
-];
+export default async function ContactPage() {
+  const dict = await getServerDictionary();
+  const { contactPage } = dict;
 
-export default function ContactPage() {
+  const methods = [
+    {
+      icon: MessageCircle,
+      title: contactPage.whatsappTitle,
+      description: contactPage.whatsappDesc,
+      value: contact.whatsapp,
+      href: whatsappLink(),
+      external: true,
+      accent: "text-[#25D366]",
+    },
+    {
+      icon: Phone,
+      title: contactPage.callTitle,
+      description: contactPage.callDesc,
+      value: contact.phone,
+      href: telLink(),
+      external: false,
+      accent: "text-primary",
+    },
+    {
+      icon: Mail,
+      title: contactPage.emailTitle,
+      description: contactPage.emailDesc,
+      value: contact.email,
+      href: mailtoLink(),
+      external: false,
+      accent: "text-secondary",
+    },
+  ];
+
   return (
     <>
       <PageHeader
-        eyebrow="Contact us"
-        title="Let's start a"
-        titleHighlight="conversation"
-        description="No forms in a void — reach us directly on WhatsApp, phone or email. We usually reply within two business hours."
+        eyebrow={contactPage.eyebrow}
+        title={contactPage.title}
+        titleHighlight={contactPage.titleHighlight}
+        description={contactPage.description}
       />
 
       <section className="pb-16 sm:pb-24">
@@ -86,14 +92,14 @@ export default function ContactPage() {
               <div className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-6">
                 <Clock className="mt-0.5 size-5 shrink-0 text-primary" />
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground">Business hours</h3>
+                  <h3 className="text-sm font-semibold text-foreground">{contactPage.hoursTitle}</h3>
                   <p className="mt-1 text-sm text-muted">{contact.hours}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-2xl border border-border bg-surface p-6">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-primary" />
                 <div>
-                  <h3 className="text-sm font-semibold text-foreground">Location</h3>
+                  <h3 className="text-sm font-semibold text-foreground">{contactPage.locationTitle}</h3>
                   <p className="mt-1 text-sm text-muted">{contact.address}</p>
                 </div>
               </div>
@@ -101,7 +107,7 @@ export default function ContactPage() {
 
             <div className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6">
               <h3 className="font-display text-lg font-semibold text-foreground">
-                Follow us on social media
+                {contactPage.socialTitle}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {socials.map((social) => (

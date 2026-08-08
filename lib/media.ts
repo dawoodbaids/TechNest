@@ -10,7 +10,7 @@ export const media = {
     background: "/media/hero/hero-team.jpg",
     video: "/media/hero/hero-tech.mp4",
     poster: "/media/hero/tech-abstract.jpg",
-    about: "/media/hero/about-office.jpg",
+    about: "/media/hero/about-office.png",
     circuit: "/media/hero/hero-circuit.jpg",
     ai: "/media/hero/hero-ai.jpg",
     websites: "/media/hero/hero-websites.jpg",

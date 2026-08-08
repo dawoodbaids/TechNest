@@ -10,14 +10,17 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { getAllServices, getSolutionArea, nfcUseCases } from "@/lib/services";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 interface AreaPageProps {
   areaSlug: string;
 }
 
-export function AreaPage({ areaSlug }: AreaPageProps) {
+export async function AreaPage({ areaSlug }: AreaPageProps) {
   const area = getSolutionArea(areaSlug);
   if (!area) return null;
+  const dict = await getServerDictionary();
+  const areaContent = dict.areas[areaSlug];
 
   const related = getAllServices()
     .filter((service) => service.areaSlug !== areaSlug)
@@ -27,10 +30,10 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
   return (
     <>
       <PageHeader
-        eyebrow={area.shortName}
-        title={area.name}
-        titleHighlight="done right"
-        description={area.description}
+        eyebrow={areaContent.shortName}
+        title={areaContent.name}
+        titleHighlight={dict.areaPage.heroTitleHighlight}
+        description={areaContent.description}
       />
 
       <div className="pb-16 sm:pb-20">
@@ -40,7 +43,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
               <Image
                 src={area.image}
-                alt={area.name}
+                alt={areaContent.name}
                 width={1920}
                 height={720}
                 className="h-64 w-full object-cover sm:h-80 lg:h-[420px]"
@@ -54,16 +57,16 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                   </span>
                   <div>
                     <p className="text-xs font-semibold tracking-wide text-white/70 uppercase">
-                      TechNest
+                      {dict.areaPage.heroEyebrowPrefix}
                     </p>
                     <p className="font-display text-2xl font-semibold text-white sm:text-3xl">
-                      {area.tagline}
+                      {areaContent.tagline}
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <Button href="/contact" variant="gradient">
-                    Start a project
+                    {dict.areaPage.heroCta}
                     <ArrowRight className="size-4" />
                   </Button>
                   <Button
@@ -71,7 +74,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                     variant="ghost"
                     className="border border-white/20 bg-surface/10 text-white backdrop-blur hover:text-white"
                   >
-                    Browse services
+                    {dict.areaPage.heroSecondary}
                   </Button>
                 </div>
               </div>
@@ -90,13 +93,13 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
         <Section className="bg-surface/40">
           <Container>
             <SectionHeading
-              eyebrow="Built for every industry"
-              title="NFC use cases"
-              description="NFC technology adapts to any business — pick your industry to see how a tap changes the experience."
+              eyebrow={dict.areaPage.useCasesEyebrow}
+              title={dict.areaPage.useCasesTitle}
+              description={dict.areaPage.useCasesDescription}
             />
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {nfcUseCases.map((useCase, index) => {
-                const CaseIcon = useCase.icon;
+              {dict.useCases.map((useCase, index) => {
+                const CaseIcon = nfcUseCases[index].icon;
                 return (
                   <Reveal key={useCase.label} delay={(index % 3) * 0.08}>
                     <div className="group flex h-full items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10">
@@ -108,9 +111,7 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                           <p className="font-display text-base font-semibold text-foreground">
                             {useCase.label}
                           </p>
-                          <p className="text-xs text-muted">
-                            Tap-to-connect experiences
-                          </p>
+                          <p className="text-xs text-muted">{useCase.sub}</p>
                         </div>
                         <ArrowUpRight className="size-4 shrink-0 text-muted transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
                       </div>
@@ -127,9 +128,9 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
         <Container>
           <div>
             <SectionHeading
-              eyebrow={`${area.services.length} solutions`}
-              title="What we offer"
-              description="Every solution is custom-built around your business — scoped, built and shipped by one dedicated team."
+              eyebrow={`${area.services.length} ${dict.areaPage.offerEyebrow}`}
+              title={dict.areaPage.offerTitle}
+              description={dict.areaPage.offerDescription}
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {area.services.map((service, index) => (
@@ -151,17 +152,15 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
               </span>
               <div>
                 <h3 className="font-display text-lg font-semibold text-foreground">
-                  Not sure which service fits?
+                  {dict.areaPage.helpTitle}
                 </h3>
-                <p className="text-sm text-muted">
-                  Tell us what you need and we&apos;ll recommend the right approach.
-                </p>
+                <p className="text-sm text-muted">{dict.areaPage.helpText}</p>
               </div>
             </div>
             <div className="flex shrink-0 flex-wrap justify-center gap-3">
-              <Button href="/contact">Get in touch</Button>
+              <Button href="/contact">{dict.areaPage.helpCta}</Button>
               <Button href="/portfolio" variant="secondary">
-                See our work
+                {dict.areaPage.helpSecondary}
               </Button>
             </div>
           </div>
@@ -172,9 +171,9 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
         <Section>
           <Container>
             <SectionHeading
-              eyebrow="Explore more"
-              title="Other solutions"
-              description="We build across NFC, AI and software — take a look at the rest."
+              eyebrow={dict.areaPage.relatedEyebrow}
+              title={dict.areaPage.relatedTitle}
+              description={dict.areaPage.relatedDescription}
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((service, index) => (
@@ -188,11 +187,9 @@ export function AreaPage({ areaSlug }: AreaPageProps) {
                   className="group flex h-full min-h-48 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-surface/60 p-8 text-center transition-colors hover:border-primary/50"
                 >
                   <span className="font-display text-lg font-semibold text-foreground">
-                    See all projects
+                    {dict.areaPage.seeAll}
                   </span>
-                  <span className="text-sm text-muted">
-                    Concepts and demos we&apos;ve shipped.
-                  </span>
+                  <span className="text-sm text-muted">{dict.areaPage.seeAllText}</span>
                   <ArrowRight className="size-5 text-primary transition-transform group-hover:translate-x-1" />
                 </a>
               </Reveal>

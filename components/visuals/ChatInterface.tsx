@@ -1,4 +1,7 @@
+"use client";
+
 import { Bot, Sparkles, User } from "lucide-react";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 interface ChatMessage {
@@ -12,20 +15,12 @@ interface ChatInterfaceProps {
   className?: string;
 }
 
-const defaultMessages: ChatMessage[] = [
-  { from: "user", text: "What services do you offer?" },
-  {
-    from: "ai",
-    text: "We build NFC products, AI assistants, websites, apps and automation — all custom-built for your business.",
-  },
-  { from: "user", text: "Can you automate our customer support?" },
-  {
-    from: "ai",
-    text: "Yes — our AI assistant answers FAQs, qualifies leads and routes complex cases to your team 24/7.",
-  },
-];
+export function ChatInterface({ title, messages, className }: ChatInterfaceProps) {
+  const dict = useDictionary();
+  const { chatInterface } = dict.visuals;
+  const resolvedTitle = title ?? chatInterface.title;
+  const resolvedMessages = messages ?? chatInterface.messages;
 
-export function ChatInterface({ title = "TechNest Assistant", messages = defaultMessages, className }: ChatInterfaceProps) {
   return (
     <div
       className={cn(
@@ -39,16 +34,16 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
           <span className="absolute right-0 bottom-0 size-2.5 rounded-full bg-emerald-400 ring-2 ring-[#141014]" />
         </span>
         <div className="flex-1">
-          <p className="text-sm font-semibold text-white">{title}</p>
-          <p className="text-[10px] text-white/40">Online · AI powered</p>
+          <p className="text-sm font-semibold text-white">{resolvedTitle}</p>
+          <p className="text-[10px] text-white/40">{chatInterface.online}</p>
         </div>
         <span className="rounded-full border border-[#b565d8]/30 bg-[#b565d8]/10 px-2 py-0.5 text-[9px] font-semibold text-[#d9a3ec]">
-          AI
+          {chatInterface.aiBadge}
         </span>
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
-        {messages.map((message, index) => (
+        {resolvedMessages.map((message, index) => (
           <div
             key={index}
             className={cn(
@@ -93,7 +88,7 @@ export function ChatInterface({ title = "TechNest Assistant", messages = default
 
       <div className="flex items-center gap-2 border-t border-white/10 px-4 py-3">
         <span className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] text-white/35">
-          Ask about NFC, AI or software...
+          {chatInterface.placeholder}
         </span>
         <span className="grid size-8 place-items-center rounded-full bg-gradient-to-br from-primary to-[#8e3fb5] text-white">
           <Sparkles className="size-3.5" />

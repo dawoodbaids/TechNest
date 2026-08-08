@@ -8,15 +8,8 @@ import { HeroVisual } from "@/components/visuals/HeroVisual";
 import { HeroWave } from "@/components/visuals/HeroWave";
 import { ThemedImage } from "@/components/ui/ThemedImage";
 import { whatsappLink } from "@/lib/contact";
+import { useDictionary } from "@/lib/i18n/provider";
 import { media } from "@/lib/media";
-import { site } from "@/lib/site";
-
-const pillars = [
-  "NFC Smart Products",
-  "AI Solutions",
-  "Websites & Apps",
-  "Business Automation",
-];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -28,6 +21,8 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const dict = useDictionary();
+
   return (
     <section className="theme-transition relative overflow-hidden bg-background bg-silk dark:bg-silk-dark">
       <HeroWave className="pointer-events-none absolute inset-x-0 top-0 h-56 w-full [mask-image:linear-gradient(to_bottom,black,transparent)] sm:h-72" />
@@ -54,7 +49,7 @@ export function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-sm font-medium text-primary shadow-sm backdrop-blur dark:bg-surface/80"
           >
             <Sparkles className="size-4" />
-            {site.tagline}
+            {dict.hero.badge}
           </motion.div>
 
           <motion.h1
@@ -64,8 +59,8 @@ export function Hero() {
             custom={0.1}
             className="max-w-2xl font-display text-4xl font-semibold tracking-tight text-foreground sm:text-6xl lg:text-6xl xl:text-7xl"
           >
-            Connect, automate and grow with{" "}
-            <span className="text-gradient">smart technology</span>
+            {dict.hero.titleStart}{" "}
+            <span className="text-gradient">{dict.hero.titleHighlight}</span>
           </motion.h1>
 
           <motion.p
@@ -75,9 +70,7 @@ export function Hero() {
             custom={0.2}
             className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
           >
-            From NFC products people love to tap, to AI assistants, websites, apps
-            and automation — TechNest designs, builds and ships technology that
-            works for your business.
+            {dict.hero.description}
           </motion.p>
 
           <motion.div
@@ -88,12 +81,12 @@ export function Hero() {
             className="mt-10 flex flex-col items-center gap-3 sm:flex-row"
           >
             <Button href="/nfc-solutions" variant="gradient" size="lg">
-              Explore Solutions
+              {dict.hero.primaryCta}
               <ArrowRight className="size-4" />
             </Button>
             <Button href={whatsappLink()} external variant="secondary" size="lg">
               <MessageCircle className="size-4" />
-              Chat on WhatsApp
+              {dict.hero.secondaryCta}
             </Button>
           </motion.div>
 
@@ -104,7 +97,7 @@ export function Hero() {
             custom={0.4}
             className="mt-12 flex flex-wrap items-center justify-center gap-2.5 sm:justify-start"
           >
-            {pillars.map((pillar) => (
+            {dict.hero.pillars.map((pillar) => (
               <span
                 key={pillar}
                 className="rounded-full border border-border bg-white/80 px-4 py-1.5 text-sm font-medium text-muted shadow-sm backdrop-blur dark:bg-surface/80"

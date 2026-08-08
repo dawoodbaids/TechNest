@@ -3,29 +3,32 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { techStack } from "@/lib/techStack";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 const groups = [
-  { title: "Frontend & Design", key: "frontend" as const },
-  { title: "Backend & Data", key: "backend" as const },
-  { title: "AI & Automation", key: "ai" as const },
-  { title: "Infrastructure & Cloud", key: "infra" as const },
+  { key: "frontend" as const },
+  { key: "backend" as const },
+  { key: "ai" as const },
+  { key: "infra" as const },
 ];
 
-export function TechStack() {
+export async function TechStack() {
+  const dict = await getServerDictionary();
+
   return (
     <Section>
       <Container>
         <SectionHeading
-          eyebrow="Technology Stack"
-          title="Built on modern, proven technology"
-          description="The tools and platforms we use to ship reliable products — from NFC hardware to production-grade software."
+          eyebrow={dict.techStack.eyebrow}
+          title={dict.techStack.title}
+          description={dict.techStack.description}
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {groups.map((group, index) => (
-            <Reveal key={group.title} delay={(index % 4) * 0.1}>
+            <Reveal key={group.key} delay={(index % 4) * 0.1}>
               <div className="flex h-full flex-col gap-4 rounded-3xl border border-border bg-surface p-6">
                 <h3 className="font-display text-sm font-semibold tracking-wide text-foreground uppercase">
-                  {group.title}
+                  {dict.techStack.groups[index]}
                 </h3>
                 <ul className="flex flex-col gap-2.5">
                   {techStack[group.key].map((item) => (

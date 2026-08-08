@@ -5,17 +5,28 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { featuredProjects } from "@/lib/portfolio";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export function PortfolioPreview() {
-  const projects = featuredProjects();
+export async function PortfolioPreview() {
+  const dict = await getServerDictionary();
+  const projects = featuredProjects().map((project) => {
+    const content = dict.projects[project.slug];
+    return {
+      ...project,
+      title: content.title,
+      summary: content.summary,
+      tags: content.tags,
+      category: dict.projectCategories[project.categorySlug] ?? content.category,
+    };
+  });
 
   return (
     <Section>
       <Container>
         <SectionHeading
-          eyebrow="Concepts & demos"
-          title="A look at what we build"
-          description="Concept work and live demos of NFC products, AI assistants, apps and websites."
+          eyebrow={dict.portfolioPreview.eyebrow}
+          title={dict.portfolioPreview.title}
+          description={dict.portfolioPreview.description}
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
@@ -26,7 +37,7 @@ export function PortfolioPreview() {
         </div>
         <Reveal className="mt-12 text-center">
           <Button href="/portfolio" variant="secondary">
-            View all projects
+            {dict.portfolioPreview.viewAll}
           </Button>
         </Reveal>
       </Container>

@@ -1,4 +1,7 @@
+"use client";
+
 import { Lock, Search } from "lucide-react";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 interface BrowserMockupProps {
@@ -7,6 +10,9 @@ interface BrowserMockupProps {
 }
 
 export function BrowserMockup({ className, variant = "website" }: BrowserMockupProps) {
+  const dict = useDictionary();
+  const { browserMockup } = dict.visuals;
+
   return (
     <div
       className={cn(
@@ -37,7 +43,7 @@ export function BrowserMockup({ className, variant = "website" }: BrowserMockupP
               TECHNET
             </span>
             <div className="flex gap-2">
-              {["Home", "NFC", "AI", "Apps"].map((item) => (
+              {browserMockup.nav.map((item) => (
                 <span key={item} className="rounded-full border border-white/10 px-2.5 py-1 text-[8px] text-white/50">
                   {item}
                 </span>
@@ -48,15 +54,10 @@ export function BrowserMockup({ className, variant = "website" }: BrowserMockupP
           {variant === "menu" ? (
             <div className="flex flex-col gap-2.5">
               <p className="font-display text-sm font-semibold text-white">
-                The Local Table
+                {browserMockup.menuName}
               </p>
               <div className="grid grid-cols-2 gap-2.5">
-                {[
-                  { name: "Grilled Salmon", price: "24.00" },
-                  { name: "Beef Tagine", price: "21.50" },
-                  { name: "Caesar Salad", price: "12.00" },
-                  { name: "Cheesecake", price: "8.50" },
-                ].map((dish) => (
+                {browserMockup.dishes.map((dish) => (
                   <div key={dish.name} className="rounded-xl border border-white/10 bg-white/5 p-2.5">
                     <div className="mb-2 h-8 rounded-lg bg-gradient-to-br from-primary/30 to-[#b565d8]/30" />
                     <p className="text-[9px] font-medium text-white/85">{dish.name}</p>
@@ -65,29 +66,29 @@ export function BrowserMockup({ className, variant = "website" }: BrowserMockupP
                 ))}
               </div>
               <span className="mt-1 rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] px-4 py-1.5 text-center text-[9px] font-semibold text-white">
-                Tap to order
+                {browserMockup.tapToOrder}
               </span>
             </div>
           ) : (
             <div className="flex flex-col gap-4">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <p className="font-display text-base font-semibold leading-tight text-white">
-                  We build NFC products &amp; software
+                  {browserMockup.websiteHero}
                 </p>
                 <p className="mt-1.5 max-w-[260px] text-[9px] leading-relaxed text-white/45">
-                  Tap-to-connect cards, AI assistants, apps and automation — one team, one goal.
+                  {browserMockup.websiteText}
                 </p>
                 <div className="mt-3 flex gap-2">
                   <span className="rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] px-3 py-1 text-[8px] font-semibold text-white">
-                    Explore
+                    {browserMockup.explore}
                   </span>
                   <span className="rounded-full border border-white/15 px-3 py-1 text-[8px] text-white/60">
-                    Contact
+                    {browserMockup.contact}
                   </span>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-2.5">
-                {["NFC", "AI", "Apps"].map((tag) => (
+                {browserMockup.tags.map((tag) => (
                   <div key={tag} className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
                     <div className="mx-auto mb-1.5 size-5 rounded-md bg-gradient-to-br from-primary to-[#b565d8]/70" />
                     <p className="text-[8px] text-white/60">{tag}</p>

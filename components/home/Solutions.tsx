@@ -5,19 +5,23 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { solutionAreas } from "@/lib/services";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export function Solutions() {
+export async function Solutions() {
+  const dict = await getServerDictionary();
+
   return (
     <Section>
       <Container>
         <SectionHeading
-          eyebrow="Our Solutions"
-          title="Three solution areas, one partner"
-          description="Explore what we build — contactless NFC products, AI solutions and custom software — all delivered by a single dedicated team."
+          eyebrow={dict.solutions.eyebrow}
+          title={dict.solutions.title}
+          description={dict.solutions.description}
         />
         <div className="grid gap-6 lg:grid-cols-3">
           {solutionAreas.map((area, index) => {
             const Icon = area.icon;
+            const areaText = dict.areas[area.slug];
             return (
               <Reveal key={area.slug} delay={index * 0.1}>
                 <Link
@@ -36,10 +40,10 @@ export function Solutions() {
                     </div>
                     <div>
                       <h3 className="font-display text-2xl font-semibold text-foreground">
-                        {area.name}
+                        {areaText.name}
                       </h3>
                       <p className="mt-2 text-sm leading-relaxed text-muted">
-                        {area.tagline}
+                        {areaText.tagline}
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-2">
@@ -48,15 +52,15 @@ export function Solutions() {
                           key={service.slug}
                           className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted"
                         >
-                          {service.name}
+                          {dict.services[service.slug].name}
                         </span>
                       ))}
                       <span className="rounded-full border border-dashed border-border px-3 py-1 text-xs font-medium text-muted">
-                        +{area.services.length - 3} more
+                        +{area.services.length - 3} {dict.solutions.more}
                       </span>
                     </div>
                     <span className="mt-auto inline-flex items-center gap-1.5 pt-2 text-sm font-semibold text-primary">
-                      Explore {area.shortName.toLowerCase()}
+                      {dict.solutions.explore} {areaText.shortName.toLowerCase()}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>

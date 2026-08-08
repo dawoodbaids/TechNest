@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { Menu, MessageCircle, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { navigation } from "@/lib/site";
 import { whatsappLink } from "@/lib/contact";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 function isActive(href: string, pathname: string) {
@@ -17,11 +17,15 @@ function isActive(href: string, pathname: string) {
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const dict = useDictionary();
 
   return (
     <>
-      <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-        {navigation.map((item) => (
+      <nav
+        className="hidden items-center gap-1 lg:flex"
+        aria-label={dict.nav.aria}
+      >
+        {dict.nav.items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -48,7 +52,7 @@ export function Navbar() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        aria-label="Toggle navigation menu"
+        aria-label={dict.nav.toggleMenu}
         aria-expanded={open}
         className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:text-foreground lg:hidden"
       >
@@ -58,7 +62,7 @@ export function Navbar() {
       {open ? (
         <div className="absolute inset-x-0 top-16 border-b border-border bg-background/95 backdrop-blur-xl lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
-            {navigation.map((item) => (
+            {dict.nav.items.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -81,7 +85,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
             >
               <MessageCircle className="size-4" />
-              Let&apos;s Talk
+              {dict.nav.letsTalk}
             </Button>
           </Container>
         </div>

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { AreaPage } from "@/components/services/AreaPage";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: "NFC Smart Solutions",
-  description:
-    "NFC-powered products — business cards, menus, review cards, tags and custom solutions — that open a digital experience on any phone with a tap.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getServerDictionary();
+  return {
+    title: dict.serviceMeta.nfcTitle,
+    description: dict.serviceMeta.nfcDescription,
+  };
+}
 
 export default function NfcSolutionsPage() {
   return <AreaPage areaSlug="nfc-solutions" />;

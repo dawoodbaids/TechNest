@@ -2,13 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import type { Service } from "@/lib/services";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 interface ServiceCardProps {
   service: Service;
   areaSlug: string;
 }
 
-export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
+export async function ServiceCard({ service, areaSlug }: ServiceCardProps) {
+  const dict = await getServerDictionary();
+  const content = dict.services[service.slug];
   const Icon = service.icon;
 
   return (
@@ -19,7 +22,7 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
       <div className="relative h-52 overflow-hidden">
         <Image
           src={service.image}
-          alt={service.name}
+          alt={content.name}
           width={640}
           height={384}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -30,7 +33,7 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
           <Icon className="size-5" />
         </span>
         <span className="absolute right-4 bottom-4 inline-flex translate-y-1 items-center gap-1.5 rounded-full bg-surface/15 px-3 py-1 text-[11px] font-semibold text-white opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          View details
+          {dict.serviceCard.viewDetails}
           <ArrowRight className="size-3" />
         </span>
       </div>
@@ -38,15 +41,15 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
       <div className="flex flex-1 flex-col gap-3 p-6 sm:p-7">
         <div>
           <h3 className="font-display text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
-            {service.name}
+            {content.name}
           </h3>
           <p className="mt-1.5 text-sm leading-relaxed text-muted">
-            {service.tagline}
+            {content.tagline}
           </p>
         </div>
 
         <ul className="flex flex-col gap-2 border-t border-border/60 pt-4">
-          {service.features.slice(0, 3).map((feature) => (
+          {content.features.slice(0, 3).map((feature) => (
             <li
               key={feature}
               className="flex items-start gap-2.5 text-sm text-muted"
@@ -60,7 +63,7 @@ export function ServiceCard({ service, areaSlug }: ServiceCardProps) {
         </ul>
 
         <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-primary">
-          Explore {service.name.split(" ")[0]} solution
+          {dict.serviceCard.explore}
           <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </div>

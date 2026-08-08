@@ -1,4 +1,7 @@
+"use client";
+
 import { Nfc } from "lucide-react";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 interface NfcCardProps {
@@ -8,7 +11,9 @@ interface NfcCardProps {
   className?: string;
 }
 
-export function NfcCard({ variant = "dark", name = "TechNest", title = "Smart Solutions", className }: NfcCardProps) {
+export function NfcCard({ variant = "dark", name, title, className }: NfcCardProps) {
+  const dict = useDictionary();
+  const { nfcCard } = dict.visuals;
   const dark = variant === "dark";
 
   return (
@@ -30,21 +35,21 @@ export function NfcCard({ variant = "dark", name = "TechNest", title = "Smart So
           <div className="flex items-center gap-1.5">
             <Nfc className={cn("size-4", dark ? "text-[#d9a3ec]" : "text-primary")} />
             <span className="font-mono text-[10px] font-semibold tracking-[0.2em] uppercase">
-              TechNest
+              {nfcCard.brand}
             </span>
           </div>
           <span className="font-mono text-[8px] tracking-widest text-white/40 uppercase">
-            NFC · Tap
+            {nfcCard.chip}
           </span>
         </div>
 
         <div className="flex items-end justify-between">
           <div>
             <p className={cn("font-display text-sm font-semibold sm:text-base", dark ? "text-white" : "text-foreground")}>
-              {name}
+              {name ?? nfcCard.name}
             </p>
             <p className={cn("text-[10px] sm:text-xs", dark ? "text-white/50" : "text-muted")}>
-              {title}
+              {title ?? nfcCard.title}
             </p>
           </div>
           <div className="flex flex-col items-center gap-1">
@@ -67,10 +72,10 @@ export function NfcCard({ variant = "dark", name = "TechNest", title = "Smart So
 
         <div className="flex items-center justify-between border-t border-white/10 pt-2.5">
           <span className={cn("font-mono text-[7px] tracking-widest", dark ? "text-white/35" : "text-muted")}>
-            technest.app/u/company
+            {nfcCard.url}
           </span>
           <span className={cn("rounded-full px-2 py-0.5 text-[7px] font-semibold", dark ? "bg-[#b565d8]/15 text-[#d9a3ec]" : "bg-primary/10 text-primary")}>
-            Tap to connect
+            {nfcCard.tapToConnect}
           </span>
         </div>
       </div>

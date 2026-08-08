@@ -4,22 +4,19 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Check } from "lucide-react";
+import { getServerDictionary } from "@/lib/i18n/server";
 import { media } from "@/lib/media";
 
-const appFeatures = [
-  "Smooth, native-feeling interfaces",
-  "Websites that load fast and convert",
-  "Built mobile-first, responsive on every device",
-];
+export async function DigitalShowcase() {
+  const dict = await getServerDictionary();
 
-export function DigitalShowcase() {
   return (
     <Section className="bg-surface/40">
       <Container>
         <SectionHeading
-          eyebrow="Apps & Websites"
-          title="Digital products built to perform"
-          description="Modern mobile applications and high-performance websites — designed, developed and shipped by one team."
+          eyebrow={dict.digitalShowcase.eyebrow}
+          title={dict.digitalShowcase.title}
+          description={dict.digitalShowcase.description}
         />
 
         <div className="grid items-center gap-14 lg:grid-cols-2">
@@ -28,7 +25,7 @@ export function DigitalShowcase() {
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/20 [transform:rotate(2deg)]">
               <Image
                 src={media.apps.mobileApp}
-                alt="Mobile application built by TechNest"
+                alt={dict.digitalShowcase.mobileImageAlt}
                 width={1024}
                 height={1024}
                 className="aspect-square w-full object-cover transition-transform duration-700 hover:scale-105"
@@ -36,31 +33,31 @@ export function DigitalShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/40 via-transparent to-transparent" />
               <p className="absolute bottom-4 left-5 rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold text-white backdrop-blur">
-                Mobile App
+                {dict.digitalShowcase.mobileBadge}
               </p>
             </div>
             <div className="absolute -right-4 -bottom-10 hidden w-72 sm:block">
               <Image
                 src={media.websites.build}
-                alt="Website built by TechNest"
+                alt={dict.digitalShowcase.websiteImageAlt}
                 width={1184}
                 height={864}
                 className="w-full rounded-2xl border border-border bg-surface object-cover shadow-2xl shadow-primary/20 [transform:rotate(-2deg)]"
               />
             </div>
             <span className="absolute -top-5 -left-2 rounded-full bg-gradient-to-r from-primary to-[#8e3fb5] px-4 py-1.5 text-xs font-semibold text-white shadow-lg">
-              Fast & responsive
+              {dict.digitalShowcase.responsiveBadge}
             </span>
           </Reveal>
 
           <Reveal className="lg:order-1">
             <div className="flex flex-col gap-6">
               <h3 className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
-                Every screen designed to{" "}
-                <span className="text-gradient">convert</span>
+                {dict.digitalShowcase.headingStart}{" "}
+                <span className="text-gradient">{dict.digitalShowcase.headingHighlight}</span>
               </h3>
               <ul className="flex flex-col gap-3.5">
-                {appFeatures.map((feature) => (
+                {dict.digitalShowcase.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3 text-sm font-medium text-foreground">
                     <span className="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary/15 to-[#b565d8]/15">
                       <Check className="size-3.5 text-primary" />
@@ -70,8 +67,7 @@ export function DigitalShowcase() {
                 ))}
               </ul>
               <p className="text-sm leading-relaxed text-muted">
-                From booking platforms to customer apps, we turn ideas into
-                polished digital products your customers actually enjoy using.
+                {dict.digitalShowcase.paragraph}
               </p>
             </div>
           </Reveal>
