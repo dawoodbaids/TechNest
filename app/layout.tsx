@@ -1,11 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
+
 import "./globals.css";
+
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+
 import { ThemeProvider } from "@/lib/theme";
 import { themeInitScript } from "@/lib/theme-init";
+import { LocaleProvider } from "@/lib/i18n/provider";
+import {
+  LOCALE_COOKIE,
+  resolveLocale,
+} from "@/lib/i18n/locale";
+
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -60,32 +70,51 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf9fa" },
-    { media: "(prefers-color-scheme: dark)", color: "#141014" },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#faf9fa",
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#141014",
+    },
   ],
   colorScheme: "light dark",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({
+  children,
+}: LayoutProps<"/">) {
+  const cookieStore = await cookies();
+
+  const initialLocale = resolveLocale(
+    cookieStore.get(LOCALE_COOKIE)?.value
+  );
+
   return (
     <html
-      lang="en"
+      lang={initialLocale}
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript() }} />
-      </head>
-      <body className="flex min-h-full flex-col font-sans">
+      <script
+        dangerouslySetInnerHTML={{
+          __html: themeInitScript(),
+        }}
+      />
+
+      <LocaleProvider initialLocale={initialLocale}>
         <ThemeProvider>
-          <div aria-hidden className="h-16" />
           <Header />
-          <main className="flex-1">{children}</main>
+
+          {children}
+
           <Footer />
+
           <WhatsAppButton />
         </ThemeProvider>
-      </body>
+      </LocaleProvider>
     </html>
   );
 }
