@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { media } from "@/lib/media";
 import {
   Bot,
   Boxes,
@@ -37,6 +38,7 @@ export interface Service {
   name: string;
   tagline: string;
   description: string;
+  image: string;
   icon: LucideIcon;
   features: string[];
   deliverables: string[];
@@ -50,6 +52,7 @@ export interface SolutionArea {
   shortName: string;
   tagline: string;
   description: string;
+  image: string;
   icon: LucideIcon;
   services: Service[];
 }
@@ -58,6 +61,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-business-cards",
     name: "NFC Business Cards",
+    image: media.nfc.businessCard,
     tagline: "Share your digital profile with a single tap",
     description:
       "Premium NFC business cards that share your digital profile, contact details, portfolio and links the moment they're tapped against any phone. No apps, no typing — instant connection.",
@@ -107,6 +111,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-digital-profiles",
     name: "NFC Digital Profiles",
+    image: media.nfc.profile,
     tagline: "A living digital presence behind every product",
     description:
       "A one-tap digital profile that hosts your contact details, portfolio, social links, reviews and more. Update content anytime without touching the physical product.",
@@ -153,6 +158,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-smart-menus",
     name: "NFC Smart Menus",
+    image: media.nfc.menu,
     tagline: "A contactless menu your guests just tap",
     description:
       "Replace paper menus with NFC table tags that open your live digital menu. Guests tap and browse instantly — no app, no QR scan failure, and menu changes are instant.",
@@ -198,6 +204,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-google-reviews",
     name: "NFC Google Review Solutions",
+    image: media.products.googleReview,
     tagline: "Turn happy customers into 5-star reviews",
     description:
       "NFC review cards and table tags that open your Google review page on a single tap. Capture reviews at the moment of satisfaction, when it matters most.",
@@ -243,6 +250,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-marketing-products",
     name: "NFC Marketing Products",
+    image: media.nfc.marketing,
     tagline: "Smart marketing that connects offline and online",
     description:
       "NFC-powered flyers, brochures, posters, stickers and giveaways that open videos, offers, social pages or your website on a tap. Turn any printed material into an interactive experience.",
@@ -288,6 +296,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-smart-tags",
     name: "NFC Smart Tags",
+    image: media.nfc.tags,
     tagline: "Simple NFC tags for any surface",
     description:
       "Stick-on NFC tags and labels that turn any surface smart — product packaging, shelves, desks, lockers, doors and displays. Tap to open a link, connect to Wi-Fi, or trigger an action.",
@@ -333,6 +342,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "custom-nfc-solutions",
     name: "Custom NFC Solutions",
+    image: media.nfc.custom,
     tagline: "Any product, any surface — made smart",
     description:
       "NFC technology embedded in anything: packaging, name badges, loyalty cards, keychains, event passes, product labels and more. If it can be touched, it can be made interactive.",
@@ -378,6 +388,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-event-solutions",
     name: "NFC Event Solutions",
+    image: media.products.event,
     tagline: "Frictionless check-in and unforgettable events",
     description:
       "NFC event passes, wristbands and badges that replace paper tickets. Guests tap to check in, access the venue, join sessions and share their experience instantly.",
@@ -423,6 +434,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-hotel-solutions",
     name: "NFC Hotel Solutions",
+    image: media.products.hotel,
     tagline: "Keyless rooms and smarter guest experiences",
     description:
       "NFC room keys, in-room guides and guest services for hotels. Guests unlock doors, order services and check out with a tap — while staff get faster, quieter operations.",
@@ -468,6 +480,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-retail-solutions",
     name: "NFC Retail Solutions",
+    image: media.products.retail,
     tagline: "Smart shelves, tags and store experiences",
     description:
       "NFC tags and signage that make retail interactive. Tap a product to see details, prices, reviews and offers — and turn every shelf into a digital storefront.",
@@ -513,6 +526,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-healthcare-solutions",
     name: "NFC Healthcare Solutions",
+    image: media.products.healthcare,
     tagline: "Safer check-ins and smoother patient journeys",
     description:
       "NFC cards and tags for clinics, hospitals and care facilities — contactless check-in, secure access, appointment updates and clear patient information with a single tap.",
@@ -558,6 +572,7 @@ export const nfcSolutions: Service[] = [
   {
     slug: "nfc-education-solutions",
     name: "NFC Education Solutions",
+    image: media.products.education,
     tagline: "Smarter campuses with student ID cards",
     description:
       "NFC student cards for attendance, library access, lockers, canteens and campus payments. One tap connects every part of the student experience.",
@@ -615,6 +630,7 @@ export const aiSolutions: Service[] = [
   {
     slug: "ai-chatbots",
     name: "AI Chatbots",
+    image: media.ai.chatbot,
     tagline: "Intelligent assistants that answer and convert 24/7",
     description:
       "Custom AI chatbots trained on your business knowledge. Deployed on your website or WhatsApp, they answer instantly, qualify leads and hand complex conversations to your team.",
@@ -660,6 +676,7 @@ export const aiSolutions: Service[] = [
   {
     slug: "customer-support-automation",
     name: "Customer Support Automation",
+    image: media.ai.support,
     tagline: "Resolve common issues automatically, 24/7",
     description:
       "AI-powered support automation that answers routine questions, resolves tickets and escalates complex cases to your team — reducing response time and support workload.",
@@ -705,6 +722,7 @@ export const aiSolutions: Service[] = [
   {
     slug: "ai-assistants",
     name: "AI Assistants",
+    image: media.ai.assistant,
     tagline: "A personal AI that works for your business",
     description:
       "Custom AI assistants for teams and businesses — scheduling, drafting, research, internal knowledge and more. Assistants trained on your data that handle daily tasks.",
@@ -750,6 +768,7 @@ export const aiSolutions: Service[] = [
   {
     slug: "business-ai-tools",
     name: "Business AI Tools",
+    image: media.ai.tools,
     tagline: "Practical AI built into your workflows",
     description:
       "Custom AI tools for real business jobs — content generation, document processing, data extraction, forecasting and more. AI engineered around your processes, not generic apps.",
@@ -795,6 +814,7 @@ export const aiSolutions: Service[] = [
   {
     slug: "ai-integration",
     name: "AI Integration",
+    image: media.ai.integration,
     tagline: "Add AI to your existing software",
     description:
       "We integrate AI into the products you already use — apps, CRMs, websites and internal systems. Bring intelligence to existing workflows without rebuilding everything.",
@@ -843,6 +863,7 @@ export const softwareServices: Service[] = [
   {
     slug: "website-development",
     name: "Website Development",
+    image: media.websites.build,
     tagline: "Fast, modern websites built to convert",
     description:
       "Corporate websites, startup sites, e-commerce, portfolios, booking systems and landing pages — built on modern frameworks with SEO and performance built in.",
@@ -888,6 +909,7 @@ export const softwareServices: Service[] = [
   {
     slug: "mobile-applications",
     name: "Mobile Applications",
+    image: media.apps.mobileApp,
     tagline: "Native-quality apps for iOS and Android",
     description:
       "Android apps, iOS apps, cross-platform apps, business applications and customer apps — designed and developed for both stores, from MVP to full product.",
@@ -933,6 +955,7 @@ export const softwareServices: Service[] = [
   {
     slug: "custom-software",
     name: "Custom Software Development",
+    image: media.websites.software,
     tagline: "Tailor-made systems that automate and scale",
     description:
       "When off-the-shelf software doesn't fit, we build what does. CRMs, ERPs, dashboards and internal tools that connect your systems and remove manual work.",
@@ -978,6 +1001,7 @@ export const softwareServices: Service[] = [
   {
     slug: "business-automation",
     name: "Business Automation Systems",
+    image: media.websites.automation,
     tagline: "Automate repetitive work and focus on growth",
     description:
       "Workflow automation, integrations and AI-powered tools that eliminate repetitive tasks — from lead follow-up and invoicing to reporting and scheduling.",
@@ -1023,6 +1047,7 @@ export const softwareServices: Service[] = [
   {
     slug: "dashboards",
     name: "Analytics Dashboards",
+    image: media.products.dashboard,
     tagline: "See your business at a glance",
     description:
       "Custom dashboards that pull your data into one clear view. Sales, performance, engagement, finance — designed around how you actually run decisions.",
@@ -1068,6 +1093,7 @@ export const softwareServices: Service[] = [
   {
     slug: "admin-panels",
     name: "Admin Panels",
+    image: media.products.adminPanel,
     tagline: "Control everything from one place",
     description:
       "Clean, secure admin panels for managing users, orders, content, settings and operations — the control center your team actually enjoys using.",
@@ -1113,6 +1139,7 @@ export const softwareServices: Service[] = [
   {
     slug: "crm-systems",
     name: "CRM Systems",
+    image: media.products.crm,
     tagline: "Know every customer, never drop a lead",
     description:
       "Custom CRM systems that track leads, deals and customer relationships — with pipelines, automation and reporting built around your sales process.",
@@ -1161,6 +1188,7 @@ export const solutionAreas: SolutionArea[] = [
   {
     slug: "nfc-solutions",
     name: "NFC Smart Solutions",
+    image: media.nfc.restaurant,
     shortName: "NFC Solutions",
     tagline: "Tap the physical world and connect instantly",
     description:
@@ -1171,6 +1199,7 @@ export const solutionAreas: SolutionArea[] = [
   {
     slug: "ai-solutions",
     name: "AI Solutions",
+    image: media.ai.chatbot,
     shortName: "AI Solutions",
     tagline: "Practical AI that automates, answers and scales",
     description:
@@ -1181,6 +1210,7 @@ export const solutionAreas: SolutionArea[] = [
   {
     slug: "software",
     name: "Software Services",
+    image: media.websites.software,
     shortName: "Software",
     tagline: "Websites, apps and systems built to grow",
     description:
