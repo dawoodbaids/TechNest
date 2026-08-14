@@ -21,13 +21,6 @@ export interface AreaContent {
   description: string;
 }
 
-export interface ProjectContent {
-  title: string;
-  category: string;
-  summary: string;
-  tags: string[];
-}
-
 export interface UseCaseContent {
   label: string;
   sub: string;
@@ -51,88 +44,11 @@ export interface SolutionsContent {
   more: string;
 }
 
-export interface NfcShowcaseContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  images: { src: string; alt: string; rotate: number }[];
-  phoneName: string;
-  phoneProfile: string;
-  phoneSave: string;
-  phoneWebsite: string;
-  learnMore: string;
-}
-
-export interface AboutHomeContent {
-  badge: string;
-  titleStart: string;
-  titleHighlight: string;
-  paragraphs: string[];
-  highlights: string[];
-  badgeCardTitle: string;
-  badgeCardSub: string;
-  chipTitle: string;
-  chipSub: string;
-  footerTitle: string;
-  footerText: string;
-  imageAlt: string;
-}
-
-export interface AiServicesContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  learnMore: string;
-  chatbotImageAlt: string;
-  chatbotLabel: string;
-  dashboardImageAlt: string;
-  assistantLabel: string;
-  assistantText: string;
-  helpTitle: string;
-  helpText: string;
-  helpButton: string;
-}
-
-export interface DigitalShowcaseContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  headingStart: string;
-  headingHighlight: string;
-  features: string[];
-  paragraph: string;
-  mobileBadge: string;
-  mobileImageAlt: string;
-  websiteImageAlt: string;
-  responsiveBadge: string;
-}
-
 export interface WhyUsContent {
   eyebrow: string;
   title: string;
   description: string;
   reasons: { title: string; description: string }[];
-}
-
-export interface PortfolioPreviewContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  viewAll: string;
-}
-
-export interface BuildingFutureContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  cards: { title: string; description: string }[];
-}
-
-export interface TechStackContent {
-  eyebrow: string;
-  title: string;
-  description: string;
-  groups: string[];
 }
 
 export interface CtaContent {
@@ -214,7 +130,6 @@ export interface ServiceDetailContent {
   featuresTitle: string;
   howWeWorkTitle: string;
   whatYouGetTitle: string;
-  techStackTitle: string;
   ctaTitle: string;
   ctaText: string;
   ctaButton: string;
@@ -241,12 +156,9 @@ export interface AreaPageContent {
   helpTitle: string;
   helpText: string;
   helpCta: string;
-  helpSecondary: string;
   relatedEyebrow: string;
   relatedTitle: string;
   relatedDescription: string;
-  seeAll: string;
-  seeAllText: string;
   nfcVisualAlt1: string;
   nfcVisualAlt2: string;
   aiVisualCaption: string;
@@ -267,6 +179,8 @@ export interface NavContent {
   aria: string;
   letsTalk: string;
   toggleMenu: string;
+  language: string;
+  theme: string;
 }
 
 export interface ContactPageContent {
@@ -280,9 +194,10 @@ export interface ContactPageContent {
   callDesc: string;
   emailTitle: string;
   emailDesc: string;
-  hoursTitle: string;
-  locationTitle: string;
-  socialTitle: string;
+  instagramTitle: string;
+  instagramDesc: string;
+  facebookTitle: string;
+  facebookDesc: string;
 }
 
 export interface WhatsAppFormContent {
@@ -311,13 +226,6 @@ export interface AboutPageContent {
   values: { title: string; description: string }[];
 }
 
-export interface PortfolioPageContent {
-  eyebrow: string;
-  title: string;
-  titleHighlight: string;
-  description: string;
-}
-
 export interface NotFoundContent {
   code: string;
   title: string;
@@ -343,8 +251,6 @@ export interface ServiceMetaContent {
   aiDescription: string;
   softwareTitle: string;
   softwareDescription: string;
-  portfolioTitle: string;
-  portfolioDescription: string;
   aboutTitle: string;
   aboutDescription: string;
   contactTitle: string;
@@ -358,15 +264,8 @@ export interface Dict {
   nav: NavContent;
   footer: FooterContent;
   hero: HeroContent;
-  about: AboutHomeContent;
   solutions: SolutionsContent;
-  nfcShowcase: NfcShowcaseContent;
-  aiServices: AiServicesContent;
-  digitalShowcase: DigitalShowcaseContent;
   whyUs: WhyUsContent;
-  portfolioPreview: PortfolioPreviewContent;
-  buildingFuture: BuildingFutureContent;
-  techStack: TechStackContent;
   cta: CtaContent;
   visuals: VisualsContent;
   serviceCard: ServiceCardContent;
@@ -375,11 +274,8 @@ export interface Dict {
   contactPage: ContactPageContent;
   whatsappForm: WhatsAppFormContent;
   aboutPage: AboutPageContent;
-  portfolioPage: PortfolioPageContent;
   notFound: NotFoundContent;
   areas: Record<string, AreaContent>;
   services: Record<string, ServiceContent>;
   useCases: UseCaseContent[];
-  projects: Record<string, ProjectContent>;
-  projectCategories: Record<string, string>;
 }

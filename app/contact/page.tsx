@@ -1,61 +1,109 @@
 import type { Metadata } from "next";
-import { MailIcon, MessageCircleIcon, PhoneIcon } from "@/components/icons";
+import type { ComponentType } from "react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { WhatsAppForm } from "@/components/contact/WhatsAppForm";
-import { SocialIcon, type Brand } from "@/components/icons/SocialIcon";
+import { SocialIcon } from "@/components/icons/SocialIcon";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { contact, mailtoLink, socials, telLink, whatsappLink } from "@/lib/contact";
+import { getServerDictionary } from "@/lib/i18n/server";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Get in touch with TechNest via WhatsApp, phone, email or social media. We reply within two business hours.",
-};
+const InstagramIcon = (props: { className?: string }) => (
+  <SocialIcon name="Instagram" {...props} />
+);
+const FacebookIcon = (props: { className?: string }) => (
+  <SocialIcon name="Facebook" {...props} />
+);
 
-const methods = [
-  {
-    icon: MessageCircleIcon,
-    title: "WhatsApp",
-    description: "Fastest way to reach us",
-    value: contact.whatsapp,
-    href: whatsappLink(),
-    external: true,
-    accent: "text-[#25D366]",
-  },
-  {
-    icon: PhoneIcon,
-    title: "Call us",
-    description: "Speak to the team directly",
-    value: contact.phone,
-    href: telLink(),
-    external: false,
-    accent: "text-primary",
-  },
-  {
-    icon: MailIcon,
-    title: "Email",
-    description: "For detailed briefs and documents",
-    value: contact.email,
-    href: mailtoLink(),
-    external: false,
-    accent: "text-secondary",
-  },
-];
+interface ContactMethod {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  value: string;
+  href: string;
+  external: boolean;
+  accent: string;
+  brand?: boolean;
+}
 
-export default function ContactPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getServerDictionary();
+  return {
+    title: dict.serviceMeta.contactTitle,
+    description: dict.serviceMeta.contactDescription,
+  };
+}
+
+export default async function ContactPage() {
+  const dict = await getServerDictionary();
+  const { contactPage } = dict;
+
+  const instagram = socials.find((s) => s.label === "Instagram");
+  const facebook = socials.find((s) => s.label === "Facebook");
+
+  const methods: ContactMethod[] = [
+    {
+      icon: MessageCircle,
+      title: contactPage.whatsappTitle,
+      description: contactPage.whatsappDesc,
+      value: contact.whatsapp,
+      href: whatsappLink(),
+      external: true,
+      accent: "text-[#25D366]",
+    },
+    {
+      icon: Phone,
+      title: contactPage.callTitle,
+      description: contactPage.callDesc,
+      value: contact.phone,
+      href: telLink(),
+      external: false,
+      accent: "text-primary",
+    },
+    {
+      icon: Mail,
+      title: contactPage.emailTitle,
+      description: contactPage.emailDesc,
+      value: contact.email,
+      href: mailtoLink(),
+      external: false,
+      accent: "text-secondary",
+    },
+    {
+      icon: InstagramIcon,
+      title: contactPage.instagramTitle,
+      description: contactPage.instagramDesc,
+      value: instagram?.handle ?? "Instagram",
+      href: instagram?.href ?? "https://www.instagram.com/",
+      external: true,
+      accent: "",
+      brand: true,
+    },
+    {
+      icon: FacebookIcon,
+      title: contactPage.facebookTitle,
+      description: contactPage.facebookDesc,
+      value: facebook?.handle ?? "TechNest",
+      href: facebook?.href ?? "https://www.facebook.com/",
+      external: true,
+      accent: "",
+      brand: true,
+    },
+  ];
+
   return (
     <>
       <PageHeader
-        eyebrow="Contact us"
-        title="Let's start a"
-        titleHighlight="conversation"
-        description="No forms in a void — reach us directly on WhatsApp, phone or email. We usually reply within two business hours."
+        eyebrow={contactPage.eyebrow}
+        title={contactPage.title}
+        titleHighlight={contactPage.titleHighlight}
+        description={contactPage.description}
       />
 
       <section className="pb-16 sm:pb-24">
-        <Container className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-start sm:gap-10">
-          <div className="flex flex-col gap-5 sm:gap-6">
-            <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+        <Container className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+          <div className="flex flex-col gap-6">
+            <div className="grid gap-6 sm:grid-cols-2">
               {methods.map((method) => {
                 const Icon = method.icon;
                 return (
@@ -64,13 +112,19 @@ export default function ContactPage() {
                     href={method.href}
                     target={method.external ? "_blank" : undefined}
                     rel={method.external ? "noopener noreferrer" : undefined}
-                    className="group flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-primary/50 sm:gap-4 sm:p-6"
+                    className="group flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-primary/50"
                   >
-                    <span
-                      className={`grid size-11 place-items-center rounded-xl bg-surface-muted ${method.accent}`}
-                    >
-                      <Icon className="size-5" />
-                    </span>
+                    {method.brand ? (
+                      <span className="grid size-12 place-items-center">
+                        <Icon className="size-8" />
+                      </span>
+                    ) : (
+                      <span
+                        className={`grid size-11 place-items-center rounded-xl bg-surface-muted ${method.accent}`}
+                      >
+                        <Icon className="size-5" />
+                      </span>
+                    )}
                     <div className="flex flex-col gap-1">
                       <h2 className="font-display text-lg font-semibold text-foreground">
                         {method.title}
@@ -81,36 +135,6 @@ export default function ContactPage() {
                   </a>
                 );
               })}
-
-              <div className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 sm:gap-4 sm:p-6">
-                <h3 className="font-display text-base font-semibold text-foreground sm:text-lg">
-                  Follow us on social media
-                </h3>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  {socials.map((social) => {
-                    const brand =
-                      social.label === "Facebook"
-                        ? "border-[#1877F2]/40 bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2] hover:text-white"
-                        : "border-[#E4405F]/40 bg-[#E4405F]/10 text-[#E4405F] hover:bg-[#E4405F] hover:text-white";
-
-                    return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.label}
-                        className={`grid size-12 place-items-center rounded-2xl border transition-all hover:-translate-y-0.5 sm:size-16 ${brand}`}
-                      >
-                        <SocialIcon
-                          name={social.label as Brand}
-                          className="size-6 sm:size-8"
-                        />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
             </div>
           </div>
 

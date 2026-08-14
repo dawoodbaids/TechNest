@@ -15,7 +15,6 @@ export const navigation: NavItem[] = [
   { label: "NFC Solutions", href: "/nfc-solutions" },
   { label: "AI Solutions", href: "/ai-solutions" },
   { label: "Software", href: "/software" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

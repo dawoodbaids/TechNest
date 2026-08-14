@@ -51,7 +51,7 @@ export function AreaVisual({ areaSlug }: AreaVisualProps) {
                       Welcome to TechNest — nice to meet you.
                     </p>
                   </div>
-                  {["LinkedIn", "WhatsApp", "Website"].map((row) => (
+                  {["Instagram", "WhatsApp", "Website"].map((row) => (
                     <div key={row} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2.5">
                       <span className="text-[9px] text-white/40">{row}</span>
                       <span className="text-[9px] font-medium text-white/80">Open</span>

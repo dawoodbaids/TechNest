@@ -1,15 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
-import { CloseIcon, MenuIcon, MessageCircleIcon } from "@/components/icons";
+import { Languages, Menu, MessageCircle, Sun, X } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { navigation } from "@/lib/site";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { whatsappLink } from "@/lib/contact";
+import { useDictionary } from "@/lib/i18n/provider";
 import { cn } from "@/lib/utils";
 
 function isActive(href: string, pathname: string) {
@@ -19,35 +19,15 @@ function isActive(href: string, pathname: string) {
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  useEffect(() => {
-    if (!open) return;
-
-    closeRef.current?.focus();
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
+  const dict = useDictionary();
 
   return (
     <>
-      <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-        {navigation.map((item) => (
+      <nav
+        className="hidden items-center gap-1 lg:flex"
+        aria-label={dict.nav.aria}
+      >
+        {dict.nav.items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -72,62 +52,70 @@ export function Navbar() {
       </nav>
 
       <button
-        ref={closeRef}
         type="button"
         onClick={() => setOpen((value) => !value)}
-        aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+        aria-label={dict.nav.toggleMenu}
         aria-expanded={open}
-        aria-controls="mobile-navigation"
-        className="grid size-10 place-items-center rounded-full text-muted transition-colors hover:text-foreground lg:hidden"
+        className="grid size-10 shrink-0 place-items-center rounded-full text-muted transition-colors hover:text-foreground lg:hidden"
       >
-        {open ? <CloseIcon className="size-5" /> : <MenuIcon className="size-5" />}
+        {open ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
 
-      <AnimatePresence>
-        {open ? (
-          <motion.div
-            id="mobile-navigation"
-            aria-label="Mobile navigation"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-x-0 top-16 overflow-hidden border-b border-border bg-background/95 shadow-lg backdrop-blur-xl lg:hidden"
+      <div
+        className={cn(
+          "absolute inset-x-0 top-16 overflow-hidden bg-background/95 backdrop-blur-xl transition-all duration-300 ease-out lg:hidden",
+          open
+            ? "max-h-[85vh] overflow-y-auto border-b border-border opacity-100"
+            : "max-h-0 border-transparent opacity-0",
+        )}
+      >
+        <Container className="flex flex-col gap-1 py-4">
+          {dict.nav.items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={cn(
+                "rounded-xl px-4 py-3 text-sm font-medium transition-colors",
+                isActive(item.href, pathname)
+                  ? "bg-surface text-foreground"
+                  : "text-muted hover:bg-surface/50 hover:text-foreground",
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
+
+          <div className="my-2 border-t border-border" aria-hidden />
+
+          <div className="flex items-center justify-between rounded-xl bg-surface px-4 py-3">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-muted">
+              <Languages className="size-4 text-primary" />
+              {dict.nav.language}
+            </span>
+            <LanguageSwitcher />
+          </div>
+
+          <div className="flex items-center justify-between rounded-xl bg-surface px-4 py-3">
+            <span className="inline-flex items-center gap-2 text-sm font-medium text-muted">
+              <Sun className="size-4 text-primary" />
+              {dict.nav.theme}
+            </span>
+            <ThemeToggle />
+          </div>
+
+          <Button
+            href={whatsappLink()}
+            external
+            variant="primary"
+            className="mt-3 w-full"
+            onClick={() => setOpen(false)}
           >
-            <Container className="flex max-h-[calc(100dvh-4rem)] flex-col gap-1 overflow-y-auto py-4">
-              {navigation.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-                    isActive(item.href, pathname)
-                      ? "bg-surface text-foreground"
-                      : "text-muted hover:bg-surface/50 hover:text-foreground",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <div className="mt-2 flex items-center justify-between gap-3 border-t border-border px-4 pt-3 md:hidden">
-                <span className="text-sm font-medium text-foreground">Theme</span>
-                <ThemeToggle />
-              </div>
-              <Button
-                href={whatsappLink()}
-                external
-                variant="primary"
-                className="mt-3 w-full"
-                onClick={() => setOpen(false)}
-              >
-                <MessageCircleIcon className="size-4" />
-                Let&apos;s Talk
-              </Button>
-            </Container>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+            <MessageCircle className="size-4" />
+            {dict.nav.letsTalk}
+          </Button>
+        </Container>
+      </div>
     </>
   );
 }

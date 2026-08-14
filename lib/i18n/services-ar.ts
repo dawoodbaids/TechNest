@@ -1,4 +1,4 @@
-import type { AreaContent, ProjectContent, ServiceContent, UseCaseContent } from "./types";
+import type { AreaContent, ServiceContent, UseCaseContent } from "./types";
 
 export const arAreas: Record<string, AreaContent> = {
   "nfc-solutions": {
@@ -31,9 +31,6 @@ export const arUseCases: UseCaseContent[] = [
   { label: "العقارات", sub: "بروشورات عقارية تُلمس" },
   { label: "العلامات الشخصية", sub: "ملفك الشخصي بلمسة واحدة" },
   { label: "الفعاليات", sub: "تصاريح دخول باللمس" },
-  { label: "متاجر التجزئة", sub: "علامات منتجات تفاعلية" },
-  { label: "التعليم", sub: "بطاقات طلاب ذكية" },
-  { label: "الرعاية الصحية", sub: "رحلة مريض بدون تلامس" },
 ];
 
 export const arServices: Record<string, ServiceContent> = {
@@ -685,58 +682,4 @@ export const arServices: Record<string, ServiceContent> = {
     ],
     stack: ["React", "Node.js", "PostgreSQL", "APIs", "الأتمتة"],
   },
-};
-
-export const arProjects: Record<string, ProjectContent> = {
-  "nfc-business-card-concept": {
-    title: "نموذج بطاقة أعمال NFC",
-    category: "حلول NFC الذكية",
-    summary:
-      "نموذج تجريبي لمفهوم بطاقة أعمال NFC بمشاركة باللمس — برمجة وصفحة ملف رقمي وتحليلات لمس في تدفق واحد.",
-    tags: ["NFC", "نموذج أولي", "ملف رقمي"],
-  },
-  "ai-support-assistant-demo": {
-    title: "عرض توضيحي لمساعد دعم ذكي",
-    category: "حلول الذكاء الاصطناعي",
-    summary:
-      "عرض عملي لمساعد ذكاء اصطناعي مدرب على محتوى الأعمال، يجيب عن الأسئلة ويؤهل العملاء المحتملين بشكل مستقل.",
-    tags: ["AI", "روبوت دردشة", "RAG"],
-  },
-  "booking-website-concept": {
-    title: "مفهوم موقع حجز",
-    category: "تطوير المواقع",
-    summary:
-      "مفهوم عالي الجودة لموقع حجز سريع وحديث — نظام تصميم وتخطيطات متجاوبة ومسارات موجهة للتحويل.",
-    tags: ["ويب", "UI/UX", "مفهوم"],
-  },
-  "customer-app-concept": {
-    title: "مفهوم واجهة تطبيق العملاء",
-    category: "تطبيقات الجوال",
-    summary:
-      "مفهوم واجهة تطبيق جوال يوضح التنقل والإعداد والشاشات الأساسية لمنتج موجه للعملاء.",
-    tags: ["جوال", "UI/UX", "مفهوم"],
-  },
-  "nfc-smart-menu-demo": {
-    title: "عرض توضيحي لقائمة NFC الذكية",
-    category: "حلول NFC الذكية",
-    summary:
-      "عرض لعلامة طاولة NFC تفتح قائمة رقمية مباشرة — متعددة اللغات وقابلة للتحديث دون إعادة طباعة.",
-    tags: ["NFC", "عرض", "قوائم"],
-  },
-  "automation-workflow-demo": {
-    title: "عرض توضيحي لسير عمل الأتمتة",
-    category: "أتمتة الأعمال",
-    summary:
-      "نموذج سير عمل يلتقط العملاء المحتملين ويوجههم تلقائيًا — عرض لكيفية إدارة العمل المتكرر لنفسه.",
-    tags: ["أتمتة", "نموذج أولي", "AI"],
-  },
-};
-
-export const arProjectCategories: Record<string, string> = {
-  all: "كل الأعمال",
-  "nfc-solutions": "حلول NFC الذكية",
-  "ai-solutions": "حلول الذكاء الاصطناعي",
-  "website-development": "المواقع",
-  "mobile-applications": "تطبيقات الجوال",
-  "business-automation": "أتمتة الأعمال",
 };

@@ -17,17 +17,14 @@ export const contact = {
 export const socials: SocialLink[] = [
   {
     label: "Instagram",
-    handle: "@technet",
-    href: "https://instagram.com/",
+    handle: "@technest",
+    href: "https://www.instagram.com/technest/",
   },
   {
     label: "Facebook",
-    handle: "@technet",
-    href: "https://facebook.com/",
+    handle: "TechNest",
+    href: "https://www.facebook.com/technest/",
   },
-  
-  
- 
 ];
 
 export function whatsappLink(message?: string) {

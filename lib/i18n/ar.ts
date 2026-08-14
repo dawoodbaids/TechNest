@@ -1,25 +1,17 @@
 import type {
-  AboutHomeContent,
   AboutPageContent,
-  AiServicesContent,
   AreaPageContent,
-  BuildingFutureContent,
   ContactPageContent,
   CtaContent,
-  DigitalShowcaseContent,
   FooterContent,
   HeroContent,
   MetaContent,
   NavContent,
-  NfcShowcaseContent,
   NotFoundContent,
-  PortfolioPageContent,
-  PortfolioPreviewContent,
   ServiceCardContent,
   ServiceDetailContent,
   ServiceMetaContent,
   SolutionsContent,
-  TechStackContent,
   VisualsContent,
   WhatsAppFormContent,
   WhyUsContent,
@@ -29,7 +21,7 @@ export const arMeta: MetaContent = {
   title: "TechNest | حلول NFC والذكاء الاصطناعي والبرمجيات",
   titleTemplate: "%s | TechNest",
   description:
-    "TechNest شركة تقنية ناشئة تقدم حلولًا رقمية مبتكرة — منتجات NFC الذكية، حلول الذكاء الاصطناعي، المواقع، تطبيقات الجوال، البرمجيات المخصصة وأتمتة الأعمال — لمساعدة الشركات على تبني التقنية الحديثة.",
+    "تصمّم TechNest وتبني منتجات NFC الذكية ومساعدي الذكاء الاصطناعي والمواقع والتطبيقات والبرمجيات المخصصة — تقنية حديثة لأعمال حديثة.",
   keywords: [
     "بطاقات أعمال NFC",
     "حلول NFC الذكية",
@@ -43,23 +35,20 @@ export const arMeta: MetaContent = {
   ogLocale: "ar_SA",
   twitterTitle: "TechNest | حلول NFC والذكاء الاصطناعي والبرمجيات",
   twitterDescription:
-    "منتجات NFC ذكية، مساعدون بالذكاء الاصطناعي، مواقع، تطبيقات وأتمتة للأعمال الحديثة.",
+    "منتجات NFC ذكية ومساعدو ذكاء اصطناعي ومواقع وتطبيقات وأتمتة — من فريق واحد.",
   brandHome: "الصفحة الرئيسية لـ TechNest",
 };
 
 export const arServiceMeta: ServiceMetaContent = {
   nfcTitle: "حلول NFC الذكية",
   nfcDescription:
-    "منتجات مدعومة بتقنية NFC — بطاقات أعمال، قوائم طعام، بطاقات مراجعات، علامات وحلول مخصصة — تفتح تجربة رقمية على أي هاتف بلمسة واحدة.",
+    "منتجات مدعومة بتقنية NFC — بطاقات أعمال، قوائم طعام، بطاقات مراجعات، علامات ومنتجات مخصصة — تفتح تجربة رقمية على أي هاتف بلمسة واحدة.",
   aiTitle: "حلول الذكاء الاصطناعي",
   aiDescription:
     "روبوتات دردشة ذكية، أتمتة دعم العملاء، مساعدون وأدوات أعمال مخصصة — مصممة حول نشاطك التجاري وتُطرح حيث تحقق أقصى قيمة.",
   softwareTitle: "خدمات البرمجيات",
   softwareDescription:
     "تطوير المواقع، تطبيقات الجوال، البرمجيات المخصصة وأتمتة الأعمال — برمجيات حديثة وموثوقة تدفع أعمالك إلى الأمام.",
-  portfolioTitle: "أعمالنا",
-  portfolioDescription:
-    "أعمال مفهومية وعروض حية من TechNest في منتجات NFC وروبوتات الذكاء الاصطناعي والمواقع وتطبيقات الجوال والبرمجيات المخصصة والأتمتة.",
   aboutTitle: "عن TechNest",
   aboutDescription:
     "تعرّف على TechNest — استوديو تقني يبني منتجات NFC الذكية ومساعدي الذكاء الاصطناعي والمواقع والتطبيقات والأتمتة، مع تواصل صادق وعمل متقن.",
@@ -74,18 +63,19 @@ export const arNav: NavContent = {
     { label: "حلول NFC", href: "/nfc-solutions" },
     { label: "حلول الذكاء الاصطناعي", href: "/ai-solutions" },
     { label: "البرمجيات", href: "/software" },
-    { label: "أعمالنا", href: "/portfolio" },
     { label: "من نحن", href: "/about" },
     { label: "تواصل معنا", href: "/contact" },
   ],
   aria: "التنقل الرئيسي",
   letsTalk: "لنتحدث",
   toggleMenu: "تبديل قائمة التنقل",
+  language: "اللغة",
+  theme: "المظهر",
 };
 
 export const arFooter: FooterContent = {
   tagline:
-    "نبني منتجات NFC والبرمجيات التي تساعد الشركات على التواصل والأتمتة والنمو.",
+    "منتجات NFC الذكية ومساعدو الذكاء الاصطناعي والبرمجيات — من فريق واحد تتواصل معه مباشرة.",
   solutions: "الحلول",
   company: "الشركة",
   contact: "التواصل",
@@ -95,99 +85,28 @@ export const arFooter: FooterContent = {
 };
 
 export const arHero: HeroContent = {
-  badge: "حلول رقمية ذكية للأعمال الحديثة",
-  titleStart: "تواصل وأتمت ونمُ مع",
-  titleHighlight: "تقنية ذكية",
+  badge: "NFC · الذكاء الاصطناعي · البرمجيات — شريك واحد",
+  titleStart: "تقنية ذكية لـ",
+  titleHighlight: "أعمال حديثة",
   description:
-    "من منتجات NFC التي يحب عملاؤك لمسها، إلى مساعدي الذكاء الاصطناعي والمواقع والتطبيقات والأتمتة — تصوّم TechNest وتبني وتطلق تقنية تعمل من أجل أعمالك.",
+    "من منتجات NFC التي تُفتح بلمسة، إلى مساعدي الذكاء الاصطناعي والمواقع والأتمتة — نصمّم ونبني ونطلق تقنية تعمل من أجل أعمالك.",
   primaryCta: "استكشف الحلول",
   secondaryCta: "تحدث عبر واتساب",
-  pillars: ["منتجات NFC الذكية", "حلول الذكاء الاصطناعي", "المواقع والتطبيقات", "أتمتة الأعمال"],
-};
-
-export const arAbout: AboutHomeContent = {
-  badge: "عن TechNest",
-  titleStart: "فريق واحد لمنتجات",
-  titleHighlight: "NFC والبرمجيات",
-  paragraphs: [
-    "TechNest استوديو تقني يربط بين العالمين المادي والرقمي. نصمّم وننتج منتجات NFC الذكية — بطاقات الأعمال، قوائم الطعام، بطاقات المراجعات والمنتجات المخصصة — ونبني البرمجيات التي تقوّي الأعمال الحديثة: روبوتات الذكاء الاصطناعي، المواقع، التطبيقات، الأنظمة المخصصة والأتمتة.",
+  pillars: [
+    "منتجات NFC الذكية",
+    "مساعدو الذكاء الاصطناعي",
+    "المواقع والتطبيقات",
+    "أتمتة الأعمال",
   ],
-  highlights: [
-    "تصميم وبناء وبرمجة وتسليم في فريق واحد",
-    "تواصل مباشر مع من ينفّذ العمل فعليًا",
-    "تقنيات NFC والذكاء الاصطناعي الحديثة منذ اليوم الأول",
-    "جداول زمنية صادقة وأسعار واضحة ودعم حقيقي",
-  ],
-  badgeCardTitle: "أُطلقنا حديثًا",
-  badgeCardSub: "بطموحات كبيرة",
-  chipTitle: "NFC + AI",
-  chipSub: "حديثة بطبيعتها",
-  footerTitle: "نحن في البداية فقط",
-  footerText:
-    "نحن في بداية مشوارنا — وكل مشروع نسلّمه فرصة لإثبات مدى روعة التقنية المصنوعة بعناية.",
-  imageAlt: "فريق TechNest أثناء العمل",
 };
 
 export const arSolutions: SolutionsContent = {
-  eyebrow: "حلولنا",
-  title: "ثلاثة مجالات حلول، وشريك واحد",
+  eyebrow: "ما نقوم به",
+  title: "ثلاث طرق لمساعدتك",
   description:
-    "اكتشف ما نبني — منتجات NFC اللاتلامسية، حلول الذكاء الاصطناعي والبرمجيات المخصصة — وكلها من فريق واحد مكرّس.",
+    "منتجات NFC وحلول الذكاء الاصطناعي وبرمجيات مخصصة — تُحدَّد وتُبنى وتُسلَّم من فريق واحد.",
   explore: "استكشف",
   more: "أكثر",
-};
-
-export const arNfcShowcase: NfcShowcaseContent = {
-  eyebrow: "عرض منتجات NFC",
-  title: "المس العالم المادي بلمسة",
-  description:
-    "منتجات NFC لاتلامسية متميزة تفتح تجربة رقمية على أي هاتف — دون الحاجة إلى تطبيق.",
-  images: [
-    { src: "/media/images/nfc/nfc-business-card-01.svg", alt: "بطاقة أعمال NFC من TechNest على مكتب", rotate: -3 },
-    { src: "/media/images/nfc/nfc-smart-menu-01.svg", alt: "قائمة طعام NFC ذكية من TechNest على طاولة مطعم", rotate: 2.5 },
-    { src: "/media/images/nfc/nfc-digital-profile-01.svg", alt: "هاتف يعرض الملف الرقمي لـ TechNest عبر NFC", rotate: -1 },
-  ],
-  phoneName: "TechNest",
-  phoneProfile: "تم فتح الملف",
-  phoneSave: "حفظ جهة الاتصال",
-  phoneWebsite: "فتح الموقع",
-  learnMore: "اعرف المزيد",
-};
-
-export const arAiServices: AiServicesContent = {
-  eyebrow: "خدمات الذكاء الاصطناعي والبرمجيات",
-  title: "برمجيات تؤتمت وتتوسع",
-  description:
-    "مساعدون ذكيون ومواقع وتطبيقات وأنظمة وأتمتة مخصصة، مبنية بتقنية حديثة قابلة للصيانة.",
-  learnMore: "اعرف المزيد",
-  chatbotImageAlt: "واجهة روبوت دردشة ذكي من TechNest",
-  chatbotLabel: "روبوت الدردشة الذكي",
-  dashboardImageAlt: "لوحة تحليلات من TechNest",
-  assistantLabel: "المساعد الذكي",
-  assistantText: "دعم آلي على مدار الساعة",
-  helpTitle: "لست متأكدًا أي حل يناسبك؟",
-  helpText: "أخبرنا عن مشروعك وسنرشح لك النهج المناسب.",
-  helpButton: "احصل على استشارة مجانية",
-};
-
-export const arDigitalShowcase: DigitalShowcaseContent = {
-  eyebrow: "التطبيقات والمواقع",
-  title: "منتجات رقمية مصممة للأداء",
-  description:
-    "تطبيقات جوال حديثة ومواقع عالية الأداء — تُصمّم وتُطوّر وتُطلق من فريق واحد.",
-  headingStart: "كل شاشة مصممة لتحوّل الزائر إلى",
-  headingHighlight: "عميل",
-  features: [
-    "واجهات سلسة بملمس أصلي",
-    "مواقع سريعة التحميل وتحقق نتائج",
-    "مصممة بنهج الجوال أولًا وتعمل على كل الأجهزة",
-  ],
-  paragraph:
-    "من منصات الحجز إلى تطبيقات العملاء، نحوّل الأفكار إلى منتجات رقمية مصقولة يستمتع عملاؤك باستخدامها.",
-  mobileBadge: "تطبيق جوال",
-  mobileImageAlt: "نموذج تطبيق جوال من TechNest",
-  websiteImageAlt: "موقع TechNest على شاشة حاسوب محمول",
-  responsiveBadge: "سريع ومتجاوب",
 };
 
 export const arWhyUs: WhyUsContent = {
@@ -198,17 +117,12 @@ export const arWhyUs: WhyUsContent = {
     {
       title: "فريقان من الخبراء",
       description:
-        "متخصصون في أجهزة NFC وفي الذكاء الاصطناعي والبرمجيات — فيُبنى كل مشروع على يد من يمارس هذا العمل يوميًا.",
+        "متخصصون في أجهزة NFC ومهندسو ذكاء اصطناعي وبرمجيات — كل مشروع يُبنى على يد من يمارس هذا العمل يوميًا.",
     },
     {
       title: "تقنية حديثة",
       description:
-        "نبني بأحدث الأطر والأدوات ونماذج الذكاء الاصطناعي — سريعة وآمنة ومصممة لتدوم.",
-    },
-    {
-      title: "فريق واحد مكرّس",
-      description:
-        "يعمل المصممون والمطورون ومهندسو NFC معًا على مشروعك من الفكرة حتى الإطلاق.",
+        "أحدث الأطر والأدوات ونماذج الذكاء الاصطناعي — سريعة وآمنة ومصممة لتدوم.",
     },
     {
       title: "تسليم سريع",
@@ -216,56 +130,11 @@ export const arWhyUs: WhyUsContent = {
         "مراحل واضحة وجداول زمنية صادقة. تُسلَّم معظم المشاريع في أسابيع لا في أشهر.",
     },
     {
-      title: "جودة تثق بها",
-      description:
-        "كل منتج NFC يُختبَر باللمس، وكل سطر برمجي يُراجع — نسلّم عملًا نفخر به.",
-    },
-    {
       title: "دعم حقيقي",
       description:
-        "نبقى متاحين بعد الإطلاق — عبر واتساب والهاتف والبريد الإلكتروني — متى احتجت إلينا.",
+        "نبقى متاحين بعد الإطلاق — عبر واتساب والهاتف والبريد الإلكتروني.",
     },
   ],
-};
-
-export const arPortfolioPreview: PortfolioPreviewContent = {
-  eyebrow: "أعمال ومشاهد تجريبية",
-  title: "نظرة على ما نبني",
-  description: "أعمال مفهومية وعروض حية لمنتجات NFC ومساعدي الذكاء الاصطناعي والتطبيقات والمواقع.",
-  viewAll: "عرض جميع المشاريع",
-};
-
-export const arBuildingFuture: BuildingFutureContent = {
-  eyebrow: "رؤيتنا",
-  title: "نبني المستقبل بالتقنية",
-  description:
-    "TechNest شركة ناشئة أُطلقت حديثًا بفكرة بسيطة: كل عمل يستحق تقنية حديثة وصادقة ومتقنة.",
-  cards: [
-    {
-      title: "حلول رقمية مبتكرة",
-      description: "تقنية عملية مبنية حول احتياجات العمل الحقيقية — لا موضات عابرة.",
-    },
-    {
-      title: "تجارب NFC ذكية",
-      description: "منتجات لمس-للاتصال تربط العالمين المادي والرقمي بلمسة واحدة.",
-    },
-    {
-      title: "خدمات مدعومة بالذكاء الاصطناعي",
-      description: "مساعدون وأتمتة تجيب وتؤهل وتنجز بينما يركز فريقك على ما يهم.",
-    },
-    {
-      title: "تطوير برمجيات مخصصة",
-      description: "مواقع وتطبيقات وأنظمة مصممة ومبنية ومطروحة حول طريقة عمل نشاطك الفعلية.",
-    },
-  ],
-};
-
-export const arTechStack: TechStackContent = {
-  eyebrow: "مجموعة التقنيات",
-  title: "مبني على تقنية حديثة موثوقة",
-  description:
-    "الأدوات والمنصات التي نستخدمها لتسليم منتجات موثوقة — من أجهزة NFC إلى برمجيات بمستوى الإنتاج.",
-  groups: ["الواجهات والتصميم", "الخوادم والبيانات", "الذكاء الاصطناعي والأتمتة", "البنية التحتية والسحابة"],
 };
 
 export const arCta: CtaContent = {
@@ -287,7 +156,6 @@ export const arServiceDetail: ServiceDetailContent = {
   featuresTitle: "المميزات",
   howWeWorkTitle: "كيف نعمل",
   whatYouGetTitle: "ماذا تحصل عليه",
-  techStackTitle: "التقنيات المستخدمة",
   ctaTitle: "مستعد للبدء؟",
   ctaText: "أخبرنا عن مشروعك وسنرد عليك بخطة وجدول زمني واضح.",
   ctaButton: "تحدث عبر واتساب",
@@ -316,12 +184,9 @@ export const arAreaPage: AreaPageContent = {
   helpTitle: "لست متأكدًا أي خدمة تناسبك؟",
   helpText: "أخبرنا بما تحتاجه وسنرشدك إلى النهج الصحيح.",
   helpCta: "تواصل معنا",
-  helpSecondary: "شاهد أعمالنا",
   relatedEyebrow: "استكشف المزيد",
   relatedTitle: "حلول أخرى",
   relatedDescription: "نبني في مجالات NFC والذكاء الاصطناعي والبرمجيات — ألقِ نظرة على الباقي.",
-  seeAll: "عرض جميع المشاريع",
-  seeAllText: "أعمال مفهومية ومشاهد عرضية سلّمناها.",
   nfcVisualAlt1: "بطاقة ملف رقمي",
   nfcVisualAlt2: "علامات NFC ذكية",
   aiVisualCaption:
@@ -340,9 +205,10 @@ export const arContactPage: ContactPageContent = {
   callDesc: "تحدث إلى الفريق مباشرة",
   emailTitle: "البريد الإلكتروني",
   emailDesc: "للملخصات التفصيلية والمستندات",
-  hoursTitle: "ساعات العمل",
-  locationTitle: "الموقع",
-  socialTitle: "تابعنا على وسائل التواصل الاجتماعي",
+  instagramTitle: "انستغرام",
+  instagramDesc: "تابع أعمالنا وآخر المستجدات",
+  facebookTitle: "فيسبوك",
+  facebookDesc: "تواصل معنا عبر فيسبوك",
 };
 
 export const arWhatsAppForm: WhatsAppFormContent = {
@@ -398,13 +264,6 @@ export const arAboutPage: AboutPageContent = {
         "الأفكار العظيمة لا تعني شيئًا ما لم تُطلق. نوازن بين الجودة والسرعة لنحقق نتائج حقيقية.",
     },
   ],
-};
-
-export const arPortfolioPage: PortfolioPageContent = {
-  eyebrow: "أعمال ومشاهد تجريبية",
-  title: "نظرة على ما نبني",
-  titleHighlight: "عمليًا",
-  description: "مشاريع مفهومية وعروض حية بنيناها — صفِّ حسب الخدمة لاستكشاف ما نجيده.",
 };
 
 export const arNotFound: NotFoundContent = {

@@ -605,13 +605,10 @@ export const nfcSolutions: Service[] = [
 export const nfcUseCases = [
   { label: "Restaurants", icon: UtensilsCrossed },
   { label: "Hotels", icon: Building2 },
-  { label: "Companies", icon: Building2 },
+  { label: "Companies", icon: Contact },
   { label: "Real Estate", icon: Store },
   { label: "Personal Branding", icon: Sparkles },
   { label: "Events", icon: CalendarDays },
-  { label: "Retail Stores", icon: Store },
-  { label: "Education", icon: GraduationCap },
-  { label: "Healthcare", icon: HeartPulse },
 ];
 
 export const aiSolutions: Service[] = [

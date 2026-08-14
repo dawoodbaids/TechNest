@@ -5,7 +5,6 @@ import { getAllServices, solutionAreas } from "@/lib/services";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
-    "/portfolio",
     "/about",
     "/contact",
     ...solutionAreas.map((area) => `/${area.slug}`),

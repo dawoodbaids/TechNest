@@ -1,8 +1,6 @@
-import { Layers, Package, Sparkles } from "lucide-react";
-import { CheckIcon } from "@/components/icons";
+import Image from "next/image";
+import { Check, Layers, Package } from "lucide-react";
 import { ServiceCard } from "@/components/services/ServiceCard";
-import { ServiceScene } from "@/components/illustrations/registry";
-import { CTABanner } from "@/components/home/CTABanner";
 import { Container } from "@/components/ui/Container";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
@@ -11,15 +9,19 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { whatsappLink } from "@/lib/contact";
 import { getAllServices, getService } from "@/lib/services";
+import { getServerDictionary } from "@/lib/i18n/server";
 
 interface ServiceDetailPageProps {
   areaSlug: string;
   slug: string;
 }
 
-export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
+export async function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
   const service = getService(areaSlug, slug);
   if (!service) return null;
+  const dict = await getServerDictionary();
+  const content = dict.services[slug];
+  const areaContent = dict.areas[areaSlug];
 
   const related = getAllServices()
     .filter((item) => item.slug !== service.slug)
@@ -29,10 +31,10 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
   return (
     <>
       <PageHeader
-        eyebrow={service.areaName}
-        title={service.name}
-        titleHighlight="explained"
-        description={service.description}
+        eyebrow={areaContent.shortName}
+        title={content.name}
+        titleHighlight={dict.serviceDetail.heroEyebrowSuffix}
+        description={content.description}
       />
 
       <div className="pb-16 sm:pb-20">
@@ -40,9 +42,15 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
           <Reveal direction="zoom" className="relative mx-auto w-full max-w-5xl">
             <div className="absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-[#b565d8]/10 blur-3xl" />
             <div className="relative overflow-hidden rounded-3xl border border-border shadow-2xl shadow-primary/10">
-              <div className="h-72 w-full sm:h-96 lg:h-[480px]">
-                <ServiceScene slug={service.slug} className="h-full w-full" />
-              </div>
+              <Image
+                src={service.image}
+                alt={content.name}
+                width={1600}
+                height={900}
+                priority
+                className="h-72 w-full object-cover sm:h-96 lg:h-[480px]"
+                sizes="100vw"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#141014]/70 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 flex items-center gap-4 p-6 sm:p-8">
                 <span className="grid size-14 place-items-center rounded-2xl border border-white/20 bg-surface/10 text-white shadow-lg backdrop-blur-md">
@@ -50,10 +58,10 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                 </span>
                 <div>
                   <p className="text-xs font-semibold tracking-wide text-white/70 uppercase">
-                    {service.areaName}
+                    {areaContent.shortName}
                   </p>
                   <p className="font-display text-2xl font-semibold text-white sm:text-3xl">
-                    {service.name}
+                    {content.name}
                   </p>
                 </div>
               </div>
@@ -73,17 +81,17 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                       <Icon className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      Features
+                      {dict.serviceDetail.featuresTitle}
                     </h2>
                   </div>
                   <ul className="grid gap-3 sm:grid-cols-2">
-                    {service.features.map((feature) => (
+                    {content.features.map((feature) => (
                       <li
                         key={feature}
                         className="flex items-start gap-2.5 text-sm leading-relaxed text-muted"
                       >
                         <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary/10">
-                          <CheckIcon className="size-3 text-primary" />
+                          <Check className="size-3 text-primary" />
                         </span>
                         {feature}
                       </li>
@@ -99,25 +107,28 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                       <Layers className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      How we work
+                      {dict.serviceDetail.howWeWorkTitle}
                     </h2>
                   </div>
                   <ol className="flex flex-col gap-4">
-                    {service.process.map((step) => (
-                      <li key={step.step} className="flex gap-4">
-                        <span className="font-mono text-sm font-semibold text-secondary">
-                          {step.step}
-                        </span>
-                        <div>
-                          <p className="font-display text-sm font-semibold text-foreground">
-                            {step.title}
-                          </p>
-                          <p className="mt-1 text-sm leading-relaxed text-muted">
-                            {step.description}
-                          </p>
-                        </div>
-                      </li>
-                    ))}
+                    {service.process.map((step, index) => {
+                      const processStep = content.process[index];
+                      return (
+                        <li key={step.step} className="flex gap-4">
+                          <span className="font-mono text-sm font-semibold text-secondary">
+                            {processStep.step}
+                          </span>
+                          <div>
+                            <p className="font-display text-sm font-semibold text-foreground">
+                              {processStep.title}
+                            </p>
+                            <p className="mt-1 text-sm leading-relaxed text-muted">
+                              {processStep.description}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ol>
                 </div>
               </Reveal>
@@ -129,17 +140,17 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
                       <Package className="size-6" />
                     </span>
                     <h2 className="font-display text-2xl font-semibold text-foreground">
-                      What you get
+                      {dict.serviceDetail.whatYouGetTitle}
                     </h2>
                   </div>
                   <ul className="flex flex-col gap-3">
-                    {service.deliverables.map((item) => (
+                    {content.deliverables.map((item) => (
                       <li
                         key={item}
                         className="flex items-start gap-2.5 text-sm leading-relaxed text-muted"
                       >
                         <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-primary/10">
-                          <CheckIcon className="size-3 text-primary" />
+                          <Check className="size-3 text-primary" />
                         </span>
                         {item}
                       </li>
@@ -150,50 +161,26 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
             </div>
 
             <div className="flex flex-col gap-6">
-              <Reveal delay={0.1}>
-                <div className="flex flex-col gap-5 rounded-3xl border border-border bg-gradient-to-br from-primary/10 to-secondary/10 p-8">
-                  <div className="flex items-center gap-4">
-                    <span className="grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white">
-                      <Sparkles className="size-6" />
-                    </span>
-                    <h3 className="font-display text-xl font-semibold text-foreground">
-                      Tech stack
-                    </h3>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {service.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-
               <Reveal delay={0.15}>
                 <div className="flex flex-col gap-4 rounded-3xl bg-[#141014] p-8 text-white">
                   <h3 className="font-display text-xl font-semibold">
-                    Ready to get started?
+                    {dict.serviceDetail.ctaTitle}
                   </h3>
                   <p className="text-sm leading-relaxed text-white/60">
-                    Tell us about your project and we&apos;ll reply with a plan and a
-                    clear timeline.
+                    {dict.serviceDetail.ctaText}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Button
                       href={whatsappLink(
-                        `Hi TechNest! I'm interested in ${service.name}.`,
+                        `${dict.serviceDetail.whatsappPrefill}${content.name}.`,
                       )}
                       external
                       variant="gradient"
                     >
-                      Chat on WhatsApp
+                      {dict.serviceDetail.ctaButton}
                     </Button>
                     <Button href="/contact" variant="ghost" className="text-white/80 hover:text-white">
-                      Contact us
+                      {dict.serviceDetail.ctaContact}
                     </Button>
                   </div>
                 </div>
@@ -207,9 +194,9 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
         <Section className="bg-surface/40">
           <Container>
             <SectionHeading
-              eyebrow="Keep exploring"
-              title="Related services"
-              description="More ways we can help your business grow."
+              eyebrow={dict.serviceDetail.relatedEyebrow}
+              title={dict.serviceDetail.relatedTitle}
+              description={dict.serviceDetail.relatedDescription}
             />
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((item, index) => (
@@ -221,8 +208,6 @@ export function ServiceDetailPage({ areaSlug, slug }: ServiceDetailPageProps) {
           </Container>
         </Section>
       ) : null}
-
-      <CTABanner />
     </>
   );
 }

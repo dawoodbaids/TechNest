@@ -35,7 +35,7 @@ export async function Footer() {
             <p className="max-w-xs text-sm leading-relaxed text-white/60">
               {dict.footer.tagline}
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               {socials.map((social) => (
                 <a
                   key={social.label}
@@ -43,9 +43,9 @@ export async function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="grid size-9 place-items-center rounded-full border border-white/15 text-white/60 transition-colors hover:border-white/40 hover:text-white"
+                  className="grid size-9 place-items-center rounded-xl bg-white/10 transition-transform hover:scale-105"
                 >
-                  <SocialIcon name={social.label as Brand} className="size-4" />
+                  <SocialIcon name={social.label as Brand} className="size-5" />
                 </a>
               ))}
             </div>
@@ -74,16 +74,18 @@ export async function Footer() {
               {dict.footer.company}
             </h3>
             <ul className="flex flex-col gap-2.5">
-              {dict.nav.items.slice(1).map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-white/60 transition-colors hover:text-white"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {dict.nav.items
+                .filter((item) => item.href === "/about" || item.href === "/contact")
+                .map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-white/60 transition-colors hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 

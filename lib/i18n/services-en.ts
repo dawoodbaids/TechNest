@@ -1,4 +1,4 @@
-import type { AreaContent, ProjectContent, ServiceContent, UseCaseContent } from "./types";
+import type { AreaContent, ServiceContent, UseCaseContent } from "./types";
 
 export const enAreas: Record<string, AreaContent> = {
   "nfc-solutions": {
@@ -31,9 +31,6 @@ export const enUseCases: UseCaseContent[] = [
   { label: "Real Estate", sub: "Property brochures that tap" },
   { label: "Personal Branding", sub: "Your profile in one tap" },
   { label: "Events", sub: "Tap-to-check-in passes" },
-  { label: "Retail Stores", sub: "Interactive product tags" },
-  { label: "Education", sub: "Smart student cards" },
-  { label: "Healthcare", sub: "Contactless patient journeys" },
 ];
 
 export const enServices: Record<string, ServiceContent> = {
@@ -685,58 +682,4 @@ export const enServices: Record<string, ServiceContent> = {
     ],
     stack: ["React", "Node.js", "PostgreSQL", "APIs", "Automation"],
   },
-};
-
-export const enProjects: Record<string, ProjectContent> = {
-  "nfc-business-card-concept": {
-    title: "NFC Business Card Prototype",
-    category: "NFC Smart Solutions",
-    summary:
-      "A demo prototype of a tap-to-share NFC business card concept — encoding, digital profile page and tap analytics in one flow.",
-    tags: ["NFC", "Prototype", "Digital Profile"],
-  },
-  "ai-support-assistant-demo": {
-    title: "AI Support Assistant Demo",
-    category: "AI Solutions",
-    summary:
-      "A working demonstration of an AI assistant trained on business content, answering questions and qualifying leads autonomously.",
-    tags: ["AI", "Chatbot", "RAG"],
-  },
-  "booking-website-concept": {
-    title: "Booking Website Concept",
-    category: "Website Development",
-    summary:
-      "A high-fidelity concept of a fast, modern booking website — design system, responsive layouts and conversion-focused flows.",
-    tags: ["Web", "UI/UX", "Concept"],
-  },
-  "customer-app-concept": {
-    title: "Customer App Interface Concept",
-    category: "Mobile Applications",
-    summary:
-      "A mobile app interface concept demonstrating navigation, onboarding and core screens for a customer-facing product.",
-    tags: ["Mobile", "UI/UX", "Concept"],
-  },
-  "nfc-smart-menu-demo": {
-    title: "NFC Smart Menu Demonstration",
-    category: "NFC Smart Solutions",
-    summary:
-      "A demonstration of an NFC table tag opening a live digital menu — multi-language and updateable without reprinting.",
-    tags: ["NFC", "Demo", "Menus"],
-  },
-  "automation-workflow-demo": {
-    title: "Automation Workflow Demo",
-    category: "Business Automation",
-    summary:
-      "A prototype workflow that captures leads and routes them automatically — a demonstration of how repetitive work can run itself.",
-    tags: ["Automation", "Prototype", "AI"],
-  },
-};
-
-export const enProjectCategories: Record<string, string> = {
-  all: "All Work",
-  "nfc-solutions": "NFC Smart Solutions",
-  "ai-solutions": "AI Solutions",
-  "website-development": "Websites",
-  "mobile-applications": "Mobile Apps",
-  "business-automation": "Business Automation",
 };

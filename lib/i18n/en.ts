@@ -1,35 +1,27 @@
 import type {
+  AboutPageContent,
   AreaPageContent,
-  BuildingFutureContent,
+  ContactPageContent,
   CtaContent,
-  DigitalShowcaseContent,
   FooterContent,
+  HeroContent,
+  MetaContent,
   NavContent,
-  NfcShowcaseContent,
   NotFoundContent,
-  PortfolioPreviewContent,
   ServiceCardContent,
   ServiceDetailContent,
-  SolutionsContent,
-  TechStackContent,
-  VisualsContent,
-  WhyUsContent,
-  AboutHomeContent,
-  AiServicesContent,
-  AboutPageContent,
-  ContactPageContent,
-  PortfolioPageContent,
-  WhatsAppFormContent,
-  MetaContent,
   ServiceMetaContent,
-  HeroContent,
+  SolutionsContent,
+  VisualsContent,
+  WhatsAppFormContent,
+  WhyUsContent,
 } from "./types";
 
 export const enMeta: MetaContent = {
   title: "TechNest | NFC, AI & Software Solutions",
   titleTemplate: "%s | TechNest",
   description:
-    "TechNest is a growing technology startup focused on delivering innovative digital solutions — NFC smart products, AI solutions, websites, mobile apps, custom software and business automation — that help businesses adopt modern technology.",
+    "TechNest designs and builds NFC smart products, AI assistants, websites, apps and custom software — modern technology for modern business.",
   keywords: [
     "NFC business cards",
     "NFC smart solutions",
@@ -43,23 +35,20 @@ export const enMeta: MetaContent = {
   ogLocale: "en_US",
   twitterTitle: "TechNest | NFC, AI & Software Solutions",
   twitterDescription:
-    "Smart NFC products, AI assistants, websites, apps and automation for modern business.",
+    "NFC smart products, AI assistants, websites, apps and automation — built by one team.",
   brandHome: "TechNest home",
 };
 
 export const enServiceMeta: ServiceMetaContent = {
   nfcTitle: "NFC Smart Solutions",
   nfcDescription:
-    "NFC-powered products — business cards, menus, review cards, tags and custom solutions — that open a digital experience on any phone with a tap.",
+    "NFC-powered products — business cards, menus, review cards, tags and custom items — that open a digital experience on any phone with a tap.",
   aiTitle: "AI Solutions",
   aiDescription:
     "Custom AI chatbots, support automation, assistants and business tools — engineered around your business and deployed where they add the most value.",
   softwareTitle: "Software Services",
   softwareDescription:
     "Website development, mobile applications, custom software and business automation — modern, reliable software that moves your business forward.",
-  portfolioTitle: "Portfolio",
-  portfolioDescription:
-    "Concept work and live demos built by TechNest across NFC products, AI chatbots, websites, mobile apps, custom software and automation.",
   aboutTitle: "About TechNest",
   aboutDescription:
     "Meet TechNest — a technology studio building NFC smart products, AI assistants, websites, apps and automation, with honest communication and quality work.",
@@ -74,18 +63,19 @@ export const enNav: NavContent = {
     { label: "NFC Solutions", href: "/nfc-solutions" },
     { label: "AI Solutions", href: "/ai-solutions" },
     { label: "Software", href: "/software" },
-    { label: "Portfolio", href: "/portfolio" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
   aria: "Main navigation",
   letsTalk: "Let's Talk",
   toggleMenu: "Toggle navigation menu",
+  language: "Language",
+  theme: "Theme",
 };
 
 export const enFooter: FooterContent = {
   tagline:
-    "We build the NFC products and software that help businesses connect, automate and grow.",
+    "NFC smart products, AI assistants and software — built by one team you can actually talk to.",
   solutions: "Solutions",
   company: "Company",
   contact: "Contact",
@@ -95,104 +85,28 @@ export const enFooter: FooterContent = {
 };
 
 export const enHero: HeroContent = {
-  badge: "Smart digital solutions for modern business",
-  titleStart: "Connect, automate and grow with",
-  titleHighlight: "smart technology",
+  badge: "NFC · AI · Software — one partner",
+  titleStart: "Smart technology for",
+  titleHighlight: "modern business",
   description:
-    "From NFC products people love to tap, to AI assistants, websites, apps and automation — TechNest designs, builds and ships technology that works for your business.",
+    "From tap-to-connect NFC products to AI assistants, websites and automation — we design, build and ship technology that works for you.",
   primaryCta: "Explore Solutions",
   secondaryCta: "Chat on WhatsApp",
   pillars: [
     "NFC Smart Products",
-    "AI Solutions",
+    "AI Assistants",
     "Websites & Apps",
     "Business Automation",
   ],
 };
 
-export const enAbout: AboutHomeContent = {
-  badge: "About TechNest",
-  titleStart: "One team for",
-  titleHighlight: "NFC products and software",
-  paragraphs: [
-    "TechNest is a technology studio that bridges the physical and digital worlds. We design and produce NFC smart products — business cards, menus, review cards and custom items — and we build the software that powers modern business: AI chatbots, websites, apps, custom systems and automation.",
-  ],
-  highlights: [
-    "Design, build, encode and ship in one team",
-    "Direct contact with the people doing the work",
-    "Modern NFC and AI technology from day one",
-    "Honest timelines, clear pricing, real support",
-  ],
-  badgeCardTitle: "Newly launched",
-  badgeCardSub: "with big ambitions",
-  chipTitle: "NFC + AI",
-  chipSub: "Modern by default",
-  footerTitle: "Just getting started",
-  footerText:
-    "We're just getting started — and every project we ship is a chance to prove how good technology can feel.",
-  imageAlt: "The TechNest team at work",
-};
-
 export const enSolutions: SolutionsContent = {
-  eyebrow: "Our Solutions",
-  title: "Three solution areas, one partner",
+  eyebrow: "What we do",
+  title: "Three ways we can help",
   description:
-    "Explore what we build — contactless NFC products, AI solutions and custom software — all delivered by a single dedicated team.",
+    "NFC products, AI solutions and custom software — scoped, built and shipped by one team.",
   explore: "Explore",
   more: "more",
-};
-
-export const enNfcShowcase: NfcShowcaseContent = {
-  eyebrow: "NFC Products Showcase",
-  title: "Tap into the physical world",
-  description:
-    "Premium, contactless NFC products that open a digital experience on any phone — no app required.",
-  images: [
-    { src: "/media/images/nfc/nfc-business-card-01.svg", alt: "TechNest NFC business card on a desk", rotate: -3 },
-    { src: "/media/images/nfc/nfc-smart-menu-01.svg", alt: "TechNest NFC smart menu on a restaurant table", rotate: 2.5 },
-    { src: "/media/images/nfc/nfc-digital-profile-01.svg", alt: "Phone opening a TechNest NFC digital profile", rotate: -1 },
-  ],
-  phoneName: "TechNest",
-  phoneProfile: "Profile opened",
-  phoneSave: "Save contact",
-  phoneWebsite: "Open website",
-  learnMore: "Learn more",
-};
-
-export const enAiServices: AiServicesContent = {
-  eyebrow: "AI & Software Services",
-  title: "Software that automates and scales",
-  description:
-    "Custom AI assistants, websites, apps, systems and automation built with modern, maintainable technology.",
-  learnMore: "Learn more",
-  chatbotImageAlt: "TechNest AI chatbot interface",
-  chatbotLabel: "AI Chatbot",
-  dashboardImageAlt: "TechNest analytics dashboard",
-  assistantLabel: "AI Assistant",
-  assistantText: "24/7 automated support",
-  helpTitle: "Not sure which solution fits?",
-  helpText: "Tell us about your project and we'll recommend the right approach.",
-  helpButton: "Get a free consultation",
-};
-
-export const enDigitalShowcase: DigitalShowcaseContent = {
-  eyebrow: "Apps & Websites",
-  title: "Digital products built to perform",
-  description:
-    "Modern mobile applications and high-performance websites — designed, developed and shipped by one team.",
-  headingStart: "Every screen designed to",
-  headingHighlight: "convert",
-  features: [
-    "Smooth, native-feeling interfaces",
-    "Websites that load fast and convert",
-    "Built mobile-first, responsive on every device",
-  ],
-  paragraph:
-    "From booking platforms to customer apps, we turn ideas into polished digital products your customers actually enjoy using.",
-  mobileBadge: "Mobile App",
-  mobileImageAlt: "TechNest mobile application mockup",
-  websiteImageAlt: "TechNest website on a laptop screen",
-  responsiveBadge: "Fast & responsive",
 };
 
 export const enWhyUs: WhyUsContent = {
@@ -204,17 +118,12 @@ export const enWhyUs: WhyUsContent = {
     {
       title: "Two expert teams",
       description:
-        "Specialists in NFC hardware and in AI & software — so every project is built by people who do that work every day.",
+        "NFC hardware specialists and AI & software engineers — every project is built by people who do that work every day.",
     },
     {
       title: "Modern technology",
       description:
-        "We build with the latest frameworks, tools and AI models — fast, secure and built to last.",
-    },
-    {
-      title: "One dedicated team",
-      description:
-        "Designers, developers and NFC engineers work together on your project from idea to launch.",
+        "The latest frameworks, tools and AI models — fast, secure and built to last.",
     },
     {
       title: "Fast delivery",
@@ -222,61 +131,11 @@ export const enWhyUs: WhyUsContent = {
         "Clear milestones and honest timelines. Most projects ship in weeks, not months.",
     },
     {
-      title: "Quality you can trust",
-      description:
-        "Every NFC product is tap-tested, every line of code is reviewed — we ship work we're proud of.",
-    },
-    {
       title: "Real support",
       description:
-        "We stay available after launch — on WhatsApp, phone and email — whenever you need us.",
+        "We stay available after launch — on WhatsApp, phone and email.",
     },
   ],
-};
-
-export const enPortfolioPreview: PortfolioPreviewContent = {
-  eyebrow: "Concepts & demos",
-  title: "A look at what we build",
-  description:
-    "Concept work and live demos of NFC products, AI assistants, apps and websites.",
-  viewAll: "View all projects",
-};
-
-export const enBuildingFuture: BuildingFutureContent = {
-  eyebrow: "Our vision",
-  title: "Building the future with technology",
-  description:
-    "TechNest is a newly launched startup with a simple belief: every business deserves modern, honest and well-crafted technology.",
-  cards: [
-    {
-      title: "Innovative Digital Solutions",
-      description:
-        "Practical technology built around real business needs — not trends for their own sake.",
-    },
-    {
-      title: "Smart NFC Experiences",
-      description:
-        "Tap-to-connect products that bridge the physical and digital worlds in a single tap.",
-    },
-    {
-      title: "AI-Powered Services",
-      description:
-        "Assistants and automation that answer, qualify and work while your team focuses on what matters.",
-    },
-    {
-      title: "Custom Software Development",
-      description:
-        "Websites, apps and systems designed, built and shipped around how your business actually works.",
-    },
-  ],
-};
-
-export const enTechStack: TechStackContent = {
-  eyebrow: "Technology Stack",
-  title: "Built on modern, proven technology",
-  description:
-    "The tools and platforms we use to ship reliable products — from NFC hardware to production-grade software.",
-  groups: ["Frontend & Design", "Backend & Data", "AI & Automation", "Infrastructure & Cloud"],
 };
 
 export const enCta: CtaContent = {
@@ -298,7 +157,6 @@ export const enServiceDetail: ServiceDetailContent = {
   featuresTitle: "Features",
   howWeWorkTitle: "How we work",
   whatYouGetTitle: "What you get",
-  techStackTitle: "Tech stack",
   ctaTitle: "Ready to get started?",
   ctaText:
     "Tell us about your project and we'll reply with a plan and a clear timeline.",
@@ -328,12 +186,9 @@ export const enAreaPage: AreaPageContent = {
   helpTitle: "Not sure which service fits?",
   helpText: "Tell us what you need and we'll recommend the right approach.",
   helpCta: "Get in touch",
-  helpSecondary: "See our work",
   relatedEyebrow: "Explore more",
   relatedTitle: "Other solutions",
   relatedDescription: "We build across NFC, AI and software — take a look at the rest.",
-  seeAll: "See all projects",
-  seeAllText: "Concepts and demos we've shipped.",
   nfcVisualAlt1: "Digital profile card",
   nfcVisualAlt2: "Smart NFC tags",
   aiVisualCaption:
@@ -352,9 +207,10 @@ export const enContactPage: ContactPageContent = {
   callDesc: "Speak to the team directly",
   emailTitle: "Email",
   emailDesc: "For detailed briefs and documents",
-  hoursTitle: "Business hours",
-  locationTitle: "Location",
-  socialTitle: "Follow us on social media",
+  instagramTitle: "Instagram",
+  instagramDesc: "Follow our work and updates",
+  facebookTitle: "Facebook",
+  facebookDesc: "Connect with us on Facebook",
 };
 
 export const enWhatsAppForm: WhatsAppFormContent = {
@@ -410,14 +266,6 @@ export const enAboutPage: AboutPageContent = {
         "Great ideas only matter when they ship. We balance quality and speed to deliver real results.",
     },
   ],
-};
-
-export const enPortfolioPage: PortfolioPageContent = {
-  eyebrow: "Concepts & demos",
-  title: "A look at what we build",
-  titleHighlight: "in action",
-  description:
-    "Concept projects and live demos we've built — filter by service to explore what we do best.",
 };
 
 export const enNotFound: NotFoundContent = {
